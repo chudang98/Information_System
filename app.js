@@ -24,6 +24,7 @@ app.set('views', './views');
 
 app.use(mongoSanitize());
 
+app.use(express.static('public'));
 // Serving static files
 app.use(express.static(`${__dirname}/public`));
 
