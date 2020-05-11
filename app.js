@@ -9,6 +9,7 @@ const express = require('express'),
 // const handlerError = require('./controllers/errorController');
 
 const userRoute = require('./routers/userRoutes');
+const nhanVienRoute = require('./routers/nhanvienRouters');
 
 const app = express();
 
@@ -27,6 +28,7 @@ app.use(mongoSanitize());
 app.use(express.static(`${__dirname}/public`));
 
 app.use('/', userRoute);
+app.use('/user', nhanVienRoute);
 // app.use(express.static(path.join(__dirname, 'public')));
 
 // app.use(handlerError);

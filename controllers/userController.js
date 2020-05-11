@@ -3,7 +3,7 @@ module.exports = {
 };
 
 async function getHomeView(req, res) {
-  res.status(200).render('user/home', {
+  return res.status(200).render('user/home', {
     data: 'Test',
   });
 }
