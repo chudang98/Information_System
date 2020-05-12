@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
+const displayRoutes = require('express-routemap');
 
 dotenv.config({ path: './config.env' });
 
@@ -30,6 +31,6 @@ const app = require('./app');
 
 app.listen(port, () => {
   console.log(`App running on port ${port}...`);
-  // displayRoutes(app);
-  // displayRoutes(app, 'route-table.log');
+  displayRoutes(app);
+  displayRoutes(app, 'route-table.log');
 });
