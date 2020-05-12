@@ -19,7 +19,7 @@ const nhanVienSchema = new mongoose.Schema({
     type: String,
     required: true,
     enum: {
-      value: ['Nam', 'Nữ'],
+      values: ['Nam', 'Nữ'],
     },
   },
   email: {
@@ -47,7 +47,7 @@ const nhanVienSchema = new mongoose.Schema({
     type: String,
     required: true,
     enum: {
-      value: ['NhanVienKho', 'NhanVienQuanLy'],
+      values: ['NhanVienKho', 'NhanVienQuanLy'],
     },
   },
 });
