@@ -1,0 +1,16 @@
+extends base
+
+block page_title
+	title Signup account demo
+
+block content
+	#login
+		h3.text-center.text-white.pt-5 Login
+		.container
+			#login-row.row.justify-content-center.align-items-center
+				#login-column.col-md-6
+					#login-box.col-md-12
+						form#login-form.form(action='/user/signup', method='post')
+							.form-group
+								input.btn.btn-info.btn-md(type='submit', name='Login', value='Tạo tài khoản')
+
