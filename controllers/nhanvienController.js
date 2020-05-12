@@ -1,3 +1,5 @@
+const nvkService = require('../services/nhanVienKhoService');
+
 module.exports = {
   getSignup,
   signupAcc,
@@ -8,5 +10,8 @@ async function getSignup(req, res) {
 }
 
 async function signupAcc(req, res) {
-  let user = new User({});
+  var result = await nvkService.addDemoNVK();
+  return res.status(200).render('nvkho/home', {
+    result,
+  });
 }

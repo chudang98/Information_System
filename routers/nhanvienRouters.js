@@ -14,4 +14,5 @@ router
   .route('/signup')
   .get(nvController.getSignup)
   .post(nvController.signupAcc);
+
 module.exports = router;
