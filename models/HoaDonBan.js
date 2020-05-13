@@ -4,6 +4,7 @@ const Schema = mongoose.Schema;
 
 const hoaDonBanSchema = new mongoose.Schema({
   thoiGian: Date,
+  ghiChu: String,
   khachHang: {
     type: Schema.Types.ObjectId,
     ref: 'KhachHang',
@@ -26,15 +27,15 @@ const hoaDonBanSchema = new mongoose.Schema({
         ref: 'MatHang',
         required: true,
       },
+      danhGia: String,
+      rating: {
+        type: String,
+        default: 3,
+        min: 1,
+        max: 5,
+      },
     },
   ],
-  danhGia: String,
-  xepHang: {
-    type: String,
-    default: 3,
-    min: 1,
-    max: 5,
-  },
 });
 
 const HoaDonBan = mongoose.model('HoaDonBan', hoaDonBanSchema);

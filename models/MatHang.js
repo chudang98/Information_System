@@ -33,6 +33,11 @@ const matHangSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     required: true,
   },
+  danhGia: {
+    type: Number,
+    default: 5,
+    required: true,
+  },
   anh: [
     {
       type: String,

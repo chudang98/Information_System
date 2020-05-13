@@ -16,5 +16,8 @@ async function loginAccount(username, password) {
   if (!user || !(await user.isCorrectPassword(password, user.password))) {
     return { status: 'wrong' };
   }
-  return { status: 'true' };
+  return {
+    status: 'true',
+    type: user.chucVu,
+  };
 }
