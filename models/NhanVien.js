@@ -1,4 +1,6 @@
 const mongoose = require('mongoose');
+const bcrypt = require('bcryptjs');
+const crypto = require('crypto');
 
 const nhanVienSchema = new mongoose.Schema({
   nguoi: {
@@ -18,6 +20,7 @@ const nhanVienSchema = new mongoose.Schema({
   password: {
     type: String,
     required: true,
+    select: false,
   },
   passwordChangeAt: Date,
   chucVu: {
@@ -44,7 +47,6 @@ nhanVienSchema.methods.isChangedPasswordAfter = function (timestamp) {
     );
     return timestamp < changedTimestamp;
   }
-
   // False means NOT changed
   return false;
 };
