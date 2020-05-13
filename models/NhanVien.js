@@ -1,36 +1,13 @@
 const mongoose = require('mongoose');
 
 const nhanVienSchema = new mongoose.Schema({
-  ten: {
-    type: String,
-    required: true,
-    maxlength: 40,
+  nguoi: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Nguoi',
   },
-  diaChi: {
-    type: String,
-    required: true,
-    maxlength: 100,
-  },
-  ngaySinh: {
-    type: Date,
-    required: true,
-  },
-  gioiTinh: {
-    type: String,
-    required: true,
-    enum: {
-      values: ['Nam', 'Nữ'],
-    },
-  },
-  email: {
-    type: String,
-    required: true,
-    maxlength: 100,
-  },
-  sdt: {
-    type: String,
-    required: true,
-    maxlength: 12,
+  cuaHang: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'CuaHang',
   },
   userName: {
     type: String,

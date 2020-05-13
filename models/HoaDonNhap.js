@@ -28,11 +28,6 @@ const hoaDonNhapSchema = new mongoose.Schema({
         required: true,
         default: 1,
       },
-      donGia: {
-        type: Number,
-        required: true,
-        default: 0,
-      },
     },
   ],
 });
