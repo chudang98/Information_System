@@ -19,7 +19,7 @@ const nguoiSchema = new mongoose.Schema({
     type: String,
     required: true,
     enum: {
-      value: ['Nam', 'Nữ'],
+      values: ['Nam', 'Nữ'],
     },
   },
   email: {

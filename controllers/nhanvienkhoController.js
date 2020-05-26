@@ -1,4 +1,4 @@
-const nhanVienService = require('../services/nhanvienServices.js');
+const nhanVienService = require('../services/nhanVienServices.js');
 
 module.exports = {
   getLogin,
@@ -6,7 +6,7 @@ module.exports = {
 };
 
 async function getLogin(req, res) {
-  return res.status(200).render('nvkho/login', {});
+  return res.status(200).render('nhanvien/login', {});
 }
 
 async function checkLogin(req, res) {
