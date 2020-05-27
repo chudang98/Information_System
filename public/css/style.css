@@ -1,0 +1,23 @@
+.header {
+    margin-bottom: 25px;
+}
+
+.content {
+    padding: 15px;
+    background-color: #AED9E0;
+    border-radius: 20px;
+}
+
+.btn-info {
+    margin-right: 20px;
+}
+
+.btn-pri {
+    margin-right: 20px;
+    color: #AED9E0;
+    background-color: #5E6472;
+}
+
+.main-text {
+    padding-left: 30px !important;
+}

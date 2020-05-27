@@ -1,15 +1,16 @@
 const express = require('express'),
-  path = require('path'),
-  mongoSanitize = require('express-mongo-sanitize'),
-  bodyParser = require('body-parser'),
-  cookieParser = require('cookie-parser'),
-  cors = require('cors');
+    path = require('path'),
+    mongoSanitize = require('express-mongo-sanitize'),
+    bodyParser = require('body-parser'),
+    cookieParser = require('cookie-parser'),
+    cors = require('cors');
 // const xss = require('xss-clean');
 
 // const handlerError = require('./controllers/errorController');
 
 const userRoute = require('./routers/userRoutes');
 const nhanVienRoute = require('./routers/nhanvienRouters');
+const nhanVienbanhangRoute = require('./routers/nhanvienbanhangRouters');
 
 const app = express();
 
@@ -30,6 +31,7 @@ app.use(express.static(`${__dirname}/public`));
 
 app.use('/', userRoute);
 app.use('/user', nhanVienRoute);
+app.use('/seller', nhanVienbanhangRoute);
 // app.use(express.static(path.join(__dirname, 'public')));
 
 // app.use(handlerError);
