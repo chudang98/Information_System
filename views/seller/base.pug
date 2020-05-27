@@ -1,0 +1,18 @@
+html
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    block page_title
+    block css
+    link(rel='stylesheet', href='../../css/bootstrap.min.css')    
+    link(rel='stylesheet', href='../../css/bootstrap.css')     
+    link(rel='stylesheet', href='../../css/thongke.css')
+    link(rel='stylesheet', href='../../css/style.css')
+  body
+    include _header
+    block content
+    script(src='../../js/bootstrap.min.js')    
+    script(src='../../js/bootstrap.js')  
+    script(src='../../routers/render.js')
+    block script
+

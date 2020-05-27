@@ -1,0 +1,27 @@
+extends base
+block page_title
+  title banhang 
+block content
+  div(class=" content container")
+    h2(style='border-bottom: 1px solid black;') Bán Hàng:       
+    form.content-form
+      .form-group
+        label(for='exampleInputmh') Mã mặt hàng               
+        input#exampleInputmh.form-control(type='text')  
+      .form-group
+        label(for='exampleInputtenMH') Tên mặt hàng                
+        input#exampleInputtenMH.form-control(type='text')            
+      .form-group
+        label(for='exampleInputkh') Tên khách hàng                      
+        input#exampleInputkh.form-control(type='text')                
+      .form-group
+        label(for='exampleInputsdt') SĐT khách hàng                    
+        input#exampleInputsdt.form-control(type='number')              
+      .form-group
+        label(for='soluong') Số lượng                     
+        input#soluong.form-control(type='number')                
+      .form-group
+        label(for='exampleFormControlTextarea1') Ghi Chú                  
+        textarea#exampleFormControlTextarea1.form-control(rows='3')               
+      button.btn.btn-pri(type='submit') Xuất bán                
+      button.btn.btn-pri(type='submit') Hủy  
