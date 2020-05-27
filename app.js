@@ -3,7 +3,13 @@ const express = require('express'),
     mongoSanitize = require('express-mongo-sanitize'),
     bodyParser = require('body-parser'),
     cookieParser = require('cookie-parser'),
-    cors = require('cors');
+    cors = require('cors'),
+    // Package for import image to DB.
+    GridFsStorage = require('multer-gridfs-storage'),
+    Grid = require('gridfs-stream'),
+    methodOverride = require('method-override'),
+    multer = require('multer');
+
 // const xss = require('xss-clean');
 
 // const handlerError = require('./controllers/errorController');
@@ -11,6 +17,7 @@ const express = require('express'),
 const userRoute = require('./routers/userRoutes');
 const nhanVienRoute = require('./routers/nhanvienRouters');
 const nhanVienbanhangRoute = require('./routers/nhanvienbanhangRouters');
+const apiUserRoute = require('./routers/apiRouters');
 
 const app = express();
 
@@ -32,6 +39,7 @@ app.use(express.static(`${__dirname}/public`));
 app.use('/', userRoute);
 app.use('/user', nhanVienRoute);
 app.use('/seller', nhanVienbanhangRoute);
+app.use('/api/user', apiUserRoute);
 // app.use(express.static(path.join(__dirname, 'public')));
 
 // app.use(handlerError);

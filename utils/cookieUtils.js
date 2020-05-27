@@ -8,7 +8,7 @@ module.exports = {
   checkUserByCookie,
 };
 
-const setTokenCookie = (idUser, response) => {
+function setTokenCookie(idUser, response) {
   let token = _createToken(idUser);
   let cookieOption = {
     expires: new Date(
@@ -18,17 +18,18 @@ const setTokenCookie = (idUser, response) => {
     httpOnly: true,
   };
   response.cookie('jwt', token, cookieOption);
-};
+}
 
-const checkUserByCookie = (jwtCookie) => {
-  const decoded = await promisify(jwt.verify)(jwtCookie, process.env.JWT_SECRET);
+async function checkUserByCookie(jwtCookie) {
+  const decoded = await promisify(jwt.verify)(
+    jwtCookie,
+    process.env.JWT_SECRET
+  );
   const user = await User.findById(decoded.id);
-  if(!user)
-    return false;
-  if(user.isChangedPasswordAfter(decoded.iat))
-    return false;
+  if (!user) return false;
+  if (user.isChangedPasswordAfter(decoded.iat)) return false;
   return true;
-};
+}
 
 const _createToken = (idUser) => {
   return jwt.sign({ id: idUser }, process.env.JWT_SECRET, {
