@@ -1,32 +1,32 @@
 .wrapper
-      .header
-        .row.nav-default
-          nav.navbar.navbar-expand-lg.container-fluid.nav-background
-            .col-md-2
-              a.navbar-brand(href='#')
-                img(src='../../images/component.png', width='100', height='50', alt='')                         
-              button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarNavDropdown', aria-controls='navbarNavDropdown', aria-expanded='false', aria-label='Toggle navigation')
-                span.navbar-toggler-icon                    
-            .col-md-10
-              #navbarNavDropdown.collapse.navbar-collapse
-                ul.navbar-nav.ul-header
-                  li.nav-item.menu-header
-                    a#navbarDropdownMenuLink.nav-link.main-text(href='/seller/home', role='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
-                      | Bán Hàng                                 
-                  li.nav-item.dropdown.menu-header
-                    a#navbarDropdownMenuLink.nav-link.dropdown-toggle.main-text(href='#', role='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
-                      | Khách Hàng                                     
-                    .dropdown-menu(aria-labelledby='navbarDropdownMenuLink')
-                      a.dropdown-item(href='thongtinkh.pug') Thông tin khách hàng                                      
-                      a.dropdown-item(href='themkh.pug') Thêm khách hàng                             
-                  li.nav-item.active.menu-header
-                    a.nav-link.main-text(href='thongtinmh.pug')
-                      | Mặt hàng 
-                      span.sr-only (current)                               
-                  li.nav-item.dropdown.menu-header
-                    a#navbarDropdownMenuLink.nav-link.dropdown-toggle.name-avt(href='#', role='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
-                      img.img-avt(src='../../images/33300394_1661690847212341_2374298766367784960_n.jpg', width='40', height='40', alt='')
-                      |  Trẩn Tiểu Cúc                                      
-                    .dropdown-menu(aria-labelledby='navbarDropdownMenuLink')
-                      a.dropdown-item(href='thongtincanhan.pug') Thông tin nhân viên                                         
-                      a.dropdown-item(href='#') Đăng xuất
+  .header
+    .row.nav-default
+      nav.navbar.navbar-expand-lg.container-fluid.nav-background
+        .col-md-2
+          a.navbar-brand(href='#')
+            img(src='../../images/component.png', width='100', height='50', alt='')                         
+          button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarNavDropdown', aria-controls='navbarNavDropdown', aria-expanded='false', aria-label='Toggle navigation')
+            span.navbar-toggler-icon                    
+        .col-md-10
+          #navbarNavDropdown.collapse.navbar-collapse
+            ul.navbar-nav.ul-header
+              li.nav-item.menu-header
+                a#navbarDropdownMenuLink.nav-link.main-text(href='/seller/banhang', role='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+                  | Bán Hàng                                 
+              li.nav-item.dropdown.menu-header
+                a#navbarDropdownMenuLink.nav-link.dropdown-toggle.main-text(href='#', role='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+                  | Khách Hàng                                     
+                .dropdown-menu(aria-labelledby='navbarDropdownMenuLink')
+                  a.dropdown-item(href='/seller/thongtinkh') Thông tin khách hàng                                      
+                  a.dropdown-item(href='/seller/themkh') Thêm khách hàng                             
+              li.nav-item.active.menu-header
+                a.nav-link.main-text(href='/seller/thongtinmh')
+                  | Mặt hàng 
+                  span.sr-only (current)                               
+              li.nav-item.dropdown.menu-header
+                a#navbarDropdownMenuLink.nav-link.dropdown-toggle.name-avt(href='#', role='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+                  img.img-avt(src='../../images/33300394_1661690847212341_2374298766367784960_n.jpg', width='40', height='40', alt='')
+                  |  Trẩn Tiểu Cúc                                      
+                .dropdown-menu(aria-labelledby='navbarDropdownMenuLink')
+                  a.dropdown-item(href='/seller/thongtincanhan') Thông tin nhân viên                                         
+                  a.dropdown-item(href='#') Đăng xuất
