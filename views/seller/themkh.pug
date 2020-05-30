@@ -2,29 +2,30 @@ extends base
 
 block page_title
 	title Home page
-  block content
-    h2(style='border-bottom: 1px solid black;') Thêm mới khách hàng :            
-      form.content-form
-        .form-group
-          label(for='exampleInputName') Họ và tên            
-          input#exampleInputName.form-control(type='text')                 
-        .form-group
-          label(for='exampleInputCMT') Thẻ căn cước     
-          input#exampleInputPassword1.form-control(type='text', value='12398546')          
-        .form-group
-          label(for='exampleInputSDT') Số điện thoại                        
-          input#exampleInputSDT.form-control(type='number')               
-        .form-group
-          label(for='ngaysinh') Ngày sinh                     
-          input#ngaysinh.form-control(type='date')               
-        .form-group
-          label(for='diachi') Địa chỉ                       
-          input#diachi.form-control(type='text' )              
-        .form-group
-          label(for='Energy') Giới tính                      
-          br
-          input#Energy(type='radio', name='energy', value='', disabled='')
-          | Nam               
-          input#Energy(type='radio', name='energy', value='', disabled='')
-          | Nữ             
-        button.btn.btn-pri(type='submit') Thêm mới  
+  
+block content
+	h2(style='border-bottom: 1px solid black;') Thêm mới khách hàng :            
+	form.content-form
+		.form-group
+			label(for='exampleInputName') Họ và tên            
+			input#exampleInputName.form-control(type='text')                 
+		.form-group
+			label(for='exampleInputCMT') Thẻ căn cước     
+			input#exampleInputPassword1.form-control(type='text', value='12398546')          
+		.form-group
+			label(for='exampleInputSDT') Số điện thoại                        
+			input#exampleInputSDT.form-control(type='number')               
+		.form-group
+			label(for='ngaysinh') Ngày sinh                     
+			input#ngaysinh.form-control(type='date')               
+		.form-group
+			label(for='diachi') Địa chỉ                       
+			input#diachi.form-control(type='text' )              
+		.form-group
+			label(for='Energy') Giới tính                      
+			br
+			input#Energy(type='radio', name='energy', value='', disabled='')
+			| Nam               
+			input#Energy(type='radio', name='energy', value='', disabled='')
+			| Nữ             
+		button.btn.btn-pri(type='submit') Thêm mới  

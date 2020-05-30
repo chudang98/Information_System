@@ -3,8 +3,8 @@ const express = require('express'),
   mongoSanitize = require('express-mongo-sanitize'),
   bodyParser = require('body-parser'),
   cookieParser = require('cookie-parser'),
-  cors = require('cors'),
-  // Package for import image to DB.
+  cors = require('cors');
+// Package for import image to DB.
 
 // const xss = require('xss-clean');
 
