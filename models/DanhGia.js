@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const matHangSchema = new mongoose.Schema({
+const danhGiaSchema = new mongoose.Schema({
   ten: {
     type: String,
     required: true,
@@ -38,10 +38,12 @@ const matHangSchema = new mongoose.Schema({
     default: 5,
     required: true,
   },
-  anh: {
-    type: String,
-  },
+  anh: [
+    {
+      type: String,
+    },
+  ],
 });
 
-const MatHang = mongoose.model('MatHang', matHangSchema);
-module.exports = MatHang;
+const DanhGia = mongoose.model('DanhGia', danhGiaSchema);
+module.exports = DanhGia;

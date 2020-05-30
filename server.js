@@ -1,8 +1,11 @@
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const displayRoutes = require('express-routemap');
+const methodOverride = require('method-override');
 
 dotenv.config({ path: './config.env' });
+
+app.use(methodOverride('_method'));
 
 let port = process.env.PORT;
 // database = process.env.DATABASE,
@@ -30,7 +33,7 @@ let port = process.env.PORT;
 const app = require('./app');
 
 app.listen(port, () => {
-    console.log(`App running on port ${port}...`);
-    displayRoutes(app);
-    displayRoutes(app, 'route-table.log');
+  console.log(`App running on port ${port}...`);
+  displayRoutes(app);
+  displayRoutes(app, 'route-table.log');
 });

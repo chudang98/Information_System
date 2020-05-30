@@ -2,6 +2,9 @@ Tài khoản test cho nhân viên kho:
     nhanvienkho1
     ABCabc123456
 
+    nhanvienbanhang1
+    ABCabc123456
+
 
 Upload file ảnh: 
     required multer

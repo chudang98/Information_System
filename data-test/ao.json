@@ -1,0 +1,405 @@
+[
+	{ 	
+		 "CuaHang": {
+        "$oid": "5ed1305f177aab36cff52f03"
+    },
+		"ten"	: "Sơ mi kẻ tay cọc",
+		"loai" : "Áo Sơ mi",
+		"giaNhap" : "150.000",
+		"giaBan" : "250.000",
+		"soLuong" : 10,
+		"mauSac" : "Be",
+		"kichCo" : "S",
+		"Anh" :"IMG0001.jpg"
+	},
+	{
+		 "CuaHang": {
+        "$oid": "5ed1305f177aab36cff52f03"
+    },
+		"ten"	: "Sơ mi cổ trụ xếp ly",
+		"loai" : "Áo Sơ mi",
+		"giaNhap" : "150.000",
+		"giaBan" : "250.000",
+		"soLuong" : 5,
+		"mauSac" : "Trắng",
+		"kichCo" : "S",
+		"Anh" :"IMG0002.jpg"
+	},
+	{
+		 "CuaHang": {
+        "$oid": "5ed1305f177aab36cff52f03"
+    },
+		"ten"	: "Sơ mi phối cổ nơ kẻ",
+		"loai" : "Áo Sơ mi",
+		"giaNhap" : "150.000",
+		"giaBan" : "250.000",
+		"soLuong" : 10,
+		"mauSac" : "Trắng",
+		"kichCo" : "L",
+		"Anh" :"IMG0003.jpg"
+	},
+	{
+		 "CuaHang": {
+        "$oid": "5ed1305f177aab36cff52f03"
+    },
+		"ten"	: "Sơ mi cổ đính đá tay lỡ",
+		"loai" : "Áo Sơ mi",
+		"giaNhap" : "170.000",
+		"giaBan" : "280.000",
+		"soLuong" : 5,
+		"mauSac" : "Đỏ",
+		"kichCo" : "M",
+		"Anh" :"IMG0004.jpg"
+	},
+	{
+		 "CuaHang": {
+        "$oid": "5ed1305f177aab36cff52f03"
+    },
+		"ten"	: "Sơ mi cổ tròn đính hoa",
+		"loai" : "Áo Sơ mi",
+		"giaNhap" : "170.000",
+		"giaBan" : "290.000",
+		"soLuong" : 5,
+		"mauSac" : "Vàng",
+		"kichCo" : "S",
+		"Anh" :"IMG0005.jpg"
+	},
+	{
+		 "CuaHang": {
+        "$oid": "5ed1305f177aab36cff52f03"
+    },
+		"ten"	: "Sơ mi hoa nhí",
+		"loai" : "Áo Sơ mi",
+		"giaNhap" : "170.000",
+		"giaBan" : "290.000",
+		"soLuong" : 5,
+		"mauSac" : "Xanh",
+		"kichCo" : "M",
+		"Anh" :"IMG0006.jpg"
+	},
+	{
+		 "CuaHang": {
+        "$oid": "5ed1305f177aab36cff52f03"
+    },
+		"ten"	: "Sơ mi nữ tay lửng",
+		"loai" : "Áo Sơ mi",
+		"giaNhap" : "170.000",
+		"giaBan" : "290.000",
+		"soLuong" : 5,
+		"mauSac" : "Vàng",
+		"kichCo" : "S",
+		"Anh" :"IMG0007.jpg"
+	},
+	{
+		 "CuaHang": {
+        "$oid": "5ed1305f177aab36cff52f03"
+    },
+		"ten"	: "Sơ mi nữ cổ đức",
+		"loai" : "Áo Sơ mi",
+		"giaNhap" : "170.000",
+		"giaBan" : "290.000",
+		"soLuong" : 5,
+		"mauSac" : "Vàng",
+		"kichCo" : "L",
+		"Anh" :"IMG0008.jpg"
+	},
+	{
+		 "CuaHang": {
+        "$oid": "5ed1305f177aab36cff52f03"
+    },
+		"ten"	: "Sơ mi cổ chữ V",
+		"loai" : "Áo Sơ mi",
+		"giaNhap" : "170.000",
+		"giaBan" : "290.000",
+		"soLuong" : 5,
+		"mauSac" : "Vàng",
+		"kichCo" : "S",
+		"Anh" :"IMG0009.jpg"
+	},
+	{
+		 "CuaHang": {
+        "$oid": "5ed1305f177aab36cff52f03"
+    },
+		"ten"	: "Sơ mi cổ đức phối nơ",
+		"loai" : "Áo Sơ mi",
+		"giaNhap" : "170.000",
+		"giaBan" : "290.000",
+		"soLuong" : 5,
+		"mauSac" : "Vàng",
+		"kichCo" : "S",
+		"Anh" :"IMG0010.jpg"
+	},
+	{
+		 "CuaHang": {
+        "$oid": "5ed1305f177aab36cff52f03"
+    },
+		"ten"	: "Áo khoác kaki",
+		"loai" : "Áo khoác",
+		"giaNhap" : "250.000",
+		"giaBan" : "400.000",
+		"soLuong" : 5,
+		"mauSac" : "Xanh tím",
+		"kichCo" : "L",
+		"Anh" :"IMG0011.jpg"
+	},
+	{
+		 "CuaHang": {
+        "$oid": "5ed1305f177aab36cff52f03"
+    },
+		"ten"	: "Áo khoác kẻ",
+		"loai" : "Áo khoác",
+		"giaNhap" : "250.000",
+		"giaBan" : "400.000",
+		"soLuong" : 5,
+		"mauSac" : "Kem",
+		"kichCo" : "M",
+		"Anh" :"IMG0012.jpg"
+	},
+	{
+		 "CuaHang": {
+        "$oid": "5ed1305f177aab36cff52f03"
+    },
+		"ten"	: "Áo khoác măng tô kèm đai",
+		"loai" : "Áo khoác",
+		"giaNhap" : "300.000",
+		"giaBan" : "500.000",
+		"soLuong" : 5,
+		"mauSac" : "Đỏ",
+		"kichCo" : "L",
+		"Anh" :"IMG0013.jpg"
+	},
+	{
+		 "CuaHang": {
+        "$oid": "5ed1305f177aab36cff52f03"
+    },
+		"ten"	: "Áo khoác măng tô khóa đồng",
+		"loai" : "Áo khoác",
+		"giaNhap" : "300.000",
+		"giaBan" : "500.000",
+		"soLuong" : 5,
+		"mauSac" : "Đen",
+		"kichCo" : "L",
+		"Anh" :"IMG0014.jpg"
+	},
+	{
+		 "CuaHang": {
+        "$oid": "5ed1305f177aab36cff52f03"
+    },
+		"ten"	: "Áo khoác phong cách hàn",
+		"loai" : "Áo khoác",
+		"giaNhap" : "300.000",
+		"giaBan" : "500.000",
+		"soLuong" : 5,
+		"mauSac" : "Be",
+		"kichCo" : "L",
+		"Anh" :"IMG0015.jpg"
+	},
+	{
+		 "CuaHang": {
+        "$oid": "5ed1305f177aab36cff52f03"
+    },
+		"ten"	: "Áo vest kẻ tay lỡ",
+		"loai" : "Áo Vest",
+		"giaNhap" : "300.000",
+		"giaBan" : "500.000",
+		"soLuong" : 5,
+		"mauSac" : "Ghi",
+		"kichCo" : "L",
+		"Anh" :"IMG0016.jpg"
+	},
+	{
+		 "CuaHang": {
+        "$oid": "5ed1305f177aab36cff52f03"
+    },
+		"ten"	: "Áo vest phối tay kẻ",
+		"loai" : "Áo Vest",
+		"giaNhap" : "300.000",
+		"giaBan" : "500.000",
+		"soLuong" : 5,
+		"mauSac" : "Ghi",
+		"kichCo" : "M",
+		"Anh" :"IMG0017.jpg"
+	},
+	{
+		 "CuaHang": {
+        "$oid": "5ed1305f177aab36cff52f03"
+    },
+		"ten"	: "Áo vest lẻ tay phối đen",
+		"loai" : "Áo Vest",
+		"giaNhap" : "300.000",
+		"giaBan" : "500.000",
+		"soLuong" : 5,
+		"mauSac" : "Nâu",
+		"kichCo" : "L",
+		"Anh" :"IMG0018.jpg"
+	},
+	{
+		 "CuaHang": {
+        "$oid": "5ed1305f177aab36cff52f03"
+    },
+		"ten"	: "Áo vest classic",
+		"loai" : "Áo Vest",
+		"giaNhap" : "250.000",
+		"giaBan" : "400.000",
+		"soLuong" : 5,
+		"mauSac" : "Tím than",
+		"kichCo" : "M",
+		"Anh" :"IMG0019.jpg"
+	},
+	{
+		 "CuaHang": {
+        "$oid": "5ed1305f177aab36cff52f03"
+    },
+		"ten"	: "Áo vest kẻ đen",
+		"loai" : "Áo Vest",
+		"giaNhap" : "250.000",
+		"giaBan" : "400.000",
+		"soLuong" : 5,
+		"mauSac" : "Đen",
+		"kichCo" : "L",
+		"Anh" :"IMG0020.jpg"
+	},
+	{
+		 "CuaHang": {
+        "$oid": "5ed1305f177aab36cff52f03"
+    },
+		"ten"	: "Áo vest 2 nút bọc",
+		"loai" : "Áo Vest",
+		"giaNhap" : "250.000",
+		"giaBan" : "400.000",
+		"soLuong" : 5,
+		"mauSac" : "Đen",
+		"kichCo" : "L",
+		"Anh" :"IMG0021.jpg"
+	},
+	{
+		 "CuaHang": {
+        "$oid": "5ed1305f177aab36cff52f03"
+    },
+		"ten"	: "Áo vest caro 4 nút",
+		"loai" : "Áo Vest",
+		"giaNhap" : "250.000",
+		"giaBan" : "400.000",
+		"soLuong" : 5,
+		"mauSac" : "Đen",
+		"kichCo" : "L",
+		"Anh" :"IMG0022.jpg"
+	},
+	{
+		 "CuaHang": {
+        "$oid": "5ed1305f177aab36cff52f03"
+    },
+		"ten"	: "Áo vest ngắn chạy viền",
+		"loai" : "Áo Vest",
+		"giaNhap" : "250.000",
+		"giaBan" : "400.000",
+		"soLuong" : 5,
+		"mauSac" : "Đen",
+		"kichCo" : "M",
+		"Anh" :"IMG0023.jpg"
+	},
+	{
+		 "CuaHang": {
+        "$oid": "5ed1305f177aab36cff52f03"
+    },
+		"ten"	: "Áo vest thêu chữ",
+		"loai" : "Áo Vest",
+		"giaNhap" : "250.000",
+		"giaBan" : "400.000",
+		"soLuong" : 5,
+		"mauSac" : "Đen",
+		"kichCo" : "S",
+		"Anh" :"IMG0024.jpg"
+	},
+	{
+		 "CuaHang": {
+        "$oid": "5ed1305f177aab36cff52f03"
+    },
+		"ten"	: "Áo vest xếp ly eo",
+		"loai" : "Áo Vest",
+		"giaNhap" : "250.000",
+		"giaBan" : "400.000",
+		"soLuong" : 5,
+		"mauSac" : "Đen",
+		"kichCo" : "L",
+		"Anh" :"IMG0025.jpg"
+	},
+	{
+		 "CuaHang": {
+        "$oid": "5ed1305f177aab36cff52f03"
+    },
+		"ten"	: "Áo phông cổ tròn",
+		"loai" : "Áo phông",
+		"giaNhap" : "100.000",
+		"giaBan" : "170.000",
+		"soLuong" : 5,
+		"mauSac" : "Hồng",
+		"kichCo" : "M",
+		"Anh" :"IMG0026.jpg"
+	},
+	{
+		 "CuaHang": {
+        "$oid": "5ed1305f177aab36cff52f03"
+    },
+		"ten"	: "Áo phông cổ tim",
+		"loai" : "Áo phông",
+		"giaNhap" : "100.000",
+		"giaBan" : "170.000",
+		"soLuong" : 5,
+		"mauSac" : "Tím",
+		"kichCo" : "M",
+		"Anh" :"IMG0027.jpg"
+	},
+	{
+		 "CuaHang": {
+        "$oid": "5ed1305f177aab36cff52f03"
+    },
+		"ten"	: "Áo phông cổ bẻ",
+		"loai" : "Áo phông",
+		"giaNhap" : "100.000",
+		"giaBan" : "170.000",
+		"soLuong" : 5,
+		"mauSac" : "Trắng",
+		"kichCo" : "S",
+		"Anh" :"IMG0028.jpg"
+	},
+	{
+		 "CuaHang": {
+        "$oid": "5ed1305f177aab36cff52f03"
+    },
+		"ten"	: "Áo phông cổ tròn in hình",
+		"loai" : "Áo phông",
+		"giaNhap" : "100.000",
+		"giaBan" : "170.000",
+		"soLuong" : 5,
+		"mauSac" : "Trắng",
+		"kichCo" : "L",
+		"Anh" :"IMG0029.jpg"
+	},
+	{
+		 "CuaHang": {
+        "$oid": "5ed1305f177aab36cff52f03"
+    },
+		"ten"	: "Áo phông kẻ",
+		"loai" : "Áo phông",
+		"giaNhap" : "100.000",
+		"giaBan" : "170.000",
+		"soLuong" : 5,
+		"mauSac" : "Đen",
+		"kichCo" : "M",
+		"Anh" :"IMG0030.jpg"
+	},
+	{
+		 "CuaHang": {
+        "$oid": "5ed1305f177aab36cff52f03"
+    },
+		"ten"	: "Áo phông kẻ",
+		"loai" : "Áo phông",
+		"giaNhap" : "100.000",
+		"giaBan" : "170.000",
+		"soLuong" : 5,
+		"mauSac" : "Đen",
+		"kichCo" : "L",
+		"Anh" :"IMG0031.jpg"
+	}
+]

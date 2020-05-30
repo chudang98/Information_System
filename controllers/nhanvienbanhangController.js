@@ -1,18 +1,21 @@
 module.exports = {
-    getSignup,
-    getLogin,
-    signupAcc,
+  getSignup,
+  getLogin,
+  homeView,
+  themKhachHang,
 };
 
 async function getSignup(req, res) {
-    return res.status(200).render('seller/themkh', {});
+  return res.status(200).render('seller/themkh', {});
 }
 async function getLogin(req, res) {
-    return res.status(200).render('seller/banhang', {});
+  return res.status(200).render('seller/banhang', {});
 }
 
-async function signupAcc(req, res) {
-    return res.status(200).render('seller/home', {
-        result,
-    });
+async function homeView(req, res) {
+  return res.status(200).render('seller/banhang', {});
+}
+
+async function themKhachHang(req, res) {
+  return res.status(200).render('seller/themkh');
 }

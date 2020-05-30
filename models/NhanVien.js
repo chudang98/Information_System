@@ -27,7 +27,7 @@ const nhanVienSchema = new mongoose.Schema({
     type: String,
     required: true,
     enum: {
-      values: ['NhanVienKho', 'NhanVienQuanLy'],
+      values: ['NhanVienKho', 'NhanVienQuanLy', 'NhanVienBanHang'],
     },
   },
 });
