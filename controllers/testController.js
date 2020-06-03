@@ -1,5 +1,4 @@
 const matHangService = require('../services/matHangServices');
-const anhService = require('../services/anhSanPhamService');
 
 module.exports = {
   layMatHang,
