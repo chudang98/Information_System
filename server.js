@@ -14,19 +14,19 @@ let port = process.env.PORT;
 //   .replace('<USERNAME>', username)
 //   .replace('<PASSWORD>', password);
 
-// let DB = process.env.DATABASE;
-// mongoose
-//   .connect(DB, {
-//     userNewUrlParser: true,
-//     userCreateIndex: true,
-//     userFindAndModify: false,
-//   })
-//   .then((con) => {
-//     console.log('Connection succes to server...');
-//   })
-//   .catch((err) => {
-//     console.log(err);
-//   });
+let DB = process.env.DATABASE;
+mongoose
+  .connect(DB, {
+    userNewUrlParser: true,
+    userCreateIndex: true,
+    userFindAndModify: false,
+  })
+  .then((con) => {
+    console.log('Connection success to server...');
+  })
+  .catch((err) => {
+    console.log(err);
+  });
 
 app.use(methodOverride('_method'));
 

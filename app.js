@@ -14,6 +14,7 @@ const userRoute = require('./routers/userRoutes');
 const nhanVienRoute = require('./routers/nhanvienRouters');
 const nhanVienbanhangRoute = require('./routers/nhanvienbanhangRouters');
 const apiUserRoute = require('./routers/apiRouters');
+const testRoute = require('./routers/testRouters');
 
 const app = express();
 
@@ -36,6 +37,7 @@ app.use('/', userRoute);
 app.use('/user', nhanVienRoute);
 app.use('/seller', nhanVienbanhangRoute);
 app.use('/api/user', apiUserRoute);
+app.use('/test', testRoute);
 // app.use(express.static(path.join(__dirname, 'public')));
 
 // app.use(handlerError);

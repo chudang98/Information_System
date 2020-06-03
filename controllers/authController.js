@@ -1,24 +1,34 @@
 const nhanVienService = require('../services/nhanVienServices');
 const khachHangService = require('../services/khachHangService');
+const cookieUtils = require('../utils/cookieUtils');
 
 module.exports = {
-  checkAccountNhanVien,
+  authAccNhanVien,
+  authAccKhachHang,
 };
 
-async function checkAccountNhanVien(req, res) {
-  var { userName } = req.body;
-  var check = await nhanVienService.isExistAccount(userName);
-  console.log(userName, check);
+async function authAccNhanVien(req, res) {
+  var { userName, password } = req.body;
+  var result = await nhanVienService.loginAccount(userName, password);
 
+  if (result.status == 'fail') return { status: 'fail' };
+  else {
+    cookieUtils.setTokenCookie(result._id, res);
+    res.status(200).json({
+      status: 'success',
+    });
+  }
   return res.status(200).json({
     status: 'success',
     exist: check,
   });
 }
 
-async function checkAccountKhachHang(req, res) {
+async function authAccKhachHang(req, res) {
   var { userName } = req.body;
   return res.status(200).json({
     status: 'success',
   });
 }
+
+async function checkCookieLogin(req, res) {}

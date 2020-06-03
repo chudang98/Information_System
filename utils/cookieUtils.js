@@ -8,7 +8,7 @@ module.exports = {
   checkUserByCookie,
 };
 
-function setTokenCookie(idUser, response) {
+async function setTokenCookie(idUser, response) {
   let token = _createToken(idUser);
   let cookieOption = {
     expires: new Date(

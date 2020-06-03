@@ -15,5 +15,3 @@ async function checkAccount(req, res) {
     exist: check,
   });
 }
-
-async function layTatCaMatHang(req, res) {}
