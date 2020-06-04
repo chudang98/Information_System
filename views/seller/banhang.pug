@@ -2,26 +2,47 @@ extends base
 block page_title
   title banhang 
 block content
-  div(class=" content container")
-    h2(style='border-bottom: 1px solid black;') Bán Hàng:       
+  .content.container
+    h2(style='border-bottom: 1px solid black;') Tìm kiếm khách hàng  :
     form.content-form
-      .form-group
-        label(for='exampleInputmh') Mã mặt hàng               
-        input#exampleInputmh.form-control(type='text')  
-      .form-group
-        label(for='exampleInputtenMH') Tên mặt hàng                
-        input#exampleInputtenMH.form-control(type='text')            
-      .form-group
-        label(for='exampleInputkh') Tên khách hàng                      
-        input#exampleInputkh.form-control(type='text')                
-      .form-group
-        label(for='exampleInputsdt') SĐT khách hàng                    
-        input#exampleInputsdt.form-control(type='number')              
-      .form-group
-        label(for='soluong') Số lượng                     
-        input#soluong.form-control(type='number')                
-      .form-group
-        label(for='exampleFormControlTextarea1') Ghi Chú                  
-        textarea#exampleFormControlTextarea1.form-control(rows='3')               
-      button.btn.btn-pri(type='submit') Xuất bán                
-      button.btn.btn-pri(type='submit') Hủy  
+      .form-group.form-search-nv.row
+        .col-md-8
+          input#exampleInputEmail1.form-control(type='email', placeholder='Nhập vào sdt khách hàng  ', aria-describedby='emailHelp')
+        .col-md-2
+          button.btn.btn-pri.btn-seller(type='submit') Tìm kiếm   
+        .col-md-2
+          a.btn.btn-pri.btn-seller(href='themkh.html') Thêm
+    table.table.table-bordered.table-striped.text-center
+      thead.thead-table
+        tr
+          th(scope='col') STT
+          th(scope='col') Mã nhà cung cấp 
+          th(scope='col') Tên nhà cung cấp
+          th(scope='col') Số điện thoại nhà cung cấp 
+          th(scope='col') Địa chỉ 
+          th(scope='col') Chức năng
+      tbody 
+        tr
+          th(scope='row') 1
+          td NCC001
+          td Trần Tiểu Cúc 
+          td 0987654343
+          td Hà Nội
+          td
+            a.btn.btn-info(href='/seller/timkiemmh') Chọn  
+        tr
+          th(scope='row') 2
+          td NCC002
+          td Trần Tiểu Yến 
+          td 0987674343
+          td Hà Nội
+          td
+            a.btn.btn-info(href='/seller/timkiemmh') Chọn  
+        tr
+          th(scope='row') 3
+          td NCC003
+          td Trần Tiểu Long 
+          td 0987654743
+          td Hà Nội
+          td
+            a.btn.btn-info(href='/seller/timkiemmh') Chọn 

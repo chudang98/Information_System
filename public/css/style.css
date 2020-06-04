@@ -12,6 +12,15 @@
     margin-right: 20px;
 }
 
+.btn-search {
+    color: #AED9E0;
+    background-color: #5E6472;
+}
+
+.form-search-mh {
+    margin: 0 0;
+}
+
 .btn-pri {
     margin-right: 20px;
     color: #AED9E0;
@@ -20,4 +29,9 @@
 
 .main-text {
     padding-left: 30px !important;
+}
+
+.btn-seller {
+    width: 80%;
+    margin: 0 auto;
 }
