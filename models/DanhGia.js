@@ -1,35 +1,11 @@
 const mongoose = require('mongoose');
 
 const danhGiaSchema = new mongoose.Schema({
-  ten: {
-    type: String,
+  matHang: {
+    type: mongoose.Schema.Types.ObjectId,
     required: true,
   },
-  soLuong: {
-    type: Number,
-    required: true,
-    default: 0,
-  },
-  giaNhap: {
-    type: Number,
-    required: true,
-    default: 0,
-  },
-  giaBan: {
-    type: Number,
-    required: true,
-    default: 0,
-  },
-  mauSac: {
-    type: String,
-  },
-  kichCo: {
-    type: String,
-  },
-  loai: {
-    type: String,
-  },
-  cuaHang: {
+  hoaDonBan: {
     type: mongoose.Schema.Types.ObjectId,
     required: true,
   },
@@ -38,11 +14,11 @@ const danhGiaSchema = new mongoose.Schema({
     default: 5,
     required: true,
   },
-  anh: [
-    {
-      type: String,
-    },
-  ],
+  nhanXet: {
+    type: String,
+    required: true,
+  },
+
 });
 
 const DanhGia = mongoose.model('DanhGia', danhGiaSchema);

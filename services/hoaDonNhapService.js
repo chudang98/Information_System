@@ -2,9 +2,13 @@ const HoaDonNhap = require('../models/HoaDonNhap');
 
 module.exports = {
 	layHoaDonNhap,
+	layHoaDonNhapTheoUser,
 };
 
 async function layHoaDonNhap(idHD) {
-	const hoaDon = await HoaDonNhap.findOne({ _id : idHD });
+	
+}
 
+async function layHoaDonNhapTheoUser(idUser) {
+	
 }
