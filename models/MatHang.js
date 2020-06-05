@@ -38,7 +38,7 @@ const matHangSchema = new mongoose.Schema({
     default: 5,
     required: true,
   },
-  anh: {
+  Anh: {
     type: String,
   },
 });

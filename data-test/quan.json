@@ -1,562 +1,509 @@
-	[
-		{
-		 "CuaHang": {
-        "$oid": "5ed1305f177aab36cff52f03"
-    },
-		"ten"	: "Quần côn đứng basic",
-		"loai" : "Quần vải",
-		"giaNhap" : "250.000",
-		"giaBan" : "400.000",
-		"soLuong" : 5,
-		"mauSac" : "Đen",
-		"kichCo" : "S",
-		"Anh" : "QUAN0001"
-	},
+[
 	{
-		 "CuaHang": {
+	 "CuaHang": {
         "$oid": "5ed1305f177aab36cff52f03"
-    },
-		"ten"	: "Quần côn đứng basic",
-		"loai" : "Quần vải",
-		"giaNhap" : "250.000",
-		"giaBan" : "400.000",
-		"soLuong" : 5,
-		"mauSac" : "Đen",
-		"kichCo" : "M",
-		"Anh" : "QUAN0001"
-	},
-	{
-		 "CuaHang": {
+},
+	"ten"	: "Quần côn đứng basic",
+	"loai" : "Quần vải",
+	"giaNhap" : "250.000",
+	"giaBan" : "400.000",
+	"soLuong" : 5,
+	"mauSac" : "Đen",
+	"kichCo" : "S",
+	"Anh" : "QUAN0001.jpg"
+},
+{
+	 "CuaHang": {
         "$oid": "5ed1305f177aab36cff52f03"
-    },
-		"ten"	: "Quần côn đứng basic",
-		"loai" : "Quần vải",
-		"giaNhap" : "250.000",
-		"giaBan" : "400.000",
-		"soLuong" : 5,
-		"mauSac" : "Đen",
-		"kichCo" : "L",
-		"Anh" : "QUAN0001"
-	},
-	{
-		 "CuaHang": {
+},
+	"ten"	: "Quần côn đứng basic",
+	"loai" : "Quần vải",
+	"giaNhap" : "250.000",
+	"giaBan" : "400.000",
+	"soLuong" : 5,
+	"mauSac" : "Đen",
+	"kichCo" : "M",
+	"Anh" : "QUAN0001.jpg"
+},
+{
+	 "CuaHang": {
         "$oid": "5ed1305f177aab36cff52f03"
-    },
-		"ten"	: "Quần côn đứng kẻ ô nhí",
-		"loai" : "Quần vải",
-		"giaNhap" : "250.000",
-		"giaBan" : "400.000",
-		"soLuong" : 5,
-		"mauSac" : "Ghi",
-		"kichCo" : "S",
-		"Anh" : "QUAN0002"
-	},
-	{
-		 "CuaHang": {
+},
+	"ten"	: "Quần côn đứng basic",
+	"loai" : "Quần vải",
+	"giaNhap" : "250.000",
+	"giaBan" : "400.000",
+	"soLuong" : 5,
+	"mauSac" : "Đen",
+	"kichCo" : "L",
+	"Anh" : "QUAN0001.jpg"
+},
+{
+	 "CuaHang": {
         "$oid": "5ed1305f177aab36cff52f03"
-    },
-		"ten"	: "Quần côn đứng kẻ ô nhí",
-		"loai" : "Quần vải",
-		"giaNhap" : "250.000",
-		"giaBan" : "400.000",
-		"soLuong" : 5,
-		"mauSac" : "Ghi",
-		"kichCo" : "M",
-		"Anh" : "QUAN0002"
-	},
-	{
-		 "CuaHang": {
+},
+	"ten"	: "Quần côn đứng kẻ ô nhí",
+	"loai" : "Quần vải",
+	"giaNhap" : "250.000",
+	"giaBan" : "400.000",
+	"soLuong" : 5,
+	"mauSac" : "Ghi",
+	"kichCo" : "S",
+	"Anh" : "QUAN0002.jpg"
+},
+{
+	 "CuaHang": {
         "$oid": "5ed1305f177aab36cff52f03"
-    },
-		"ten"	: "Quần côn đứng kẻ ô nhí",
-		"loai" : "Quần vải",
-		"giaNhap" : "250.000",
-		"giaBan" : "400.000",
-		"soLuong" : 5,
-		"mauSac" : "Ghi",
-		"kichCo" : "L",
-		"Anh" : "QUAN0002"
-	},
-	{
-		 "CuaHang": {
+},
+	"ten"	: "Quần côn đứng kẻ ô nhí",
+	"loai" : "Quần vải",
+	"giaNhap" : "250.000",
+	"giaBan" : "400.000",
+	"soLuong" : 5,
+	"mauSac" : "Ghi",
+	"kichCo" : "M",
+	"Anh" : "QUAN0002.jpg"
+},
+{
+	 "CuaHang": {
         "$oid": "5ed1305f177aab36cff52f03"
-    },
-		"ten"	: "Quần côn đứng trơn",
-		"loai" : "Quần vải",
-		"giaNhap" : "250.000",
-		"giaBan" : "400.000",
-		"soLuong" : 5,
-		"mauSac" : "Xám",
-		"kichCo" : "S",
-		"Anh" : "QUAN0003"
-	},
-	{
-		 "CuaHang": {
+},
+	"ten"	: "Quần côn đứng kẻ ô nhí",
+	"loai" : "Quần vải",
+	"giaNhap" : "250.000",
+	"giaBan" : "400.000",
+	"soLuong" : 5,
+	"mauSac" : "Ghi",
+	"kichCo" : "L",
+	"Anh" : "QUAN0002.jpg"
+},
+{
+	 "CuaHang": {
         "$oid": "5ed1305f177aab36cff52f03"
-    },
-		"ten"	: "Quần côn đứng trơn",
-		"loai" : "Quần vải",
-		"giaNhap" : "250.000",
-		"giaBan" : "400.000",
-		"soLuong" : 5,
-		"mauSac" : "Xám",
-		"kichCo" : "M",
-		"Anh" : "QUAN0003"
-	},
-	{
-		 "CuaHang": {
+},
+	"ten"	: "Quần côn đứng trơn",
+	"loai" : "Quần vải",
+	"giaNhap" : "250.000",
+	"giaBan" : "400.000",
+	"soLuong" : 5,
+	"mauSac" : "Xám",
+	"kichCo" : "L",
+	"Anh" : "QUAN0003.jpg"
+},
+{
+	 "CuaHang": {
         "$oid": "5ed1305f177aab36cff52f03"
-    },
-		"ten"	: "Quần côn đứng trơn",
-		"loai" : "Quần vải",
-		"giaNhap" : "250.000",
-		"giaBan" : "400.000",
-		"soLuong" : 5,
-		"mauSac" : "Xám",
-		"kichCo" : "L",
-		"Anh" : "QUAN0003"
-	},
-	{
-		 "CuaHang": {
+},
+	"ten"	: "Quần côn đứng 2 ly",
+	"loai" : "Quần vải",
+	"giaNhap" : "250.000",
+	"giaBan" : "400.000",
+	"soLuong" : 5,
+	"mauSac" : "Ghi",
+	"kichCo" : "S",
+	"Anh" : "QUAN0004.jpg"
+},
+{
+	 "CuaHang": {
         "$oid": "5ed1305f177aab36cff52f03"
-    },
-		"ten"	: "Quần côn đứng 2 ly",
-		"loai" : "Quần vải",
-		"giaNhap" : "250.000",
-		"giaBan" : "400.000",
-		"soLuong" : 5,
-		"mauSac" : "Ghi",
-		"kichCo" : "S",
-		"Anh" : "QUAN0004"
-	},
-	{
-		 "CuaHang": {
+},
+	"ten"	: "Quần côn đứng cạp cao",
+	"loai" : "Quần vải",
+	"giaNhap" : "250.000",
+	"giaBan" : "400.000",
+	"soLuong" : 5,
+	"mauSac" : "Ghi",
+	"kichCo" : "S",
+	"Anh" : "QUAN0005.jpg"
+},
+{
+	 "CuaHang": {
         "$oid": "5ed1305f177aab36cff52f03"
-    },
-		"ten"	: "Quần côn đứng 2 ly",
-		"loai" : "Quần vải",
-		"giaNhap" : "250.000",
-		"giaBan" : "400.000",
-		"soLuong" : 5,
-		"mauSac" : "Ghi",
-		"kichCo" : "M",
-		"Anh" : "QUAN0004"
-	},
-	{
-		 "CuaHang": {
+},
+	"ten"	: "Quần côn đứng cạp 3 cúc",
+	"loai" : "Quần vải",
+	"giaNhap" : "250.000",
+	"giaBan" : "400.000",
+	"soLuong" : 5,
+	"mauSac" : "Nâu",
+	"kichCo" : "S",
+	"Anh" : "QUAN0006.jpg"
+},
+{
+	 "CuaHang": {
         "$oid": "5ed1305f177aab36cff52f03"
-    },
-		"ten"	: "Quần côn đứng 2 ly",
-		"loai" : "Quần vải",
-		"giaNhap" : "250.000",
-		"giaBan" : "400.000",
-		"soLuong" : 5,
-		"mauSac" : "Ghi",
-		"kichCo" : "L",
-		"Anh" : "QUAN0004"
-	},
-	{
-		 "CuaHang": {
+},
+	"ten"	: "Quần côn đứng đai kép",
+	"loai" : "Quần vải",
+	"giaNhap" : "250.000",
+	"giaBan" : "400.000",
+	"soLuong" : 5,
+	"mauSac" : "Tím than",
+	"kichCo" : "S",
+	"Anh" : "QUAN0007.jpg"
+},
+{
+	 "CuaHang": {
         "$oid": "5ed1305f177aab36cff52f03"
-    },
-		"ten"	: "Quần côn đứng cạp cao",
-		"loai" : "Quần vải",
-		"giaNhap" : "250.000",
-		"giaBan" : "400.000",
-		"soLuong" : 5,
-		"mauSac" : "Ghi",
-		"kichCo" : "S",
-		"Anh" : "QUAN0005"
-	},
-	{
-		 "CuaHang": {
+},
+	"ten"	: "Quần côn đứng giao cạp đai G",
+	"loai" : "Quần vải",
+	"giaNhap" : "250.000",
+	"giaBan" : "400.000",
+	"soLuong" : 5,
+	"mauSac" : "Ghi",
+	"kichCo" : "M",
+	"Anh" : "QUAN0008.jpg"
+},
+{
+	 "CuaHang": {
         "$oid": "5ed1305f177aab36cff52f03"
-    },
-		"ten"	: "Quần côn đứng cạp 3 cúc",
-		"loai" : "Quần vải",
-		"giaNhap" : "250.000",
-		"giaBan" : "400.000",
-		"soLuong" : 5,
-		"mauSac" : "Nâu",
-		"kichCo" : "S",
-		"Anh" : "QUAN0006"
-	},
-	{
-		 "CuaHang": {
+},
+	"ten"	: "Quần côn đứng gấu V",
+	"loai" : "Quần vải",
+	"giaNhap" : "250.000",
+	"giaBan" : "400.000",
+	"soLuong" : 5,
+	"mauSac" : "Đen",
+	"kichCo" : "S",
+	"Anh" : "QUAN0009.jpg"
+},
+{
+	 "CuaHang": {
         "$oid": "5ed1305f177aab36cff52f03"
-    },
-		"ten"	: "Quần côn đứng đai kép",
-		"loai" : "Quần vải",
-		"giaNhap" : "250.000",
-		"giaBan" : "400.000",
-		"soLuong" : 5,
-		"mauSac" : "Tím than",
-		"kichCo" : "S",
-		"Anh" : "QUAN0007"
-	},
-	{
-		 "CuaHang": {
+},
+	"ten"	: "Quần côn ống rộng",
+	"loai" : "Quần vải",
+	"giaNhap" : "250.000",
+	"giaBan" : "400.000",
+	"soLuong" : 5,
+	"mauSac" : "Ghi",
+	"kichCo" : "L",
+	"Anh" : "QUAN0010.jpg"
+},
+{
+	 "CuaHang": {
         "$oid": "5ed1305f177aab36cff52f03"
-    },
-		"ten"	: "Quần côn đứng giao cạp đai G",
-		"loai" : "Quần vải",
-		"giaNhap" : "250.000",
-		"giaBan" : "400.000",
-		"soLuong" : 5,
-		"mauSac" : "Ghi",
-		"kichCo" : "S",
-		"Anh" : "QUAN0008"
-	},
-	{
-		 "CuaHang": {
+},
+	"ten"	: "Quần côn đứng gấu đính cúc",
+	"loai" : "Quần vải",
+	"giaNhap" : "250.000",
+	"giaBan" : "400.000",
+	"soLuong" : 5,
+	"mauSac" : "Đen",
+	"kichCo" : "S",
+	"Anh" : "QUAN0011.jpg"
+},
+{
+	 "CuaHang": {
         "$oid": "5ed1305f177aab36cff52f03"
-    },
-		"ten"	: "Quần côn đứng gấu V",
-		"loai" : "Quần vải",
-		"giaNhap" : "250.000",
-		"giaBan" : "400.000",
-		"soLuong" : 5,
-		"mauSac" : "Đen",
-		"kichCo" : "S",
-		"Anh" : "QUAN0009"
-	},
-	{
-		 "CuaHang": {
+},
+	"ten"	: "Quần côn đứng kẻ sọc",
+	"loai" : "Quần vải",
+	"giaNhap" : "250.000",
+	"giaBan" : "400.000",
+	"soLuong" : 5,
+	"mauSac" : "Đen",
+	"kichCo" : "M",
+	"Anh" : "QUAN0012.jpg"
+},
+{
+	 "CuaHang": {
         "$oid": "5ed1305f177aab36cff52f03"
-    },
-		"ten"	: "Quần côn ống rộng",
-		"loai" : "Quần vải",
-		"giaNhap" : "250.000",
-		"giaBan" : "400.000",
-		"soLuong" : 5,
-		"mauSac" : "Ghi",
-		"kichCo" : "L",
-		"Anh" : "QUAN0010"
-	},
-	{
-		 "CuaHang": {
+},
+	"ten"	: "Quần côn đứng kẻ ô vuông",
+	"loai" : "Quần vải",
+	"giaNhap" : "250.000",
+	"giaBan" : "400.000",
+	"soLuong" : 5,
+	"mauSac" : "Nâu",
+	"kichCo" : "L",
+	"Anh" : "QUAN0013.jpg"
+},
+{
+	 "CuaHang": {
         "$oid": "5ed1305f177aab36cff52f03"
-    },
-		"ten"	: "Quần côn đứng gấu đính cúc",
-		"loai" : "Quần vải",
-		"giaNhap" : "250.000",
-		"giaBan" : "400.000",
-		"soLuong" : 5,
-		"mauSac" : "Đen",
-		"kichCo" : "S",
-		"Anh" : "QUAN0011"
-	},
-	{
-		 "CuaHang": {
+},
+	"ten"	: "Quần côn đứng đai chéo 2 cúc",
+	"loai" : "Quần vải",
+	"giaNhap" : "250.000",
+	"giaBan" : "400.000",
+	"soLuong" : 5,
+	"mauSac" : "Xanh",
+	"kichCo" : "S",
+	"Anh" : "QUAN0014.jpg"
+},
+{
+	 "CuaHang": {
         "$oid": "5ed1305f177aab36cff52f03"
-    },
-		"ten"	: "Quần côn đứng kẻ sọc",
-		"loai" : "Quần vải",
-		"giaNhap" : "250.000",
-		"giaBan" : "400.000",
-		"soLuong" : 5,
-		"mauSac" : "Đen",
-		"kichCo" : "M",
-		"Anh" : "QUAN0012"
-	},
-	{
-		 "CuaHang": {
+},
+	"ten"	: "Quần dáng côn cạp liền",
+	"loai" : "Quần vải",
+	"giaNhap" : "250.000",
+	"giaBan" : "400.000",
+	"soLuong" : 5,
+	"mauSac" : "Đen",
+	"kichCo" : "S",
+	"Anh" : "QUAN0015.jpg"
+},
+{
+	 "CuaHang": {
         "$oid": "5ed1305f177aab36cff52f03"
-    },
-		"ten"	: "Quần côn đứng kẻ ô vuông",
-		"loai" : "Quần vải",
-		"giaNhap" : "250.000",
-		"giaBan" : "400.000",
-		"soLuong" : 5,
-		"mauSac" : "Nâu",
-		"kichCo" : "L",
-		"Anh" : "QUAN0013"
-	},
-	{
-		 "CuaHang": {
+},
+	"ten"	: "Quần Kaki 2 sọc",
+	"loai" : "Quần Kaki",
+	"giaNhap" : "250.000",
+	"giaBan" : "400.000",
+	"soLuong" : 5,
+	"mauSac" : "Xanh rêu",
+	"kichCo" : "S",
+	"Anh" : "QUAN0016.png"
+},
+{
+	 "CuaHang": {
         "$oid": "5ed1305f177aab36cff52f03"
-    },
-		"ten"	: "Quần côn đứng đai chéo 2 cúc",
-		"loai" : "Quần vải",
-		"giaNhap" : "250.000",
-		"giaBan" : "400.000",
-		"soLuong" : 5,
-		"mauSac" : "Xanh",
-		"kichCo" : "S",
-		"Anh" : "QUAN0014"
-	},
-	{
-		 "CuaHang": {
+},
+	"ten"	: "Quần Kaki tua gấu",
+	"loai" : "Quần Kaki",
+	"giaNhap" : "250.000",
+	"giaBan" : "400.000",
+	"soLuong" : 5,
+	"mauSac" : "Be",
+	"kichCo" : "M",
+	"Anh" : "QUAN0017.jpg"
+},
+{
+	 "CuaHang": {
         "$oid": "5ed1305f177aab36cff52f03"
-    },
-		"ten"	: "Quần dáng côn cạp liền",
-		"loai" : "Quần vải",
-		"giaNhap" : "250.000",
-		"giaBan" : "400.000",
-		"soLuong" : 5,
-		"mauSac" : "Đen",
-		"kichCo" : "S",
-		"Anh" : "QUAN0015"
-	},
-	{
-		 "CuaHang": {
+},
+	"ten"	: "Quần Kaki trơn",
+	"loai" : "Quần Kaki",
+	"giaNhap" : "250.000",
+	"giaBan" : "400.000",
+	"soLuong" : 5,
+	"mauSac" : "Đen",
+	"kichCo" : "L",
+	"Anh" : "QUAN0018.jpg"
+},
+{
+	 "CuaHang": {
         "$oid": "5ed1305f177aab36cff52f03"
-    },
-		"ten"	: "Quần Kaki 2 sọc",
-		"loai" : "Quần Kaki",
-		"giaNhap" : "250.000",
-		"giaBan" : "400.000",
-		"soLuong" : 5,
-		"mauSac" : "Xanh rêu",
-		"kichCo" : "S",
-		"Anh" : "QUAN0016"
-	},
-	{
-		 "CuaHang": {
+},
+	"ten"	: "Quần Kaki rách",
+	"loai" : "Quần Kaki",
+	"giaNhap" : "250.000",
+	"giaBan" : "400.000",
+	"soLuong" : 5,
+	"mauSac" : "Trắng",
+	"kichCo" : "S",
+	"Anh" : "QUAN0019.jpg"
+},
+{
+	 "CuaHang": {
         "$oid": "5ed1305f177aab36cff52f03"
-    },
-		"ten"	: "Quần Kaki tua gấu",
-		"loai" : "Quần Kaki",
-		"giaNhap" : "250.000",
-		"giaBan" : "400.000",
-		"soLuong" : 5,
-		"mauSac" : "Be",
-		"kichCo" : "M",
-		"Anh" : "QUAN0017"
-	},
-	{
-		 "CuaHang": {
+},
+	"ten"	: "Quần Kaki cạp cao",
+	"loai" : "Quần Kaki",
+	"giaNhap" : "250.000",
+	"giaBan" : "400.000",
+	"soLuong" : 5,
+	"mauSac" : "Trắng",
+	"kichCo" : "M",
+	"Anh" : "QUAN0020.jpg"
+},
+{
+	 "CuaHang": {
         "$oid": "5ed1305f177aab36cff52f03"
-    },
-		"ten"	: "Quần Kaki trơn",
-		"loai" : "Quần Kaki",
-		"giaNhap" : "250.000",
-		"giaBan" : "400.000",
-		"soLuong" : 5,
-		"mauSac" : "Đen",
-		"kichCo" : "L",
-		"Anh" : "QUAN0018"
-	},
-	{
-		 "CuaHang": {
+},
+	"ten"	: "Quần Kaki sọc caro",
+	"loai" : "Quần Kaki",
+	"giaNhap" : "250.000",
+	"giaBan" : "400.000",
+	"soLuong" : 5,
+	"mauSac" : "Nâu",
+	"kichCo" : "M",
+	"Anh" : "QUAN0021.jpg"
+},
+{
+	 "CuaHang": {
         "$oid": "5ed1305f177aab36cff52f03"
-    },
-		"ten"	: "Quần Kaki rách",
-		"loai" : "Quần Kaki",
-		"giaNhap" : "250.000",
-		"giaBan" : "400.000",
-		"soLuong" : 5,
-		"mauSac" : "Trắng",
-		"kichCo" : "S",
-		"Anh" : "QUAN0019"
-	},
-	{
-		 "CuaHang": {
+},
+	"ten"	: "Quần Kaki nữ thêu mèo",
+	"loai" : "Quần Kaki",
+	"giaNhap" : "250.000",
+	"giaBan" : "400.000",
+	"soLuong" : 5,
+	"mauSac" : "Be",
+	"kichCo" : "M",
+	"Anh" : "QUAN0022.jpg"
+},
+{
+	 "CuaHang": {
         "$oid": "5ed1305f177aab36cff52f03"
-    },
-		"ten"	: "Quần Kaki cạp cao",
-		"loai" : "Quần Kaki",
-		"giaNhap" : "250.000",
-		"giaBan" : "400.000",
-		"soLuong" : 5,
-		"mauSac" : "Trắng",
-		"kichCo" : "M",
-		"Anh" : "QUAN0020"
-	},
-	{
-		 "CuaHang": {
+},
+	"ten"	: "Quần Kaki jogger nữ",
+	"loai" : "Quần Kaki",
+	"giaNhap" : "250.000",
+	"giaBan" : "400.000",
+	"soLuong" : 5,
+	"mauSac" : "Đen",
+	"kichCo" : "M",
+	"Anh" : "QUAN0023.jpg"
+},
+{
+	 "CuaHang": {
         "$oid": "5ed1305f177aab36cff52f03"
-    },
-		"ten"	: "Quần Kaki sọc caro",
-		"loai" : "Quần Kaki",
-		"giaNhap" : "250.000",
-		"giaBan" : "400.000",
-		"soLuong" : 5,
-		"mauSac" : "Nâu",
-		"kichCo" : "M",
-		"Anh" : "QUAN0021"
-	},
-	{
-		 "CuaHang": {
+},
+	"ten"	: "Quần Kaki nữ lưng thun",
+	"loai" : "Quần Kaki",
+	"giaNhap" : "250.000",
+	"giaBan" : "400.000",
+	"soLuong" : 5,
+	"mauSac" : "Hồng",
+	"kichCo" : "M",
+	"Anh" : "QUAN0024.jpg"
+},
+{
+	 "CuaHang": {
         "$oid": "5ed1305f177aab36cff52f03"
-    },
-		"ten"	: "Quần Kaki nữ thêu mèo",
-		"loai" : "Quần Kaki",
-		"giaNhap" : "250.000",
-		"giaBan" : "400.000",
-		"soLuong" : 5,
-		"mauSac" : "Be",
-		"kichCo" : "M",
-		"Anh" : "QUAN0022"
-	},
-	{
-		 "CuaHang": {
+},
+	"ten"	: "Quần Kaki túi hộp",
+	"loai" : "Quần Kaki",
+	"giaNhap" : "250.000",
+	"giaBan" : "400.000",
+	"soLuong" : 5,
+	"mauSac" : "Trắng",
+	"kichCo" : "M",
+	"Anh" : "QUAN0025.jpg"
+},
+{
+	 "CuaHang": {
         "$oid": "5ed1305f177aab36cff52f03"
-    },
-		"ten"	: "Quần Kaki jogger nữ",
-		"loai" : "Quần Kaki",
-		"giaNhap" : "250.000",
-		"giaBan" : "400.000",
-		"soLuong" : 5,
-		"mauSac" : "Đen",
-		"kichCo" : "M",
-		"Anh" : "QUAN0023"
-	},
-	{
-		 "CuaHang": {
+},
+	"ten"	: "Quần jean ống rộng 2 sọc",
+	"loai" : "Quần jean ống rộng",
+	"giaNhap" : "300.000",
+	"giaBan" : "500.000",
+	"soLuong" : 5,
+	"mauSac" : "Xám",
+	"kichCo" : "S",
+	"Anh" : "QUAN0026.jpg"
+},
+{
+	 "CuaHang": {
         "$oid": "5ed1305f177aab36cff52f03"
-    },
-		"ten"	: "Quần Kaki nữ lưng thun",
-		"loai" : "Quần Kaki",
-		"giaNhap" : "250.000",
-		"giaBan" : "400.000",
-		"soLuong" : 5,
-		"mauSac" : "Hồng",
-		"kichCo" : "M",
-		"Anh" : "QUAN0024"
-	},
-	{
-		 "CuaHang": {
+},
+	"ten"	: "Quần jean ống rộng rách",
+	"loai" : "Quần jean ống rộng",
+	"giaNhap" : "300.000",
+	"giaBan" : "500.000",
+	"soLuong" : 5,
+	"mauSac" : "Xanh",
+	"kichCo" : "M",
+	"Anh" : "QUAN0027.jpg"
+},
+{
+	 "CuaHang": {
         "$oid": "5ed1305f177aab36cff52f03"
-    },
-		"ten"	: "Quần Kaki túi hộp",
-		"loai" : "Quần Kaki",
-		"giaNhap" : "250.000",
-		"giaBan" : "400.000",
-		"soLuong" : 5,
-		"mauSac" : "Trắng",
-		"kichCo" : "M",
-		"Anh" : "QUAN0025"
-	},
-	{
-		 "CuaHang": {
+},
+	"ten"	: "Quần jean ống rộng tua gấu",
+	"loai" : "Quần jean ống rộng",
+	"giaNhap" : "300.000",
+	"giaBan" : "500.000",
+	"soLuong" : 5,
+	"mauSac" : "Đen",
+	"kichCo" : "L",
+	"Anh" : "QUAN0028.jpg"
+},
+{
+	 "CuaHang": {
         "$oid": "5ed1305f177aab36cff52f03"
-    },
-		"ten"	: "Quần jean ống rộng 2 sọc",
-		"loai" : "Quần jean ống rộng",
-		"giaNhap" : "300.000",
-		"giaBan" : "500.000",
-		"soLuong" : 5,
-		"mauSac" : "Xám",
-		"kichCo" : "S",
-		"Anh" : "QUAN0026"
-	},
-	{
-		 "CuaHang": {
+},
+	"ten"	: "Quần jean ống rộng trơn",
+	"loai" : "Quần jean ống rộng",
+	"giaNhap" : "300.000",
+	"giaBan" : "500.000",
+	"soLuong" : 5,
+	"mauSac" : "Xám",
+	"kichCo" : "S",
+	"Anh" : "QUAN0029.jpg"
+},
+{
+	 "CuaHang": {
         "$oid": "5ed1305f177aab36cff52f03"
-    },
-		"ten"	: "Quần jean ống rộng rách",
-		"loai" : "Quần jean ống rộng",
-		"giaNhap" : "300.000",
-		"giaBan" : "500.000",
-		"soLuong" : 5,
-		"mauSac" : "Xanh",
-		"kichCo" : "M",
-		"Anh" : "QUAN0027"
-	},
-	{
-		 "CuaHang": {
+},
+	"ten"	: "Quần jean ống rộng cạp cao",
+	"loai" : "Quần jean ống rộng",
+	"giaNhap" : "300.000",
+	"giaBan" : "500.000",
+	"soLuong" : 5,
+	"mauSac" : "Xám",
+	"kichCo" : "M",
+	"Anh" : "QUAN0030.jpg"
+},
+{
+	 "CuaHang": {
         "$oid": "5ed1305f177aab36cff52f03"
-    },
-		"ten"	: "Quần jean ống rộng tua gấu",
-		"loai" : "Quần jean ống rộng",
-		"giaNhap" : "300.000",
-		"giaBan" : "500.000",
-		"soLuong" : 5,
-		"mauSac" : "Đen",
-		"kichCo" : "L",
-		"Anh" : "QUAN0028"
-	},
-	{
-		 "CuaHang": {
+},
+	"ten"	: "Quần jean ống đứng trơn",
+	"loai" : "Quần jean ống đứng",
+	"giaNhap" : "300.000",
+	"giaBan" : "500.000",
+	"soLuong" : 5,
+	"mauSac" : "Xanh",
+	"kichCo" : "L",
+	"Anh" : "QUAN0031.jpg"
+},
+{
+	 "CuaHang": {
         "$oid": "5ed1305f177aab36cff52f03"
-    },
-		"ten"	: "Quần jean ống rộng trơn",
-		"loai" : "Quần jean ống rộng",
-		"giaNhap" : "300.000",
-		"giaBan" : "500.000",
-		"soLuong" : 5,
-		"mauSac" : "Xám",
-		"kichCo" : "S",
-		"Anh" : "QUAN0029"
-	},
-	{
-		 "CuaHang": {
+},
+	"ten"	: "Quần jean ống đứng rách",
+	"loai" : "Quần jean ống đứng",
+	"giaNhap" : "300.000",
+	"giaBan" : "500.000",
+	"soLuong" : 5,
+	"mauSac" : "Xanh",
+	"kichCo" : "S",
+	"Anh" : "QUAN0032.jpg"
+},
+{
+	 "CuaHang": {
         "$oid": "5ed1305f177aab36cff52f03"
-    },
-		"ten"	: "Quần jean ống rộng cạp cao",
-		"loai" : "Quần jean ống rộng",
-		"giaNhap" : "300.000",
-		"giaBan" : "500.000",
-		"soLuong" : 5,
-		"mauSac" : "Xám",
-		"kichCo" : "M",
-		"Anh" : "QUAN0030"
-	},
-	{
-		 "CuaHang": {
+},
+	"ten"	: "Quần jean ống đứng tua gấu",
+	"loai" : "Quần jean ống đứng",
+	"giaNhap" : "300.000",
+	"giaBan" : "500.000",
+	"soLuong" : 5,
+	"mauSac" : "Xanh",
+	"kichCo" : "M",
+	"Anh" : "QUAN0033.jpg"
+},
+{
+	 "CuaHang": {
         "$oid": "5ed1305f177aab36cff52f03"
-    },
-		"ten"	: "Quần jean ống đứng trơn",
-		"loai" : "Quần jean ống đứng",
-		"giaNhap" : "300.000",
-		"giaBan" : "500.000",
-		"soLuong" : 5,
-		"mauSac" : "Xanh",
-		"kichCo" : "L",
-		"Anh" : "QUAN0031"
-	},
-	{
-		 "CuaHang": {
+},
+	"ten"	: "Quần jean ống đứng cạp cao",
+	"loai" : "Quần jean ống đứng",
+	"giaNhap" : "300.000",
+	"giaBan" : "500.000",
+	"soLuong" : 5,
+	"mauSac" : "Xanh",
+	"kichCo" : "L",
+	"Anh" : "QUAN0034.jpg"
+},
+{
+	 "CuaHang": {
         "$oid": "5ed1305f177aab36cff52f03"
-    },
-		"ten"	: "Quần jean ống đứng rách",
-		"loai" : "Quần jean ống đứng",
-		"giaNhap" : "300.000",
-		"giaBan" : "500.000",
-		"soLuong" : 5,
-		"mauSac" : "Xanh",
-		"kichCo" : "S",
-		"Anh" : "QUAN0032"
-	},
-	{
-		 "CuaHang": {
-        "$oid": "5ed1305f177aab36cff52f03"
-    },
-		"ten"	: "Quần jean ống đứng tua gấu",
-		"loai" : "Quần jean ống đứng",
-		"giaNhap" : "300.000",
-		"giaBan" : "500.000",
-		"soLuong" : 5,
-		"mauSac" : "Xanh",
-		"kichCo" : "M",
-		"Anh" : "QUAN0033"
-	},
-	{
-		 "CuaHang": {
-        "$oid": "5ed1305f177aab36cff52f03"
-    },
-		"ten"	: "Quần jean ống đứng cạp cao",
-		"loai" : "Quần jean ống đứng",
-		"giaNhap" : "300.000",
-		"giaBan" : "500.000",
-		"soLuong" : 5,
-		"mauSac" : "Xanh",
-		"kichCo" : "L",
-		"Anh" : "QUAN0034"
-	},
-	{
-		 "CuaHang": {
-        "$oid": "5ed1305f177aab36cff52f03"
-    },
-		"ten"	: "Quần jean ống đứng 2 sọc",
-		"loai" : "Quần jean ống đứng",
-		"giaNhap" : "300.000",
-		"giaBan" : "500.000",
-		"soLuong" : 5,
-		"mauSac" : "Đen",
-		"kichCo" : "S",
-		"Anh" : "QUAN0035"
-	}
-
-	]
+},
+	"ten"	: "Quần jean ống đứng 2 sọc",
+	"loai" : "Quần jean ống đứng",
+	"giaNhap" : "300.000",
+	"giaBan" : "500.000",
+	"soLuong" : 5,
+	"mauSac" : "Đen",
+	"kichCo" : "S",
+	"Anh" : "QUAN0035.jpg"
+}
+]
