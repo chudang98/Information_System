@@ -11,7 +11,6 @@ async function checkAccount(req, res) {
   var { userName } = req.body;
   var check = await nhanVienService.isExistAccount(userName);
   console.log(userName, check);
-
   return res.status(200).json({
     status: 'success',
     exist: check,
@@ -38,4 +37,13 @@ async function timMatHangTheoLoai(req, res) {
     lenght: docs.length,
     result: docs,
   })
+}
+
+async function dangNhap(req, res) {
+  var { userName, password } = req.body;
+
+}
+
+async function dangKy(req, res) {
+
 }

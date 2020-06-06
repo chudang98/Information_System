@@ -1,5 +1,4 @@
 const nhanVienService = require('../services/nhanVienServices');
-const khachHangService = require('../services/khachHangService');
 const cookieUtils = require('../utils/cookieUtils');
 
 module.exports = {

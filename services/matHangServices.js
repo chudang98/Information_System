@@ -1,5 +1,8 @@
 const MatHang = require('../models/MatHang');
 const DanhGia = require('../models/DanhGia');
+const Nguoi = require('../models/Nguoi');
+const KhachHang = require('../models/KhachHang');
+
 const _ = require('lodash');
 
 module.exports = {
@@ -9,6 +12,8 @@ module.exports = {
   timMatHangTheoLoai,
   layNhanXet,
   themNhanXet,
+  dangNhap,
+  dangKy,
 };
 
 async function takeProduct() {
@@ -114,4 +119,12 @@ async function themNhanXet(idHoaDon, idMatHang, nhanXet) {
       status: 'fail',
     }
   }
+}
+
+async function dangNhap() {
+
+}
+
+async function dangKy() {
+
 }
