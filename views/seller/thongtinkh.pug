@@ -4,38 +4,40 @@ block page_title
 	title ThongtinKH
 
 block content
-	.content-ttkh.container 
-    form.content-form
-      .form-group
-        label(for='exampleInputEmail1') Tìm kiếm khách hàng                    
-        input#exampleInputEmail1.form-control(type='email', placeholder='Search', aria-describedby='emailHelp')           
-    table.table.table-bordered.table-striped.text-center
-      thead.thead-table
-        tr
-          th(scope='col') STT                      
-          th(scope='col') Họ và tên                       
-          th(scope='col') Số điện thoại                        
-          th(scope='col') Địa chỉ                        
-          th(scope='col') Chi Tiết 
+	.content-ttkh.container.content
+		h2(style='border-bottom: 1px solid black;') Danh sách khách hàng :   
+		form.content-form
+			.form-group
+				label(for='exampleInputEmail1') Tìm kiếm khách hàng                    
+				input#exampleInputEmail1.form-control(type='email', placeholder='Search', aria-describedby='emailHelp')           
+		table.table.table-bordered.table-striped.text-center
+			thead.thead-table
+				tr
+					th(scope='col') STT                      
+					th(scope='col') Họ và tên                       
+					th(scope='col') Số điện thoại                        
+					th(scope='col') Địa chỉ                        
+					th(scope='col') Chi Tiết 
               
-      tbody
-        tr
-          th(scope='row')  1                     
-          td Trần Tiểu Cúc                     
-          td 09876543                   
-          td Hà Nội                     
-          td
-            a.btn.btn-info(href='xemchitiet.pug') Xem  )                
-        tr
-          th(scope='row') 1
-          td Trần Tiểu Cúc                     
-          td 09876543                   
-          td Hà Nội                     
-          td
-            a.btn.btn-info(href='xemchitiet.pug') Xem  )   
-        tr
-            td Trần Tiểu Cúc                     
-          td 09876543                   
-          td Hà Nội                     
-          td
-            a.btn.btn-info(href='xemchitiet.pug') Xem  )    
+			tbody
+				tr
+					th(scope='row')  1                     
+					td Trần Tiểu Cúc                     
+					td 09876543                   
+					td Hà Nội                     
+					td
+						a.btn.btn-info(href='/seller/xemchitiet') Xem                  
+				tr
+					th(scope='row') 1
+					td Trần Tiểu Cúc                     
+					td 09876543                   
+					td Hà Nội                     
+					td
+						a.btn.btn-info(href='/seller/xemchitiet') Xem     
+				tr
+					th(scope='row') 1
+					td Trần Tiểu Cúc                     
+					td 09876543                   
+					td Hà Nội                     
+					td
+						a.btn.btn-info(href='/seller/xemchitiet') Xem      
