@@ -4,13 +4,9 @@ const nvbhController = require('../controllers/nhanvienbanhangController');
 
 const router = express.Router();
 
-router
-    .route('/login')
-    .get(nvbhController.getLogin)
+router.route('/home').get(nvbhController.homeView);
 
-router
-    .route('/signup')
-    .get(nvbhController.getSignup)
+router.route('/signup').get(nvbhController.getSignup);
 
 router.route('/banhang').get(nvbhController.banHangView);
 router.route('/themkh').get(nvbhController.themKHview);

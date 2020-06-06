@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
-const displayRoutes = require('express-routemap');
+const methodOverride = require('method-override');
+const app = require('./app');
 
 dotenv.config({ path: './config.env' });
 
@@ -13,24 +14,22 @@ let port = process.env.PORT;
 //   .replace('<USERNAME>', username)
 //   .replace('<PASSWORD>', password);
 
-// let DB = process.env.DATABASE;
-// mongoose
-//   .connect(DB, {
-//     userNewUrlParser: true,
-//     userCreateIndex: true,
-//     userFindAndModify: false,
-//   })
-//   .then((con) => {
-//     console.log('Connection succes to server...');
-//   })
-//   .catch((err) => {
-//     console.log(err);
-//   });
+let DB = process.env.DATABASE;
+mongoose
+  .connect(DB, {
+    userNewUrlParser: true,
+    userCreateIndex: true,
+    userFindAndModify: false,
+  })
+  .then((con) => {
+    console.log('Connection success to server...');
+  })
+  .catch((err) => {
+    console.log(err);
+  });
 
-const app = require('./app');
+app.use(methodOverride('_method'));
 
 app.listen(port, () => {
-    console.log(`App running on port ${port}...`);
-    displayRoutes(app);
-    displayRoutes(app, 'route-table.log');
+  console.log(`App running on port ${port}...`);
 });
