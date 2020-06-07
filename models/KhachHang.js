@@ -47,6 +47,6 @@ khachHangSchema.methods.isChangedPasswordAfter = function (timestamp) {
   return false;
 };
 
-const NhanVien = mongoose.model('NhanVien', khachHangSchema);
+const NhanVien = mongoose.model('KhachHang', khachHangSchema);
 
 module.exports = NhanVien;

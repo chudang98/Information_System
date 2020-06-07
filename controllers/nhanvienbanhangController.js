@@ -1,7 +1,6 @@
 module.exports = {
     getSignup,
     getLogin,
-    signupAcc,
     banHangView,
     themKHview,
     thongtinKHview,

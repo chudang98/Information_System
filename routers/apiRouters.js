@@ -14,10 +14,10 @@ router.route('/mathang/loai/:maLoai').get(controller.timMatHangTheoLoai);
 
 /*
 	Đăng nhập , yêu cầu các input trong form :
-    username
+    userName
     password
  */
-router.route('/login').post();
+router.route('/login').post(controller.dangNhap);
 
 
 /*
@@ -27,5 +27,6 @@ router.route('/login').post();
 		password : tối thiểu 10 và tối đa 20 ký tự
 	! Chú ý : tên các trường trong input đặt đúng theo quy tắt các trường thông tin trong file Nguoi.js
 */
-router.route('/signup').post();
+router.route('/signup').post(controller.dangKy);
+
 module.exports = router;
