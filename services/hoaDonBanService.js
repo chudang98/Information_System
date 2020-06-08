@@ -2,13 +2,19 @@ const HoaDonNhap = require('../models/HoaDonBan');
 
 module.exports = {
 	layHoaDonBanTheoUser,
-	thanhToanHoaDon,
+  thanhToanHoaDon,
+  themHoaDonBan,
 };
 
 async function layHoaDonBanTheoUser(idUser) {
 
 }
 
+async function themHoaDonBan(data) {
+
+}
+
 async function thanhToanHoaDon(idHoaDon) {
 	
 }
+

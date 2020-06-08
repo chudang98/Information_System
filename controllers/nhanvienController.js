@@ -1,4 +1,4 @@
-const nhanVienService = require('../services/nhanVienServices');
+const authService = require('../services/authenticateService');
 const cookieUtils = require('../utils/cookieUtils');
 
 module.exports = {
@@ -19,19 +19,20 @@ async function getLogin(req, res) {
 
 async function signupAcc(req, res) {
   var data = req.body;
-  var result = await nhanVienService.saveAccount(data);
-  console.log(result);
+  var result = await authService.nhanVienSignup(data);
   if (result.status == 'success') {
-    var idUser = result.nhanvien._id;
+    var idUser = result.account._id;
     cookieUtils.setTokenCookie(idUser, res);
     return res.redirect('/user/home');
-  } else return res.redirect('/user/login');
+  }
+  else
+    return res.redirect('/user/login');
 }
 
 async function checkLogin(req, res) {
   var { username, password } = req.body;
-  var result = await nhanVienService.loginAccount(username, password);
-  if (result.status == 'true') {
+  var result = await authService.checkNhanVienLogin(username, password);
+  if (result.status == 'success') {
     return res.status(200).render('nvkho/home', {});
   } else {
     return res.status(400).render('nvk/', {
@@ -42,4 +43,17 @@ async function checkLogin(req, res) {
 
 async function getHome(req, res) {
   return res.status(200).render('nvkho/home', {});
+}
+
+async function _chuyenTrangLogin(chucVu){
+  switch(chucVu){
+    case "NhanVienQuanLy" : {
+      return 
+    };
+    case "NhanVienBanDHang" : {
+      return 
+    };
+    default:
+      return ``
+  }
 }

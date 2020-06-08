@@ -1,10 +1,13 @@
-const nhanVienService = require('../services/nhanVienServices');
+const service = require('../services/authenticateService');
 const matHangService = require('../services/matHangServices');
+const jwtUtil = require('../utils/cookieUtils');
 
 module.exports = {
   checkAccount,
   timMatHangTheoTen,
   timMatHangTheoLoai,
+  dangNhap,
+  dangKy,
 };
 
 async function checkAccount(req, res) {
@@ -41,9 +44,32 @@ async function timMatHangTheoLoai(req, res) {
 
 async function dangNhap(req, res) {
   var { userName, password } = req.body;
+  var result = await service.checkUserLogin(userName, password);
+  if(status == 'success') {
+    await jwtUtil.setTokenCookie(result.infor, res);
+    return {
+      status: 'success',
+    }
+  }else{
+    return {
+      status : 'fail',
+    }
+  }
 
 }
 
 async function dangKy(req, res) {
-
+  var data = req.body;
+  var result = await service.userSignup(data);
+  if(result.status == 'success'){
+    await jwtUtil.setTokenCookie(result.infor, res);
+    return {
+      status: 'success',
+    }
+  }else{
+    return {
+      status: 'fail',
+    }
+  }
+  console.log(result);
 }

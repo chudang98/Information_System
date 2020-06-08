@@ -3,13 +3,13 @@ const Nguoi = require('../models/Nguoi');
 const NhanVien = require('../models/NhanVien');
 
 module.exports = {
-	nhanVienLogin,
+	checkNhanVienLogin,
 	nhanVienSignup,
-	userLogin, 
+	checkUserLogin, 
 	userSignup,
 }
 
-async function nhanVienLogin(username, password){
+async function checkNhanVienLogin(username, password){
   if (_.isEmpty(username) || _.isEmpty(password)) return { status: 'wrong' };
   const user = await NhanVien.findOne({ userName: username }).select(
     '+password'
@@ -31,12 +31,11 @@ async function nhanVienSignup(data){
 			password: data.password,
 			chucVu: data.chucVu,
 			nguoi: nguoi._id,
-		})
-		await nhanVien.save();
+    })
+    await nhanVien.save();
 		return {
-			status: 'success',
-			profile: nguoi,
-			account: nhanVien,
+      status: 'success',
+      infor: nhanVien,
 		}
 	}catch(err){
 		return {
@@ -45,7 +44,7 @@ async function nhanVienSignup(data){
 	}
 }
 
-async function userLogin(username, password){
+async function checkUserLogin(username, password){
 	if (_.isEmpty(username) || _.isEmpty(password)) return { status: 'wrong' };
   const user = await KhachHang.findOne({ userName: username }).select(
     '+password'
@@ -69,9 +68,8 @@ async function userSignup(data){
 		});
 		await user.save();
 		return {
-			status: 'success',
-			profile: nguoi,
-			account: user,
+      status: 'success',
+      infor: user,
 		}
 	}catch(err){
 		return {
@@ -88,6 +86,7 @@ async function _createNguoi(dataNguoi){
 		gioiTinh: dataNguoi.gioiTinh,
 		email: dataNguoi.email,
 		sdt: dataNguoi.sdt,
-	})
-	await newNguoi.save();
+	});
+  await newNguoi.save();
+  return newNguoi;
 }
