@@ -34,9 +34,8 @@ async function nhanVienSignup(data){
     })
     await nhanVien.save();
 		return {
-			status: 'success',
-			profile: nguoi,
-			account: nhanVien,
+      status: 'success',
+      infor: nhanVien,
 		}
 	}catch(err){
 		return {
@@ -69,9 +68,8 @@ async function userSignup(data){
 		});
 		await user.save();
 		return {
-			status: 'success',
-			profile: nguoi,
-			account: user,
+      status: 'success',
+      infor: user,
 		}
 	}catch(err){
 		return {
@@ -88,7 +86,7 @@ async function _createNguoi(dataNguoi){
 		gioiTinh: dataNguoi.gioiTinh,
 		email: dataNguoi.email,
 		sdt: dataNguoi.sdt,
-	})
+	});
   await newNguoi.save();
   return newNguoi;
 }

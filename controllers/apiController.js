@@ -59,5 +59,17 @@ async function dangNhap(req, res) {
 }
 
 async function dangKy(req, res) {
-  
+  var data = req.body;
+  var result = await service.userSignup(data);
+  if(result.status == 'success'){
+    await jwtUtil.setTokenCookie(result.infor, res);
+    return {
+      status: 'success',
+    }
+  }else{
+    return {
+      status: 'fail',
+    }
+  }
+  console.log(result);
 }
