@@ -1,0 +1,52 @@
+extends base
+block page_title
+  title admin
+block content
+  .content-ttkh.content.container
+    .search.row
+      .day.col-md-5
+        .form-group
+          label(for='')
+            | Ng&agrave;y b&#x1EAF;t &dstrok;&#x1EA7;u 
+            span.red (*)
+          br
+          input#ngaybd.inp-day(type='date', name='ngaybd', placeholder='', aria-describedby='helpId')
+      .day.col-md-5
+        .form-group
+          label(for='')
+            | Ng&agrave;y k&#x1EBF;t th&uacute;c  
+            span.red (*)
+          br
+          input#ngaykt.inp-day(type='date', name='ngaykt', placeholder='', aria-describedby='helpId')
+      .col-lg-2.col-md-2.col-sm-2.col-xs-2
+        button.btn.btn-info.timkiem(style='margin-top:32px') T&igrave;m ki&#x1EBF;m
+    table.table.table-bordered.table-striped.text-center
+      thead.thead-table
+        tr
+          th(scope='col ') STT
+          th(scope='col ') T&ecirc;n kh&aacute;ch h&agrave;ng 
+          th(scope='col ') M&atilde; kh&aacute;ch h&agrave;ng 
+          th(scope='col ') T&#x1ED5;ng ti&#x1EC1;n h&oacute;a &dstrok;&#x1A1;n 
+          th(scope='col ') Chi ti&#x1EBF;t 
+      tbody
+        tr
+          th(scope='row ') 1
+          td Tr&#x1EA7;n Ti&#x1EC3;u Long 
+          td KH0001
+          td 3.400.000
+          td
+            a.btn.btn-info(href='/admin/danhsachhoadonkh ') Xem  
+        tr
+          th(scope='row ') 2
+          td Tr&#x1EA7;n Ti&#x1EC3;u Y&#x1EBF;n 
+          td KH0001
+          td 3.100.000
+          td
+            a.btn.btn-info(href='/admin/danhsachhoadonkh ') Xem  
+        tr
+          th(scope='row ') 3
+          td Tr&#x1EA7;n Ti&#x1EC3;u C&uacute;c 
+          td KH0001
+          td 3.000.000
+          td
+            a.btn.btn-info(href='/admin/danhsachhoadonkh ') Xem  

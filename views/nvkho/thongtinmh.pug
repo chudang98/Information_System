@@ -1,0 +1,49 @@
+extends base
+
+block page_title
+ title ThongtinKH
+
+block content
+ .content-ttkh.content.container
+  h2(style='border-bottom: 1px solid black;') Danh S&aacute;ch M&#x1EB7;t H&agrave;ng :
+  form.content-form
+    .form-group
+      input#exampleInputEmail1.form-control(type='email', placeholder='Nhập vào mã mặt hàng ', aria-describedby='emailHelp')
+  table.table.table-bordered.table-striped.text-center
+    thead.thead-table
+      tr
+        th(scope='col') STT
+        th(scope='col') T&ecirc;n m&#x1EB7;t h&agrave;ng 
+        th(scope='col') M&atilde; m&#x1EB7;t h&agrave;ng 
+        th(scope='col') Size 
+        th(scope='col') M&agrave;u s&#x1EAF;c 
+        th(scope='col') S&#x1ED1; l&#x1B0;&#x1EE3;ng 
+        th(scope='col') Chi tiết
+    tbody
+      tr
+        th(scope='row') 1
+        td &Aacute;o s&#x1A1; mi 
+        td A001
+        td S 
+        td &Dstrok;en 
+        td 30 
+        td
+          a.btn.btn-info(href='/nvkho/xemchitietmh ') Xem  
+      tr
+        th(scope='row') 2
+        td &Aacute;o s&#x1A1; mi 
+        td A002
+        td M 
+        td &Dstrok;en 
+        td 30 
+        td
+          a.btn.btn-info(href='/nvkho/xemchitietmh ') Xem  
+      tr
+        th(scope='row') 3
+        td &Aacute;o s&#x1A1; mi 
+        td A003
+        td L 
+        td &Dstrok;en 
+        td 35 
+        td
+          a.btn.btn-info(href='/nvkho/xemchitietmh ') Xem  
