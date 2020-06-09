@@ -10,12 +10,15 @@ const khachHangSchema = new mongoose.Schema({
   userName: {
     type: String,
     required: true,
+    minlength: 10,
     maxlength: 20,
     unique: true,
   },
   password: {
     type: String,
     required: true,
+    minlength: 10,
+    maxlength: 20,
   },
   passwordChangeAt: Date,
   moTa: {
@@ -44,6 +47,6 @@ khachHangSchema.methods.isChangedPasswordAfter = function (timestamp) {
   return false;
 };
 
-const NhanVien = mongoose.model('NhanVien', khachHangSchema);
+const NhanVien = mongoose.model('KhachHang', khachHangSchema);
 
 module.exports = NhanVien;

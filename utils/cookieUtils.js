@@ -8,8 +8,8 @@ module.exports = {
   checkUserByCookie,
 };
 
-function setTokenCookie(idUser, response) {
-  let token = _createToken(idUser);
+async function setTokenCookie(dataUser, response) {
+  let token = _createToken(dataUser);
   let cookieOption = {
     expires: new Date(
       Date.now() + process.env.JWT_COOKIE_EXPORES_IN * 86400000000
@@ -31,8 +31,8 @@ async function checkUserByCookie(jwtCookie) {
   return true;
 }
 
-const _createToken = (idUser) => {
-  return jwt.sign({ id: idUser }, process.env.JWT_SECRET, {
+const _createToken = (data) => {
+  return jwt.sign(data, process.env.JWT_SECRET, {
     expiresIn: process.env.JWT_EXPIRES_IN,
   });
 };

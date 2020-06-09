@@ -57,18 +57,17 @@ async function loginAccount(username, password) {
     '+password'
   );
   if (!user || !(await user.isCorrectPassword(password, user.password))) {
-    return { status: 'wrong' };
+    return { status: 'fail' };
   }
   return {
-    status: 'true',
-    type: user.chucVu,
+    status: 'success',
+    infor: user,
   };
 }
 
 async function isExistAccount(username) {
   if (!username) return false;
   var user = await NhanVien.findOne({ userName: username });
-  console.log(user);
   if (!user) return false;
   return true;
 }

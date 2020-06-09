@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
       showError('Tên tài khoản đã tồn tại, vui lòng nhập lại !');
       return;
     }
-    // submit.type = 'submit';
+    submit.type = 'submit';
   });
 
   function showError(err) {

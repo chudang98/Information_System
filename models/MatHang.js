@@ -38,11 +38,9 @@ const matHangSchema = new mongoose.Schema({
     default: 5,
     required: true,
   },
-  anh: [
-    {
-      type: String,
-    },
-  ],
+  Anh: {
+    type: String,
+  },
 });
 
 const MatHang = mongoose.model('MatHang', matHangSchema);
