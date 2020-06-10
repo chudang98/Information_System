@@ -1,0 +1,14 @@
+extends base
+block page_title
+  title admin
+block content
+  .content-ttkh.content.container
+    figure.highcharts-figure
+      .choose.text-center
+        h3.text-center Ch&#x1ECD;n xem doanh thu theo th&#x1EDD;i gian 
+        a.btn.btn-inf.timkiem(style='margin-top:32px', href='/admin/ththang') Th&aacute;ng
+        a.btn.btn-inf.timkiem(style='margin-top:32px', href='/admin/thquy') Qu&yacute; 
+        a.btn.btn-inf.timkiem(style='margin-top:32px', href='/admin/thnam') N&abreve;m
+      #contain
+      p.highcharts-description
+        | Doanh thu trong th&aacute;ng tr&#x1B0;&#x1EDB;c

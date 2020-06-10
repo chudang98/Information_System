@@ -1,0 +1,31 @@
+extends base
+
+block page_title
+  title Home page
+block content
+  .content.container
+    h2(style='border-bottom: 1px solid black;') Th&ocirc;ng tin m&#x1EB7;t h&agrave;ng  :
+    form.content-form
+      .form-group
+        label(for='exampleInputName') M&atilde; m&#x1EB7;t h&agrave;ng   
+        input#exampleInputName.form-control(type='text', aria-describedby='emailHelp')
+      .form-group
+        label(for='exampleInputCMT') T&ecirc;n m&#x1EB7;t h&agrave;ng   
+        input#exampleInputPassword1.form-control(type='text', value='12398546')
+      .form-group
+        label(for='exampleInputSDT') S&#x1ED1; l&#x1B0;&#x1EE3;ng    
+        input#exampleInputSDT.form-control(type='number')
+      .form-group
+        label(for='ngaysinh') M&agrave;u s&#x1EAF;c   
+        input#ngaysinh.form-control(type='date')
+      .form-group
+        label(for='diachi') K&iacute;ch c&#x1EE1;   
+        input#diachi.form-control(type='text')
+      .form-group
+        label(for='diachi') Gi&aacute; nh&#x1EAD;p   
+        input#diachi.form-control(type='text')
+      .form-group
+        label(for='diachi') Gi&aacute; b&aacute;n    
+        input#diachi.form-control(type='text')
+      button.btn.btn-pri.btn-info(type='submit') S&#x1EED;a  
+      button.btn.btn-pri(type='submit') X&oacute;a  

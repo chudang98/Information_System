@@ -1,0 +1,40 @@
+extends base
+block page_title
+  title admin
+block content
+  .content-ttkh.content.container
+    h2(style='border-bottom: 1px solid black;') Danh Sách Nhân Viên 
+    form.content-form
+      .form-group.form-search-nv.row
+        input#exampleInputEmail1.form-control.col-md-9(type='email', placeholder='Nhập vào tên nhân viên ', aria-describedby='emailHelp')
+        a.btn.btn-pri.btn-add-nv.col-md-2.offset-md-1(href='/admin/themnhanvien') Thêm mới   
+    table.table.table-bordered.table-striped.text-center
+      thead.thead-table
+        tr
+          th(scope='col') STT
+          th(scope='col') Họ và tên 
+          th(scope='col') Mã nhân viên
+          th(scope='col') Số điện thoại 
+          th(scope='col') Chi Tiết 
+      tbody
+        tr
+          th(scope='row') 1
+          td Trần Tiểu Cúc
+          td 1 
+          td 0987654343
+          td
+            a.btn.btn-info(href='/admin/xemchitietnv') Xem  
+        tr
+          th(scope='row') 1
+          td Trần Tiểu Cúc
+          td 1 
+          td 0987654343
+          td
+            a.btn.btn-info(href='/admin/xemchitietnv') Xem   
+        tr
+          th(scope='row') 1
+          td Trần Tiểu Cúc
+          td 1 
+          td 0987654343
+          td
+            a.btn.btn-info(href='/admin/xemchitietnv') Xem  

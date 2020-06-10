@@ -1,0 +1,41 @@
+extends base
+block page_title
+  title admin
+block content
+  .content-ttkh.content.container
+    form.content-form
+      .form-group.form-search-nv.row
+        input#exampleInputEmail1.form-control.col-md-9(type='email', placeholder='Nhập vào năm cần tìm  ', aria-describedby='emailHelp')
+        button.btn.btn-pri.btn-add-nv.col-md-2.offset-md-1(type='submit') T&igrave;m ki&#x1EBF;m  
+    table.table.table-bordered.table-striped.text-center
+      thead.thead-table
+        tr
+          th(scope='col ') N&abreve;m 
+          th(scope='col ') Doanh thu 
+          th(scope='col ') L&atilde;i 
+          th(scope='col ') Chi ti&#x1EBF;t 
+      tbody
+        tr
+          th(scope='row ') 2020
+          td 230.000.000
+          td 180.000.000
+          td
+            a.btn.btn-info(href='/admin/danhsachhoadonnam ') Xem  
+        tr
+          th(scope='row ') 2019
+          td 200.000.000
+          td 160.000.000
+          td
+            a.btn.btn-info(href='/admin/danhsachhoadonnam ') Xem  
+        tr
+          th(scope='row ') 2018
+          td 220.000.000
+          td 180.000.000
+          td
+            a.btn.btn-info(href='/admin/danhsachhoadonnam ') Xem  
+        tr
+          th(scope='row ') 2017
+          td 179.000.000
+          td 156.000.000
+          td
+            a.btn.btn-info(href='/admin/danhsachhoadonnam ') Xem  
