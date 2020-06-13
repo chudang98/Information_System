@@ -1,0 +1,34 @@
+.wrapper
+  .header
+    .row.nav-default
+      nav.navbar.navbar-expand-lg.container-fluid.nav-background
+        .col-md-2
+          a.navbar-brand(href='#')
+            img(src='../../images/component.png', width='100', height='50', alt='')                         
+          button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarNavDropdown', aria-controls='navbarNavDropdown', aria-expanded='false', aria-label='Toggle navigation')
+            span.navbar-toggler-icon                    
+        .col-md-10
+          #navbarNavDropdown.collapse.navbar-collapse
+            ul.navbar-nav.ul-header
+              li.nav-item.menu-header
+                a#navbarDropdownMenuLink.nav-link.main-text(href='/nvkho/nhapkho', role='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+                  | Nhập Kho                                 
+              li.nav-item.dropdown.menu-header
+                a#navbarDropdownMenuLink.nav-link.dropdown-toggle.main-text(href='#', role='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+                  | Mặt hàng                                     
+                .dropdown-menu(aria-labelledby='navbarDropdownMenuLink')
+                  a.dropdown-item(href='/nvkho/thongtinmh') Thông tin mặt hàng                                       
+                  a.dropdown-item(href='/nvkho/themmh') Thêm mặt hàng                             
+              li.nav-item.dropdown.menu-header
+                a#navbarDropdownMenuLink.nav-link.dropdown-toggle.main-text(href='#', role='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+                  | Nhà cung cấp                                     
+                .dropdown-menu(aria-labelledby='navbarDropdownMenuLink')
+                  a.dropdown-item(href='/nvkho/thongtinncc') Thông tin Nhà cung cấp                                       
+                  a.dropdown-item(href='/nvkho/themncc') Thêm nhà cung cấp                          
+              li.nav-item.dropdown.menu-header
+                a#navbarDropdownMenuLink.nav-link.dropdown-toggle.name-avt(href='#', role='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+                  img.img-avt(src='../../images/33300394_1661690847212341_2374298766367784960_n.jpg', width='40', height='40', alt='')
+                  |  Trẩn Tiểu Cúc                                      
+                .dropdown-menu(aria-labelledby='navbarDropdownMenuLink')
+                  a.dropdown-item(href='/nvkho/thongtincanhan') Thông tin cá nhân                                        
+                  a.dropdown-item(href='#') Đăng xuất

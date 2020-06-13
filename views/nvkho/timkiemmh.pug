@@ -1,0 +1,48 @@
+extends base
+block page_title
+  title nhaphang
+block content
+  .content.container
+    h2(style='border-bottom: 1px solid black;') Tìm kiếm mặt hàng của nhà cung cấp  :
+    form.content-form
+      .form-group.form-search-mh.row
+        input#exampleInputEmail1.form-control.col-md-9(type='email', placeholder='Nhập tên mặt hàng  ', aria-describedby='emailHelp')
+        button.btn.btn-search.btn-pri.col-md-2.offset-md-1(type='submit') Tìm kiếm   
+    table.table.table-bordered.table-striped.text-center
+      thead.thead-table
+        tr
+          th(scope='col') STT
+          th(scope='col') Mã mặt hàng 
+          th(scope='col') Tên mặt hàng  
+          th(scope='col') Đơn giá 
+          th(scope='col') Màu sắc
+          th(scope='col') Kích thước  
+          th(scope='col') Chức năng
+      tbody
+        tr
+          th(scope='row') 1
+          td A001
+          td Áo sơ mi
+          td 100.000
+          td Đen
+          td M
+          td
+            a.btn.btn-info(href='/nvkho/hoadon') Chọn   
+        tr
+          th(scope='row') 2
+          td A002
+          td Áo sơ mi
+          td 100.000
+          td Đen 
+          td L
+          td
+            a.btn.btn-info(href='/nvkho/hoadon') Chọn  
+        tr
+          th(scope='row') 3
+          td A003
+          td Áo sơ mi
+          td 100.000
+          td Đen
+          td S
+          td
+            a.btn.btn-info(href='/nvkho/hoadon') Chọn

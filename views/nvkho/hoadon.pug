@@ -1,0 +1,52 @@
+extends base
+block page_title
+  title nhaphang 
+block content
+  .content.container
+    h2(style='border-bottom: 1px solid black;') Danh sách các mặt hàng :
+    table.table.table-bordered.table-striped.text-center
+      thead.thead-table
+        tr
+          th(scope='col') STT
+          th(scope='col') Mã mặt hàng 
+          th(scope='col') Tên mặt hàng 
+          th(scope='col') Số lượng 
+          th(scope='col') Đơn giá 
+          th(scope='col') Thành tiền 
+          th(scope='col') Chức năng
+      tbody
+        tr
+          th(scope='row') 1
+          td A001
+          td Áo sơ mi 
+          td 1 
+          td 100.000
+          td 100.000 
+          td
+            a.btn.btn-info(href='#') Xóa   
+        tr
+          th(scope='row') 2
+          td A002
+          td Áo sơ mi 
+          td 1 
+          td 100.000
+          td 100.000 
+          td
+            a.btn.btn-info(href='#') Xóa 
+        tr
+          th(scope='row') 3
+          td A003
+          td Áo sơ mi
+          td 1 
+          td 100.000
+          td 100.000 
+          td
+            a.btn.btn-info(href='#') Xóa  
+        tr
+          th(colspan='6') Tổng tiền 
+          th 300.000 
+    .row
+      .col-md-2
+        a.btn.btn-pri.btn-seller(href='/nvkho/timkiemmh') Tìm kiếm   
+      .col-md-2.offset-8
+        a.btn.btn-pri.btn-seller(href='#') Thanh toán   
