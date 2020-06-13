@@ -8,7 +8,13 @@ module.exports = {
 }
 
 async function checkLoginUser(req, res, next) {
-  
+  if(req.cookies.jwt){
+    try{
+      
+    }catch(err){
+
+    }
+  }
 }
 
 async function checkLoginNhanVien(req, res, next) {

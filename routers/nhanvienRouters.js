@@ -1,10 +1,13 @@
 const express = require('express');
 
 const nvController = require('../controllers/nhanvienController');
+const authController = require('../controllers/authController');
 
 const router = express.Router();
 
-router.route('/login').get(nvController.getLogin).post(nvController.checkLogin);
+router.route('/login')
+  .get(nvController.getLogin)
+  .post(authController.authAccNhanVien);
 
 router
   .route('/signup')

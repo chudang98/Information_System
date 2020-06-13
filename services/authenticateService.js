@@ -1,6 +1,7 @@
 const KhachHang = require('../models/KhachHang');
 const Nguoi = require('../models/Nguoi');
 const NhanVien = require('../models/NhanVien');
+const _ = require('lodash');
 
 module.exports = {
 	checkNhanVienLogin,
@@ -10,7 +11,7 @@ module.exports = {
 }
 
 async function checkNhanVienLogin(username, password){
-  if (_.isEmpty(username) || _.isEmpty(password)) return { status: 'wrong' };
+  if (_.isEmpty(username) || _.isEmpty(password)) return { status: 'fail' };
   const user = await NhanVien.findOne({ userName: username }).select(
     '+password'
   );

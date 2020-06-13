@@ -71,5 +71,4 @@ async function dangKy(req, res) {
       status: 'fail',
     }
   }
-  console.log(result);
 }

@@ -45,15 +45,3 @@ async function getHome(req, res) {
   return res.status(200).render('nvkho/home', {});
 }
 
-async function _chuyenTrangLogin(chucVu){
-  switch(chucVu){
-    case "NhanVienQuanLy" : {
-      return 
-    };
-    case "NhanVienBanDHang" : {
-      return 
-    };
-    default:
-      return ``
-  }
-}
