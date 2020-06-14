@@ -11,12 +11,12 @@ const matHangSchema = new mongoose.Schema({
     default: 0,
   },
   giaNhap: {
-    type: Number,
+    type: String,
     required: true,
     default: 0,
   },
   giaBan: {
-    type: Number,
+    type: String,
     required: true,
     default: 0,
   },

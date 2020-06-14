@@ -1,7 +1,5 @@
 const MatHang = require('../models/MatHang');
 const DanhGia = require('../models/DanhGia');
-const Nguoi = require('../models/Nguoi');
-const KhachHang = require('../models/KhachHang');
 
 const _ = require('lodash');
 
@@ -12,8 +10,6 @@ module.exports = {
   timMatHangTheoLoai,
   layNhanXet,
   themNhanXet,
-  dangNhap,
-  dangKy,
 };
 
 async function takeProduct() {
@@ -52,40 +48,39 @@ async function timMatHangTheoLoai(maLoaiMatHang) {
     switch(maLoaiMatHang){
       case 1: {
         const docs = await MatHang.find({ loai: 'Áo Sơ mi' });
-        console.log(1);
-        return docs;
+        return _mappingProcuct(docs);
       };
       case 2: {
         const docs = await MatHang.find({ loai: 'Áo khoác' });
-        return docs;
+        return _mappingProcuct(docs);
       };
       case 3 : {
         const docs = await MatHang.find({ loai: 'Áo Vest' });
-        return docs;
+        return _mappingProcuct(docs);
       };
       case 4 : {
         const docs = await MatHang.find({ loai: 'Áo phông' });
-        return docs;
+        return _mappingProcuct(docs);
       };
       case 5 : {
         const docs = await MatHang.find({ loai: 'Quần vải' });
-        return docs;
+        return _mappingProcuct(docs);
       };
       case 6 : {
         const docs = await MatHang.find({ loai: 'Quần Kaki' });
-        return docs;
+        return _mappingProcuct(docs);
       };
       case 7 : {
         const docs = await MatHang.find({ loai: 'Quần jean ống rộng' });
-        return docs;
+        return _mappingProcuct(docs);
       };
       case 8 : {
         const docs = await MatHang.find({ loai: 'Quần jean ống đứng' });
-        return docs;
+        return _mappingProcuct(docs);
       };
       default : {
         const docs = await MatHang.find();
-        return docs;
+        return _mappingProcuct(docs);
       }
     }
   }catch(err){
@@ -121,10 +116,52 @@ async function themNhanXet(idHoaDon, idMatHang, nhanXet) {
   }
 }
 
-async function dangNhap() {
+async function _mappingProcuct(products){
+  var data = [];
+  _.forEach(products, (product, index) => {
+    var fields = ['_id', 'ten', 'loai', 'giaBan', 'soLuong', 'mauSac', 'kichCo', 'Anh'];
+    data[index] = _.pick(product, fields);
+  });
+  var objData = _.groupBy(data, 'ten');
+  var result = [];
+  _.forOwn(objData, (value, key) => {
+ 
+    var sanPham = [];
+    var mapKichco = _.groupBy(value, 'kichCo');
 
-}
+    _.forOwn(mapKichco, (value, key) => {
+      var mauSac = [];
+      _.forEach(value, product => {
+        mauSac.push({
+          _id: product._id,
+          mauSac: product.mauSac,
+        });
+      })
+      var kichCo = {
+        kichCo: key,
+        mauSac: mauSac,
+      };
+      sanPham.push(kichCo);
+    });
 
-async function dangKy() {
+    var sanPhamNho = {
+      ten: key,
+      loai: value[0].loai,
+      giaBan: value[0].giaBan,
+      sanPham: sanPham,
+    };
 
+    // _.forEach(value, product => {
+    //   // _.groupBy( , 'kichCo');
+    //   products.push({
+    //     _id: product._id,
+    //     mauSac: product.mauSac,
+    //     kichCo: product.kichCo,
+    //     Anh: product.Anh,
+    //   })
+    // });
+   
+    result.push(sanPhamNho);
+  });
+  return result;
 }
