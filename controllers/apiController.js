@@ -47,13 +47,13 @@ async function dangNhap(req, res) {
   var result = await service.checkUserLogin(userName, password);
   if(status == 'success') {
     await jwtUtil.setTokenCookie(result.infor, res);
-    return {
+    return res.json({
       status: 'success',
-    }
+    });
   }else{
-    return {
+    return res.json({
       status : 'fail',
-    }
+    });
   }
 
 }
@@ -63,12 +63,12 @@ async function dangKy(req, res) {
   var result = await service.userSignup(data);
   if(result.status == 'success'){
     await jwtUtil.setTokenCookie(result.infor, res);
-    return {
+    return res.json({
       status: 'success',
-    }
+    })
   }else{
-    return {
+    return res.json({
       status: 'fail',
-    }
+    })
   }
-}4
+}

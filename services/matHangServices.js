@@ -125,7 +125,6 @@ async function _mappingProcuct(products){
   var objData = _.groupBy(data, 'ten');
   var result = [];
   _.forOwn(objData, (value, key) => {
- 
     var sanPham = [];
     var mapKichco = _.groupBy(value, 'kichCo');
 

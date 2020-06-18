@@ -73,6 +73,7 @@ async function userSignup(data){
       infor: user,
 		}
 	}catch(err){
+    console.log(err);
 		return {
 			status: 'fail',
 		}

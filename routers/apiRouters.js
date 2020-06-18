@@ -18,8 +18,6 @@ router.route('/mathang/loai/:maLoai').get(controller.timMatHangTheoLoai);
     password
  */
 router.route('/login').post(controller.dangNhap);
-
-
 /*
 	Người dùng đăng ký tài khoản cần các input trong form :
 		Các trường thông tin đặt tên như file Nguoi.js trong thư mục model kèm theo
