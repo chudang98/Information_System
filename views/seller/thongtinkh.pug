@@ -20,24 +20,34 @@ block content
 					th(scope='col') Chi Tiết 
               
 			tbody
-				tr
-					th(scope='row')  1                     
-					td Trần Tiểu Cúc                     
-					td 09876543                   
-					td Hà Nội                     
-					td
-						a.btn.btn-info(href='/seller/xemchitiet') Xem                  
-				tr
-					th(scope='row') 1
-					td Trần Tiểu Cúc                     
-					td 09876543                   
-					td Hà Nội                     
-					td
-						a.btn.btn-info(href='/seller/xemchitiet') Xem     
-				tr
-					th(scope='row') 1
-					td Trần Tiểu Cúc                     
-					td 09876543                   
-					td Hà Nội                     
-					td
-						a.btn.btn-info(href='/seller/xemchitiet') Xem      
+				- var dem = 1
+				each client in khachhang
+					if(dem<=15)
+					tr
+						th(scope='row')= dem++                     
+						td=	client.nguoi.ten               
+						td= client.nguoi.sdt           
+						td=	client.nguoi.diaChi           
+						td
+							a.btn.btn-info(href='/seller/xemchitiet') Xem	
+				//- tr
+				//- 	th(scope='row')  1                     
+				//- 	td Trần Tiểu Cúc                     
+				//- 	td 09876543                   
+				//- 	td Hà Nội                     
+				//- 	td
+				//- 		a.btn.btn-info(href='/seller/xemchitiet') Xem                  
+				//- tr
+				//- 	th(scope='row') 1
+				//- 	td Trần Tiểu Cúc                     
+				//- 	td 09876543                   
+				//- 	td Hà Nội                     
+				//- 	td
+				//- 		a.btn.btn-info(href='/seller/xemchitiet') Xem     
+				//- tr
+				//- 	th(scope='row') 1
+				//- 	td Trần Tiểu Cúc                     
+				//- 	td 09876543                   
+				//- 	td Hà Nội                     
+				//- 	td
+				//- 		a.btn.btn-info(href='/seller/xemchitiet') Xem      
