@@ -9,14 +9,14 @@ const khachHangSchema = new mongoose.Schema({
   },
   userName: {
     type: String,
-    required: true,
+    required: false,
     minlength: 10,
     maxlength: 20,
     unique: true,
   },
   password: {
     type: String,
-    required: true,
+    required: false,
     minlength: 10,
     maxlength: 20,
   },
@@ -24,6 +24,7 @@ const khachHangSchema = new mongoose.Schema({
   moTa: {
     type: String,
     maxlength: 100,
+    required: false,
   },
 });
 

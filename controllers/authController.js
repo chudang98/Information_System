@@ -1,4 +1,4 @@
-const nhanVienService = require('../services/nhanVienServices');
+const authService = require('../services/authenticateService');
 const cookieUtils = require('../utils/cookieUtils');
 
 module.exports = {
@@ -8,26 +8,32 @@ module.exports = {
 
 async function authAccNhanVien(req, res) {
   var { userName, password } = req.body;
-  var result = await nhanVienService.loginAccount(userName, password);
-
-  if (result.status == 'fail') return { status: 'fail' };
+  var result = await authService.checkNhanVienLogin(userName, password);
+  if (result.status == 'fail')   return res.redirect('/user/login'); 
   else {
-    cookieUtils.setTokenCookie(result._id, res);
-    res.status(200).json({
-      status: 'success',
-    });
+    var user = result.infor;
+    await cookieUtils.setTokenCookie(user, res);
+    return _chuyenTrangLogin(user.chucVu, res);
   }
-  return res.status(200).json({
-    status: 'success',
-    exist: check,
-  });
 }
 
 async function authAccKhachHang(req, res) {
-  var { userName } = req.body;
-  return res.status(200).json({
-    status: 'success',
-  });
+  // var { userName } = req.body;
+  // return res.status(200).json({
+  //   status: 'success',
+  // });
 }
 
-async function checkCookieLogin(req, res) {}
+function _chuyenTrangLogin(chucVu, res){
+  switch(chucVu){
+    case "NhanVienQuanLy" : {
+      return res.redirect('/user/home');
+    };
+    case "NhanVienBanHang" : {
+      return res.redirect('/seller/banhang');
+    };
+    default:
+      return res.redirect('/user/login');
+  }
+}
+
