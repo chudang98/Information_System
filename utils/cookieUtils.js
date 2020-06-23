@@ -7,6 +7,7 @@ module.exports = {
   setTokenCookie,
   checkUserByCookie,
   getUserByCookie,
+  _createToken,
 };
 
 async function setTokenCookie(dataUser, response) {
@@ -16,7 +17,7 @@ async function setTokenCookie(dataUser, response) {
       Date.now() + process.env.JWT_COOKIE_EXPORES_IN * 86400000000
     ),
     secure: false,
-    httpOnly: true,
+    httpOnly: false,
   };
   response.cookie('jwt', token, cookieOption);
 }
@@ -51,7 +52,7 @@ async function _decodeCookie(jwtCookie){
   return decoded;
 }
 
-const _createToken = async (data) => {
+async function _createToken(data){
   var objectData = {
     id: data.id,
     username: data.userName,
