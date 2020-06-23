@@ -46,9 +46,10 @@ async function dangNhap(req, res) {
   var { userName, password } = req.body;
   var result = await service.checkUserLogin(userName, password);
   if(status == 'success') {
-    await jwtUtil.setTokenCookie(result.infor, res);
+    var token = await jwtUtil._createToken(result.infor);
     return res.json({
       status: 'success',
+      token,
     });
   }else{
     return res.json({
@@ -63,7 +64,7 @@ async function dangKy(req, res) {
   var result = await service.userSignup(data);
   console.log(result);
   if(result.status == 'success'){
-    var token =await jwtUtil._createToken(result.infor);
+    var token = await jwtUtil._createToken(result.infor);
     // res.cookie("item","7493")
     return res.json({
       status: 'success',
