@@ -1,56 +1,44 @@
-const mongoose = require('mongoose');
+'use strict';
 const bcrypt = require('bcryptjs');
-const crypto = require('crypto');
 
-const nhanVienSchema = new mongoose.Schema({
-    nguoi: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Nguoi',
-    },
-    cuaHang: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'CuaHang',
+module.exports = (sequelize, Sequelize) => {
+  const NhanVien = sequelize.define('NhanVien', {
+    _id: {
+      allowNull: false,
+      autoIncrement: true,
+      primaryKey: true,
+      type: Sequelize.INTEGER
     },
     userName: {
-        type: String,
-        required: true,
-        maxlength: 20,
-        unique: true,
+      type: Sequelize.STRING,
+      allowNull: false,
     },
     password: {
-        type: String,
-        required: true,
-        select: false,
+      type: Sequelize.STRING,
+      allowNull: false,
     },
-    passwordChangeAt: Date,
     chucVu: {
-        type: String,
-        required: true,
-        enum: {
-            values: ['NhanVienKho', 'NhanVienQuanLy', 'NhanVienBanHang'],
-        },
+      type: Sequelize.ENUM('NhanVienKho', 'NhanVienBanHang', 'NhanVienQuanLy'),
+      allowNull: false,
     },
-});
-
-nhanVienSchema.methods.isCorrectPassword = async(passNhap, passThat) => {
-    return await bcrypt.compare(passNhap, passThat);
-};
-nhanVienSchema.pre('save', async function(next) {
-    this.password = await bcrypt.hash(this.password, 12);
-    next();
-});
-nhanVienSchema.methods.isChangedPasswordAfter = function(timestamp) {
-    if (this.passwordChangedAt) {
-        const changedTimestamp = parseInt(
-            this.passwordChangedAt.getTime() / 1000,
-            10
-        );
-        return timestamp < changedTimestamp;
+    createdAt: {
+      allowNull: true,
+      type: Sequelize.DATE
+    },
+    updatedAt: {
+      allowNull: true,
+      type: Sequelize.DATE
+    },
+  },{
+    hooks: {
+      beforeCreate: async (user, option) => {
+        user.password = await bcrypt.hash(user.password, 12);
+      }
     }
-    // False means NOT changed
-    return false;
+  });
+  NhanVien.associate = function(models) {
+    NhanVien.belongsTo(models.Nguoi, { foreignKey: 'Nguoiid', sourceKey: '_id' });
+    NhanVien.belongsTo(models.CuaHang, { foreignKey: 'CuaHangid', sourceKey: '_id' });
+  };
+  return NhanVien;
 };
-
-const NhanVien = mongoose.model('NhanVien', nhanVienSchema);
-
-module.exports = NhanVien;

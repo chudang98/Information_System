@@ -13,16 +13,16 @@ async function luuKhachHang() {}
 async function checkAccount() {}
 
 async function loginAccount(username, password) {
-    if (_.isEmpty(username) || _.isEmpty(password)) return { status: 'wrong' };
-    const user = await KhachHang.findOne({ userName: username }).select(
-        '+password'
-    );
-    if (!user || !(await user.isCorrectPassword(password, user.password))) {
-        return { status: 'wrong' };
-    }
-    return {
-        status: 'true',
-    };
+  if (_.isEmpty(username) || _.isEmpty(password)) return { status: 'wrong' };
+  const user = await KhachHang.findOne({ userName: username }).select(
+    '+password'
+  );
+  if (!user || !(await user.isCorrectPassword(password, user.password))) {
+    return { status: 'wrong' };
+  }
+  return {
+    status: 'true',
+  };
 }
 
 async function getAllClient() {
@@ -30,4 +30,8 @@ async function getAllClient() {
         .find()
         .populate('nguoi');
     return clients;
+}
+
+async function getClientById(id) {
+  var client = await Client
 }

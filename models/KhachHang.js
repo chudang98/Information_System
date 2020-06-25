@@ -1,53 +1,18 @@
-const mongoose = require('mongoose');
-
-const bcrypt = require('bcryptjs');
-
-const khachHangSchema = new mongoose.Schema({
-  nguoi: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Nguoi',
-  },
-  userName: {
-    type: String,
-    required: false,
-    minlength: 10,
-    maxlength: 20,
-    unique: true,
-  },
-  password: {
-    type: String,
-    required: false,
-    minlength: 10,
-    maxlength: 20,
-  },
-  passwordChangeAt: Date,
-  moTa: {
-    type: String,
-    maxlength: 100,
-    required: false,
-  },
-});
-
-khachHangSchema.methods.isCorrectPassword = async (passNhap, passThat) => {
-  return await bcrypt.compare(passNhap, passThat);
+'use strict';
+module.exports = (sequelize, Sequelize) => {
+  const KhachHang = sequelize.define('KhachHang', {
+    _id: {
+      allowNull: false,
+      autoIncrement: true,
+      primaryKey: true,
+      type: Sequelize.INTEGER
+    },
+    moTa: Sequelize.STRING,
+    userName: Sequelize.STRING,
+    password: Sequelize.STRING,
+  }, {});
+  KhachHang.associate = function(models) {
+    // KhachHang.belongsTo(models.Nguoi, { foreignKey: 'CuaHangid', sourceKey: '_id' });
+  };
+  return KhachHang;
 };
-khachHangSchema.pre('save', async function (next) {
-  this.password = await bcrypt.hash(this.password, 12);
-  next();
-});
-khachHangSchema.methods.isChangedPasswordAfter = function (timestamp) {
-  if (this.passwordChangedAt) {
-    const changedTimestamp = parseInt(
-      this.passwordChangedAt.getTime() / 1000,
-      10
-    );
-    return timestamp < changedTimestamp;
-  }
-
-  // False means NOT changed
-  return false;
-};
-
-const NhanVien = mongoose.model('KhachHang', khachHangSchema);
-
-module.exports = NhanVien;

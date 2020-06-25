@@ -1,37 +1,16 @@
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
-
-const hoaDonNhapSchema = new mongoose.Schema({
-  thoiGian: {
-    type: date,
-    required: true,
-  },
-  nhanVienKho: {
-    type: Schema.Types.ObjectId,
-    ref: 'NhanVien',
-    required: true,
-  },
-  nhaCungCap: {
-    type: Schema.Types.ObjectId,
-    ref: 'NhaCungCap',
-    required: true,
-  },
-  matHang: [
-    {
-      matHang: {
-        type: Schema.Types.ObjectId,
-        ref: 'MatHang',
-        required: true,
-      },
-      soLuong: {
-        type: Number,
-        required: true,
-        default: 1,
-      },
+'use strict';
+module.exports = (sequelize, Sequelize) => {
+  const HoaDonNhap = sequelize.define('HoaDonNhap', {
+    _id: {
+      allowNull: false,
+      autoIncrement: true,
+      primaryKey: true,
+      type: Sequelize.INTEGER,
     },
-  ],
-});
-
-const HoaDonNhap = mongoose.model('HoaDonNhap', hoaDonNhapSchema);
-
-module.exports = HoaDonNhap;
+    thoiGian: Sequelize.DATE
+  }, {});
+  HoaDonNhap.associate = function(models) {
+    // associations can be defined here
+  };
+  return HoaDonNhap;
+};

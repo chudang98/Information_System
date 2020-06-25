@@ -1,39 +1,50 @@
-const mongoose = require('mongoose');
+'use strict';
 
-const nguoiSchema = new mongoose.Schema({
-  ten: {
-    type: String,
-    required: true,
-    maxlength: 40,
-  },
-  diaChi: {
-    type: String,
-    required: true,
-    maxlength: 100,
-  },
-  ngaySinh: {
-    type: Date,
-    required: true,
-  },
-  gioiTinh: {
-    type: String,
-    required: true,
-    enum: {
-      values: ['Nam', 'Nữ'],
+const bcrypt = require('bcryptjs');
+module.exports = (sequelize, Sequelize) => {
+  const Nguoi = sequelize.define('Nguoi', {
+    _id: {
+      allowNull: false,
+      autoIncrement: true,
+      primaryKey: true,
+      type: Sequelize.INTEGER
     },
-  },
-  email: {
-    type: String,
-    required: true,
-    maxlength: 100,
-  },
-  sdt: {
-    type: String,
-    required: true,
-    maxlength: 12,
-  },
-});
-
-const Nguoi = mongoose.model('Nguoi', nguoiSchema);
-
-module.exports = Nguoi;
+    ten: {
+      type: Sequelize.STRING,
+      allowNull: false,
+    },
+    diaChi: {
+      type: Sequelize.STRING,
+      allowNull: false,
+    },
+    ngaySinh: {
+      type: Sequelize.DATEONLY,
+      allowNull: false,
+    },
+    gioiTinh: {
+      type: Sequelize.ENUM('Nam', 'Nữ'),
+      allowNull: false,
+    },
+    email: {
+      type: Sequelize.STRING,
+      allowNull: false,
+    },
+    sdt: {
+      type: Sequelize.STRING,
+      allowNull: false,
+    },
+    createdAt: {
+      allowNull: true,
+      type: Sequelize.DATE
+    },
+    updatedAt: {
+      allowNull: true,
+      type: Sequelize.DATE
+    }
+  }, {}
+  );
+  Nguoi.associate = function(models) {
+    // associations can be defined here
+  };
+  return Nguoi;
+};

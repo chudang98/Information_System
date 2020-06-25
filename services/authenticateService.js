@@ -1,7 +1,9 @@
-const KhachHang = require('../models/KhachHang');
-const Nguoi = require('../models/Nguoi');
-const NhanVien = require('../models/NhanVien');
+const db = require('../models');
+const KhachHang = require('../models/KhachHang')(db.sequelize, db.Sequelize);
+const Nguoi = require('../models/Nguoi')(db.sequelize, db.Sequelize);
+const NhanVien = require('../models/NhanVien')(db.sequelize, db.Sequelize);
 const _ = require('lodash');
+const bcrypt = require('bcryptjs');
 
 module.exports = {
 	checkNhanVienLogin,
@@ -12,12 +14,18 @@ module.exports = {
 
 async function checkNhanVienLogin(username, password){
   if (_.isEmpty(username) || _.isEmpty(password)) return { status: 'fail' };
-  const user = await NhanVien.findOne({ userName: username }).select(
-    '+password'
-  );
-  if (!user || !(await user.isCorrectPassword(password, user.password))) {
+  const user = await NhanVien.findOne({ 
+    where: {
+      userName: username,
+    },
+    raw: true,
+    nest: true,
+  });
+
+  if (!user || !_validatePassword(password, user) == false) {
     return { status: 'fail' };
   }
+
   return {
     status: 'success',
     infor: user,
@@ -27,16 +35,16 @@ async function checkNhanVienLogin(username, password){
 async function nhanVienSignup(data){
 	try{
 		var nguoi = await _createNguoi(data);
-		var nhanVien = new NhanVien({
+		var nhanVien = NhanVien.create({
 			userName: data.userName,
 			password: data.password,
 			chucVu: data.chucVu,
-			nguoi: nguoi._id,
+      Nguoiid: nguoi._id,
+      CuaHangid: 1,
     })
-    await nhanVien.save();
 		return {
       status: 'success',
-      infor: nhanVien,
+      infor: nhanVien.toJSON(),
 		}
 	}catch(err){
 		return {
@@ -46,11 +54,15 @@ async function nhanVienSignup(data){
 }
 
 async function checkUserLogin(username, password){
-	if (_.isEmpty(username) || _.isEmpty(password)) return { status: 'wrong' };
-  const user = await KhachHang.findOne({ userName: username }).select(
-    '+password'
-  );
-  if (!user || !(await user.isCorrectPassword(password, user.password))) {
+	if (_.isEmpty(username) || _.isEmpty(password)) return { status: 'fail' };
+  const user = await KhachHang.findOnefindOne({ 
+    where: {
+      userName: username,
+    },
+    raw: true,
+    nest: true,
+  });
+  if (!user || _validatePassword(password, user) == false ) {
     return { status: 'fail' };
   }
   return {
@@ -63,7 +75,7 @@ async function userSignup(data){
 	try{
 		var nguoi = await _createNguoi(data);
 		var user = new KhachHang({
-			nguoi: nguoi._id,
+			Nguoiid: nguoi._id,
 			userName: data.userName,
 			password: data.password,
 		});
@@ -81,14 +93,19 @@ async function userSignup(data){
 }
 
 async function _createNguoi(dataNguoi){
-	var newNguoi = new Nguoi({
+	var newNguoi = await Nguoi.create({
 		ten: dataNguoi.ten,
 		diaChi: dataNguoi.diaChi,
 		ngaySinh: dataNguoi.ngaySinh,
 		gioiTinh: dataNguoi.gioiTinh,
 		email: dataNguoi.email,
 		sdt: dataNguoi.sdt,
-	});
-  await newNguoi.save();
-  return newNguoi;
+  });
+  var data = newNguoi.toJSON();  
+  return data;
+}
+
+async function _validatePassword(plainText, account){
+  var bool = bcrypt.compareSync(plainText, account.password);
+  return bool;
 }

@@ -1,31 +1,19 @@
-const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const methodOverride = require('method-override');
 const app = require('./app');
 
 dotenv.config({ path: './config.env' });
+const db = require("./models");
 
-let port = process.env.PORT;
-// database = process.env.DATABASE,
-// username = process.env.DATABASE_USERNAME,
-// password = process.env.DATABASE_PASSWORD;
+const port = process.env.PORT;
 
-// let DB = database
-//   .replace('<USERNAME>', username)
-//   .replace('<PASSWORD>', password);
-
-let DB = process.env.DATABASE;
-mongoose
-  .connect(DB, {
-    userNewUrlParser: true,
-    userCreateIndex: true,
-    userFindAndModify: false,
+db.sequelize
+  .authenticate()
+  .then(() => {
+    console.log('Connected to database...');
   })
-  .then((con) => {
-    console.log('Connection success to server...');
-  })
-  .catch((err) => {
-    console.log(err);
+  .catch(err => {
+    console.error('Unable to connect to the database:', err);
   });
 
 app.use(methodOverride('_method'));
