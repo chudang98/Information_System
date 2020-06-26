@@ -33,7 +33,6 @@ async function timMatHangTheoTen(req, res) {
 async function timMatHangTheoLoai(req, res) {
   var loai = req.params.maLoai;
   loai = loai*1;
-  console.log(typeof loai);
   const docs = await matHangService.timMatHangTheoLoai(loai);
   return res.status(200).json({
     status: 'success',

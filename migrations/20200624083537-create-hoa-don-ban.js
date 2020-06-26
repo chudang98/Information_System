@@ -24,6 +24,9 @@ module.exports = {
           key: '_id',
         },
       },
+      trangThai: {
+        type: Sequelize.STRING,
+      },
       KhachHangid: {
         type: Sequelize.INTEGER,
         references: {

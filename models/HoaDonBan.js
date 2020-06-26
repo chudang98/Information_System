@@ -3,7 +3,8 @@ module.exports = (sequelize, DataTypes) => {
   const HoaDonBan = sequelize.define('HoaDonBan', {
     thoiGian: DataTypes.DATE,
     xepHang: DataTypes.INTEGER,
-    noiDung: DataTypes.STRING
+    noiDung: DataTypes.STRING,
+    trangThai: DataTypes.STRING,
   }, {});
   HoaDonBan.associate = function(models) {
     // associations can be defined here

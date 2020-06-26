@@ -15,7 +15,7 @@ const nhanVienRoute = require('./routers/nhanvienRouters');
 // const adminRoute = require('./routers/adminRouters');
 // const khoRoute = require('./routers/khoRouters');
 // const nhanVienbanhangRoute = require('./routers/nhanvienbanhangRouters');
-// const apiUserRoute = require('./routers/apiRouters');
+const apiUserRoute = require('./routers/apiRouters');
 const testRoute = require('./routers/testRouters');
 
 const app = express();
@@ -40,7 +40,7 @@ app.use('/user', nhanVienRoute);
 // app.use('/seller', nhanVienbanhangRoute);
 // app.use('/admin', adminRoute);
 // app.use('/nvkho', khoRoute);
-// app.use('/api/user', apiUserRoute);
+app.use('/api/user', apiUserRoute);
 app.use('/test', testRoute);
 // app.use(express.static(path.join(__dirname, 'public')));
 

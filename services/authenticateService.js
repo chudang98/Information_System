@@ -74,15 +74,14 @@ async function checkUserLogin(username, password){
 async function userSignup(data){	
 	try{
 		var nguoi = await _createNguoi(data);
-		var user = new KhachHang({
+		var user = await KhachHang.create({
 			Nguoiid: nguoi._id,
-			userName: data.userName,
-			password: data.password,
+			userName: _.isEmpty(data.userName) ? data.userName : NULL,
+			password: _.isEmpty(data.password) ? data.password : NULL,
 		});
-		await user.save();
 		return {
       status: 'success',
-      infor: user,
+      infor: user.toJSON(),
 		}
 	}catch(err){
     console.log(err);

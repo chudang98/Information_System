@@ -11,3 +11,19 @@ Tài khoản test cho nhân viên kho:
 
 Upload file ảnh: 
   required multer
+
+Thông tin giỏ hàng :
+  {
+    soLuong: 3,
+    danhSach : [
+      {
+        
+      },
+      {
+
+      },
+      {
+
+      }
+    ]
+  }

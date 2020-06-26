@@ -1,5 +1,6 @@
-const MatHang = require('../models/MatHang');
-const DanhGia = require('../models/DanhGia');
+const db = require('../models');
+const MatHang = require('../models/MatHang')(db.sequelize, db.Sequelize);
+const DanhGia = require('../models/DanhGia')(db.sequelize, db.Sequelize);
 
 const _ = require('lodash');
 
@@ -13,7 +14,7 @@ module.exports = {
 };
 
 async function takeProduct() {
-  var matHang = await MatHang.find({});
+  var matHang = await MatHang.findAll({});
   return matHang;
 }
 
@@ -36,7 +37,13 @@ async function themMatHang(matHangMoi) {
 
 async function timMatHangTheoTen(tenMatHang) {
   try{
-    const docs = await MatHang.find({ ten :  { $regex: `.*${tenMatHang}.*` } });
+    const docs = await MatHang.findAll({ 
+      where :  { 
+        $regex: `.*${tenMatHang}.*` 
+      },
+      raw: true,
+      nest: true,
+    });
     return docs;
   }catch(err){
     return []
@@ -44,42 +51,94 @@ async function timMatHangTheoTen(tenMatHang) {
 }
 
 async function timMatHangTheoLoai(maLoaiMatHang) {
+  console.log(maLoaiMatHang);
   try{
     switch(maLoaiMatHang){
       case 1: {
-        const docs = await MatHang.find({ loai: 'Áo Sơ mi' });
+        var docs = await MatHang.findAll({
+          where: {
+           loai: 'Áo Sơ mi',
+          },
+          raw: true,
+          nest: true,
+        });
         return _mappingProcuct(docs);
       };
       case 2: {
-        const docs = await MatHang.find({ loai: 'Áo khoác' });
+        var docs = await MatHang.findAll({
+          where: {
+            loai: 'Áo khoác',
+          },
+          raw: true,
+          nest: true,
+        });
         return _mappingProcuct(docs);
       };
       case 3 : {
-        const docs = await MatHang.find({ loai: 'Áo Vest' });
+        var docs = await MatHang.findAll({
+          where: {
+            loai: 'Áo Vest',
+          },
+          raw: true,
+          nest: true,
+        });
         return _mappingProcuct(docs);
       };
       case 4 : {
-        const docs = await MatHang.find({ loai: 'Áo phông' });
+        var docs = await MatHang.findAll({
+          where: {
+            loai: 'Áo phông',
+          },
+          raw: true,
+          nest: true,
+        });
         return _mappingProcuct(docs);
       };
       case 5 : {
-        const docs = await MatHang.find({ loai: 'Quần vải' });
+        var docs = await MatHang.findAll({
+          where: {
+            loai: 'Quần vải',
+          },
+          raw: true,
+          nest: true,
+        });
         return _mappingProcuct(docs);
       };
       case 6 : {
-        const docs = await MatHang.find({ loai: 'Quần Kaki' });
+        var docs = await MatHang.findAll({
+          where: {
+            loai: 'Quần Kaki',
+          },
+          raw: true,
+          nest: true,
+        });
         return _mappingProcuct(docs);
       };
       case 7 : {
-        const docs = await MatHang.find({ loai: 'Quần jean ống rộng' });
+        var docs = await MatHang.findAll({
+          where: {
+            loai: 'Quần jean ống rộng',
+          },
+          raw: true,
+          nest: true,
+        });
         return _mappingProcuct(docs);
       };
       case 8 : {
-        const docs = await MatHang.find({ loai: 'Quần jean ống đứng' });
+        var docs = await MatHang.findAll({
+          where: {
+            loai: 'Quần jean ống đứng',
+          },
+          raw: true,
+          nest: true,
+        });
         return _mappingProcuct(docs);
       };
       default : {
-        const docs = await MatHang.find();
+        var docs = await MatHang.findAll({
+          raw: true,
+          nest: true,
+        });
         return _mappingProcuct(docs);
       }
     }
@@ -134,6 +193,7 @@ async function _mappingProcuct(products){
         mauSac.push({
           _id: product._id,
           mauSac: product.mauSac,
+          Anh: product.Anh,
         });
       })
       var kichCo = {
@@ -149,17 +209,6 @@ async function _mappingProcuct(products){
       giaBan: value[0].giaBan,
       sanPham: sanPham,
     };
-
-    // _.forEach(value, product => {
-    //   // _.groupBy( , 'kichCo');
-    //   products.push({
-    //     _id: product._id,
-    //     mauSac: product.mauSac,
-    //     kichCo: product.kichCo,
-    //     Anh: product.Anh,
-    //   })
-    // });
-   
     result.push(sanPhamNho);
   });
   return result;
