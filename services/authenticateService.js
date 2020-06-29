@@ -55,7 +55,7 @@ async function nhanVienSignup(data){
 
 async function checkUserLogin(username, password){
 	if (_.isEmpty(username) || _.isEmpty(password)) return { status: 'fail' };
-  const user = await KhachHang.findOnefindOne({ 
+  const user = await KhachHang.findOne({ 
     where: {
       userName: username,
     },
