@@ -37,8 +37,18 @@ module.exports = (sequelize, Sequelize) => {
     }
   });
   NhanVien.associate = function(models) {
-    NhanVien.belongsTo(models.Nguoi, { foreignKey: 'Nguoiid', sourceKey: '_id' });
-    NhanVien.belongsTo(models.CuaHang, { foreignKey: 'CuaHangid', sourceKey: '_id' });
+    NhanVien.belongsTo(models.Nguoi, {
+      foreignKey: 'Nguoiid',
+      targetKey: '_id',
+      as: 'nguoi',
+    });
+    NhanVien.belongsTo(models.CuaHang, {
+      foreignKey: 'CuaHangid',
+      targetKey: '_id',
+      as: 'cuahang',
+    });
+    // NhanVien.belongsTo(models.Nguoi, { foreignKey: 'Nguoiid', sourceKey: '_id' });
+    // NhanVien.belongsTo(models.CuaHang, { foreignKey: 'CuaHangid', sourceKey: '_id' });
   };
   return NhanVien;
 };

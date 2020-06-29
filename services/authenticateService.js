@@ -1,7 +1,7 @@
 const db = require('../models');
-const KhachHang = require('../models/KhachHang')(db.sequelize, db.Sequelize);
-const Nguoi = require('../models/Nguoi')(db.sequelize, db.Sequelize);
-const NhanVien = require('../models/NhanVien')(db.sequelize, db.Sequelize);
+const KhachHang = db.KhachHang;
+const Nguoi = db.Nguoi;
+const NhanVien = db.NhanVien;
 const _ = require('lodash');
 const bcrypt = require('bcryptjs');
 

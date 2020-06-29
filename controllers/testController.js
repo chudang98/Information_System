@@ -1,6 +1,9 @@
 const matHangService = require('../services/matHangServices');
 const db = require('../models');
-const Nguoi = require('../models/nguoi')(db.sequelize, db.Sequelize);
+// const Nguoi = require('../models/nguoi')(db.sequelize, db.Sequelize);
+// const KhachHang = require('../models/khachhang')(db.sequelize, db.Sequelize);
+const Nguoi = db.Nguoi;
+const KhachHang = db.KhachHang;
 const bcrypt = require('bcryptjs');
 
 module.exports = {
@@ -26,15 +29,15 @@ async function taoNguoi(req, res) {
   // var nguoi = await Nguoi.create(data);
   // var data = nguoi.toJSON();
 
-   var nguoi = await Nguoi.findOne({
-    where: {
-      _id: 18,
-    },
-    raw: true,
-    nest: true,
-  });
-  console.log(nguoi);
-  console.log(bcrypt.compareSync('chudang98@gmail.com', nguoi.email));
+  //  var nguoi = await Nguoi.findOne({
+  //   where: {
+  //     _id: 18,
+  //   },
+  //   raw: true,
+  //   nest: true,
+  // });
+  // console.log(nguoi);
+  // console.log(bcrypt.compareSync('chudang98@gmail.com', nguoi.email));
  
   // var nguoi = await Nguoi.findAll({
   //   raw: true,
@@ -42,6 +45,12 @@ async function taoNguoi(req, res) {
   // });
   // console.log(nguoi);
   
+  var khach = await KhachHang.findAll({
+    raw: true,
+    nest: true,
+    include: 'nguoi',
+  });
+  console.log(khach);
   return res.json({
     status: 200,
   });

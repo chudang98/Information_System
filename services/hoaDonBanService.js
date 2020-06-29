@@ -1,6 +1,6 @@
 const db = require('../models');
-const HDBan = require('../models/HoaDonBan')(db.sequelize, db.sequelize);
-const HDChitiet = require('../models/hoadonbanchitiet')(db.sequelize, db.sequelize);
+const HDBan = db.HoaDonBan;
+const HDChitiet = db.HoaDonBanChiTiet;
 const moment = require('moment');
 
 module.exports = {
