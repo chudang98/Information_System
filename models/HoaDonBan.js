@@ -8,6 +8,8 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   HoaDonBan.associate = function(models) {
     // associations can be defined here
+    HoaDonBan.belongsTo(models.KhachHang, { foreignKey: 'KhachHangid', sourceKey: '_id' })
+    HoaDonBan.belongsTo(models.KhachHang, { foreignKey: 'KhachHangid', sourceKey: '_id' })
   };
   return HoaDonBan;
 };

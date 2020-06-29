@@ -45,7 +45,7 @@ async function timMatHangTheoLoai(req, res) {
 async function dangNhap(req, res) {
   var { userName, password } = req.body;
   var result = await service.checkUserLogin(userName, password);
-  if(status == 'success') {
+  if(result.status == 'success') {
     var token = await jwtUtil._createToken(result.infor);
     return res.json({
       status: 'success',
@@ -79,7 +79,9 @@ async function dangKy(req, res) {
 async function thanhToan(req, res){
   const gioHang = req.body;
   console.log(gioHang);
-
+  const cookie = req.cookies.jwt;
+  var user = jwtUtil.getUserByCookie(cookie);
+  console.log(user);
   return res.json({
     status: 'success',
   })

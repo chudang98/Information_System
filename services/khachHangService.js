@@ -1,3 +1,4 @@
+const db = require('../models');
 const KhachHang = require('../models/KhachHang');
 const Nguoi = require('../models/Nguoi');
 

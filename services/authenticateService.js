@@ -62,13 +62,14 @@ async function checkUserLogin(username, password){
     raw: true,
     nest: true,
   });
-  if (!user || _validatePassword(password, user) == false ) {
+  var checkAcc = await _validatePassword(password, user);
+  if ( !user ||  checkAcc == false ) {
     return { status: 'fail' };
-  }
-  return {
-    status: 'success',
-    infor: user,
-  };
+  }else
+    return {
+      status: 'success',
+      infor: user,
+    };
 }
 
 async function userSignup(data){	

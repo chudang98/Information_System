@@ -1,11 +1,12 @@
 const jwt = require('jsonwebtoken');
 const { promisify } = require('util');
 
-const User = require('../models/NhanVien');
+const db = require('../models');
+const User = require('../models/KhachHang')(db.sequelize, db.Sequelize);
 
 module.exports = {
   setTokenCookie,
-  checkUserByCookie,
+  // checkUserByCookie,
   getUserByCookie,
   _createToken,
 };
@@ -22,17 +23,23 @@ async function setTokenCookie(dataUser, response) {
   response.cookie('jwt', token, cookieOption);
 }
 
-async function checkUserByCookie(jwtCookie) {
-  var decoded = await _decodeCookie(jwtCookie);
-  const user = await User.findById(decoded.id);
-  if (!user) return false;
-  if (user.isChangedPasswordAfter(decoded.iat)) return false;
-  return true;
-}
+// async function checkUserByCookie(jwtCookie) {
+//   var decoded = await _decodeCookie(jwtCookie);
+//   const user = await User.findById(decoded.id);
+//   if (!user) return false;
+//   if (user.isChangedPasswordAfter(decoded.iat)) return false;
+//   return true;
+// }
 
 async function getUserByCookie(jwtCookie) {
   var decoded = await _decodeCookie(jwtCookie);
-  const user = await User.findById(decoded.id);
+  const user = await User.findOne({ 
+    where: {
+      _id: decoded.id, 
+    },
+    raw: true,
+    nest: true,
+  });
   if(!user)
     return {
       status: 'null',
