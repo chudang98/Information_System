@@ -55,7 +55,7 @@ async function nhanVienSignup(data){
 
 async function checkUserLogin(username, password){
 	if (_.isEmpty(username) || _.isEmpty(password)) return { status: 'fail' };
-  const user = await KhachHang.findOnefindOne({ 
+  const user = await KhachHang.findOne({ 
     where: {
       userName: username,
     },
@@ -76,8 +76,8 @@ async function userSignup(data){
 		var nguoi = await _createNguoi(data);
 		var user = await KhachHang.create({
 			Nguoiid: nguoi._id,
-			userName: _.isEmpty(data.userName) ? data.userName : NULL,
-			password: _.isEmpty(data.password) ? data.password : NULL,
+			userName: !_.isEmpty(data.userName) ? data.userName : null,
+			password: !_.isEmpty(data.password) ? data.password : null,
 		});
 		return {
       status: 'success',

@@ -1,6 +1,8 @@
 const db = require('../models');
 const MatHang = require('../models/MatHang')(db.sequelize, db.Sequelize);
 const DanhGia = require('../models/DanhGia')(db.sequelize, db.Sequelize);
+const Sequelize = require('sequelize');
+const Op = Sequelize.Op;
 
 const _ = require('lodash');
 
