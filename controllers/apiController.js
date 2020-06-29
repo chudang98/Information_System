@@ -8,6 +8,7 @@ module.exports = {
   timMatHangTheoLoai,
   dangNhap,
   dangKy,
+  thanhToan,
 };
 
 async function checkAccount(req, res) {
@@ -73,4 +74,13 @@ async function dangKy(req, res) {
       status: 'fail',
     })
   }
+}
+
+async function thanhToan(req, res){
+  const gioHang = req.body;
+  console.log(gioHang);
+
+  return res.json({
+    status: 'success',
+  })
 }

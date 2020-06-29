@@ -41,7 +41,7 @@ async function timMatHangTheoTen(tenMatHang) {
   try{
     const docs = await MatHang.findAll({ 
       where :  { 
-        $regex: `.*${tenMatHang}.*` 
+        [Op.like]: `%${tenMatHang}%`
       },
       raw: true,
       nest: true,
