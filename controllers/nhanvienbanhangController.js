@@ -43,6 +43,8 @@ async function thongtinCNview(req, res) {
     return res.status(200).render('seller/thongtincanhan', {});
 }
 async function xemchitietview(req, res) {
+    var idkh= req.params.idkh;
+    
     return res.status(200).render('seller/xemchitiet', {});
 }
 async function timkiemMHview(req, res) {
