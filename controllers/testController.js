@@ -4,6 +4,7 @@ const db = require('../models');
 // const KhachHang = require('../models/khachhang')(db.sequelize, db.Sequelize);
 const Nguoi = db.Nguoi;
 const KhachHang = db.KhachHang;
+const HoaDonChiTiet = db.HoaDonBanChiTiet;
 const bcrypt = require('bcryptjs');
 const hoaDonBanService = require('../services/hoaDonBanService');
 
@@ -55,12 +56,12 @@ async function taoNguoi(req, res) {
   // return res.json({
   //   status: 200,
   // });
-  var result = await _demoAddHoaDonBan();
+  var result = await _layDanhSachHoaDon();
   return res.json(result);
 }
 
 async function _demoAddHoaDonBan(){
-  var user = 11;
+  var user = 1;
   var data = {
     data: [
     {
@@ -83,3 +84,37 @@ async function _demoAddHoaDonBan(){
     status: 'success',
   }
 }
+
+async function _layDanhSachHoaDon(){
+  var hd = await hoaDonBanService.layHoaDonBanTheoUser(1);
+  console.log(hd);
+  return {
+    status: 'success',
+  };
+}
+
+async function _updateDemo(){
+  var hd = await HoaDonChiTiet.findOne({
+    where: {
+      MatHangid: 3,
+      HDBanid: 2,
+    },
+    raw: true,
+    nest: true,
+  });
+
+  await HoaDonChiTiet.update(
+    {
+      soLuong: hd.soLuong - 3,
+    },{
+      where: {
+        _id: 5,
+      }
+    }
+  );
+  return {
+    status: 'success',
+  }
+}
+
+// async function _layHoaDon()}

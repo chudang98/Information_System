@@ -16,18 +16,25 @@ async function layHoaDonChiTiet(idHoaDon) {
     where: {
       _id: idHoaDon,
     },
-    include: ['khachhang', 'nhanvien', 'mathang'],
+    include: [{all: true}],
+    // include: ['khachhang', 'nhanvien', 'mathang', 'nguoi_khach_hang', 'nguoi_nhan_vien'],
     raw: true,
     nest: true,
   });
+  // then(results => {
+  //   _.forEach(results, hoaDon => {
+
+  //   })
+  // });
   return HD;
 }
 
 async function layHoaDonBanTheoUser(idUser) {
-  const HDBans = await HDBan.findAll({
+  var HDBans = await HDBan.findAll({
     where: {
       KhachHangid: idUser
     },
+    include: 'mathang',
     raw: true,
     nest: true,
   });
@@ -41,11 +48,9 @@ async function themHoaDonBan(data, idUser) {
       thoiGian: moment(),
       trangThai: 'Chờ xử lý',
     });
-    console.log(hoaDonBan);
-    
     _.forEach(data.data, async product => {
       await HDChitiet.create({
-        HoaDonid: hoaDonBan._id,
+        HDBanid: hoaDonBan._id,
         MatHangid : product._id,
         soLuong: product.soLuong
       });
@@ -76,4 +81,16 @@ async function updateStateToanHoaDon(idHoaDon, trangthai) {
     },
   );
   return hoadon;
+}
+
+async function thanhToanHoaDonTrucTiep(data){
+
+}
+
+async function thanhToanThanhCongHoaDon(idUser){
+
+}
+
+async function _xoaMatHangKhoiHoaDon(idMatHang, idHoaDon){
+
 }

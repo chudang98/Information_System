@@ -215,3 +215,40 @@ async function _mappingProcuct(products){
   });
   return result;
 }
+
+async function _checkDuSoLuongMatHang(soLuongCan, idMatHang){
+  var product = await MatHang.findOne({
+    where: {
+      _id: idMatHang,
+    },
+    raw: true,
+    nest: true,
+  });
+  return product.soLuong >= soLuongCan;
+}
+
+async function _updateSoLuongMatHang(soluong, idMatHang){
+  var hd = await HoaDonChiTiet.findOne({
+    where: {
+      _id: idMatHang,
+    },
+    raw: true,
+    nest: true,
+  });
+
+  await MatHang.update(
+    {
+      soLuong: hd.soLuong - soluong,
+    },
+    {
+      where: {
+        _id: idMatHang,
+      },
+      returning: true,
+      plain: true,
+    },
+  );
+  return {
+    status: 'success',
+  }
+}

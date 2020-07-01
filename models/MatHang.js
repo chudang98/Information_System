@@ -42,6 +42,7 @@ module.exports = (sequelize, Sequelize) => {
       through: 'HoaDonBanChiTiet',
       foreignKey: 'MatHangid',
       sourceKey: '_id',
+      as: 'hoadonban',
     })
   };
   return MatHang;
