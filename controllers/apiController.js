@@ -91,8 +91,8 @@ async function thanhToan(req, res){
 
 async function getHoaDon(req, res){ 
   const cookie = req.body.jwt;
-  var jwt = await jwtUtil.getUserByCookie(cookie);
-  var result = await hoaDonBanService.layHoaDonBanTheoUser(jwt._id);
+  var jwt = await jwtUtil._decodeCookie(cookie);
+  var result = await hoaDonBanService.layHoaDonBanTheoUser(jwt.id);
   return res.json({
     status: 'success',
     data: result,

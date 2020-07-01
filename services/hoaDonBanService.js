@@ -92,7 +92,7 @@ async function thanhToanThanhCongHoaDon(idUser){
 }
 
 async function _xoaMatHangKhoiHoaDon(idMatHang, idHoaDon){
-
+  // await 
 }
 
 async function _matHangListHoaDon(listHD) {
