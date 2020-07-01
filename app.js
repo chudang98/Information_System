@@ -10,11 +10,11 @@ const express = require('express'),
 
 // const handlerError = require('./controllers/errorController');
 
-// const userRoute = require('./routers/userRoutes');
+const userRoute = require('./routers/userRoutes');
 const nhanVienRoute = require('./routers/nhanvienRouters');
-// const adminRoute = require('./routers/adminRouters');
-// const khoRoute = require('./routers/khoRouters');
-// const nhanVienbanhangRoute = require('./routers/nhanvienbanhangRouters');
+const adminRoute = require('./routers/adminRouters');
+const khoRoute = require('./routers/khoRouters');
+const nhanVienbanhangRoute = require('./routers/nhanvienbanhangRouters');
 const apiUserRoute = require('./routers/apiRouters');
 const testRoute = require('./routers/testRouters');
 
@@ -35,14 +35,14 @@ app.use(express.static('public'));
 // Serving static files
 app.use(express.static(`${__dirname}/public`));
 
-// app.use('/', userRoute);
+app.use('/', userRoute);
 app.use('/user', nhanVienRoute);
-// app.use('/seller', nhanVienbanhangRoute);
-// app.use('/admin', adminRoute);
-// app.use('/nvkho', khoRoute);
+app.use('/seller', nhanVienbanhangRoute);
+app.use('/admin', adminRoute);
+app.use('/nvkho', khoRoute);
 app.use('/api/user', apiUserRoute);
 app.use('/test', testRoute);
-// app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 // app.use(handlerError);
 
