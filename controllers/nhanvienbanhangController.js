@@ -14,6 +14,14 @@ module.exports = {
     xemchitietview,
     timkiemMHview,
     hoaDonview,
+    choXulyview,
+    xemHDolview,
+    danggiaoHview,
+    xemHDdanggiaoview,
+    thanhCongview,
+    xemHDthanhcongview,
+    huyview,
+    xemHDhuyview,
 
 };
 
@@ -43,8 +51,8 @@ async function thongtinCNview(req, res) {
     return res.status(200).render('seller/thongtincanhan', {});
 }
 async function xemchitietview(req, res) {
-    var idkh= req.params.idkh;
-    
+    var idkh = req.params.idkh;
+
     return res.status(200).render('seller/xemchitiet', {});
 }
 async function timkiemMHview(req, res) {
@@ -52,4 +60,28 @@ async function timkiemMHview(req, res) {
 }
 async function hoaDonview(req, res) {
     return res.status(200).render('seller/hoadon', {});
+}
+async function choXulyview(req, res) {
+    return res.status(200).render('seller/choxuly', {});
+}
+async function xemHDolview(req, res) {
+    return res.status(200).render('seller/xemhdOl', {});
+}
+async function danggiaoHview(req, res) {
+    return res.status(200).render('seller/danggiaohang', {});
+}
+async function xemHDdanggiaoview(req, res) {
+    return res.status(200).render('seller/xemhddanggiao', {});
+}
+async function thanhCongview(req, res) {
+    return res.status(200).render('seller/thanhcong', {});
+}
+async function xemHDthanhcongview(req, res) {
+    return res.status(200).render('seller/xemhdthanhcong', {});
+}
+async function huyview(req, res) {
+    return res.status(200).render('seller/huy', {});
+}
+async function xemHDhuyview(req, res) {
+    return res.status(200).render('seller/xemhdhuy', {});
 }

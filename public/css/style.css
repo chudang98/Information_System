@@ -17,7 +17,7 @@
     margin: 0 auto;
 }
 
-.btn-info {
+.btn-in {
     margin-right: 20px;
 }
 
@@ -42,10 +42,15 @@
 }
 
 .info {
-    background-color: cadeue;
+    background-color: cadetblue;
 }
 
 .list-info {
+    list-style: none;
+}
+
+.info-client {
+    padding: 0;
     list-style: none;
 }
 
@@ -74,17 +79,13 @@ h2 {
 .btn-inf {
     color: white !important;
     width: 100px;
-    background-color: cadeue;
+    background-color: cadetblue;
     margin-right: 20px;
 }
 
 .btn-seller {
     width: 80%;
     margin: 0 auto;
-}
-
-.form-search-mh {
-    margin: 25px 0;
 }
 
 
