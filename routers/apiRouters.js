@@ -28,4 +28,7 @@ router.route('/login').post(controller.dangNhap);
 router.route('/signup').post(controller.dangKy);
 
 router.route('/thanhtoan').post(controller.thanhToan);
+router.route('/giohang').get(controller.getHoaDon);
+
+
 module.exports = router;

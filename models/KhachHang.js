@@ -29,6 +29,11 @@ module.exports = (sequelize, Sequelize) => {
       targetKey: '_id',
       as: 'nguoi',
     });
+    KhachHang.hasMany(models.HoaDonBan, {
+      foreignKey: 'KhachHangid',
+      sourceKey: '_id',
+      as: 'khachhang',
+    })
   };
   return KhachHang;
 };

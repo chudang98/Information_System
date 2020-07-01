@@ -38,6 +38,11 @@ module.exports = (sequelize, Sequelize) => {
 
   });
   MatHang.associate = function(models) {
+    MatHang.belongsToMany(models.HoaDonBan, {
+      through: 'HoaDonBanChiTiet',
+      foreignKey: 'MatHangid',
+      sourceKey: '_id',
+    })
   };
   return MatHang;
 };

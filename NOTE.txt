@@ -12,18 +12,27 @@ Tài khoản test cho nhân viên kho:
 Upload file ảnh: 
   required multer
 
-Thông tin giỏ hàng :
+Danh sách hóa đơn :
   {
     soLuong: 3,
     danhSach : [
       {
-        
+        _id: 1,
+        thoiGian: '20-10-2020',
+        noiDung: null,
+        trangThai: 'Chờ xử lý'
       },
       {
-
+        _id: 1,
+        thoiGian: '20-10-2020',
+        noiDung: null,
+        trangThai: 'Chờ xử lý'
       },
       {
-
+        _id: 1,
+        thoiGian: '20-10-2020',
+        noiDung: null,
+        trangThai: 'Chờ xử lý'
       }
     ]
   }

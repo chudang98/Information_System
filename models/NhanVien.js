@@ -47,6 +47,7 @@ module.exports = (sequelize, Sequelize) => {
       targetKey: '_id',
       as: 'cuahang',
     });
+    NhanVien.hasMany(models.HoaDonBan)
     // NhanVien.belongsTo(models.Nguoi, { foreignKey: 'Nguoiid', sourceKey: '_id' });
     // NhanVien.belongsTo(models.CuaHang, { foreignKey: 'CuaHangid', sourceKey: '_id' });
   };

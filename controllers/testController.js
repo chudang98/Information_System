@@ -5,6 +5,7 @@ const db = require('../models');
 const Nguoi = db.Nguoi;
 const KhachHang = db.KhachHang;
 const bcrypt = require('bcryptjs');
+const hoaDonBanService = require('../services/hoaDonBanService');
 
 module.exports = {
   layMatHang,
@@ -45,14 +46,40 @@ async function taoNguoi(req, res) {
   // });
   // console.log(nguoi);
   
-  var khach = await KhachHang.findAll({
-    raw: true,
-    nest: true,
-    include: 'nguoi',
-  });
-  console.log(khach);
-  return res.json({
-    status: 200,
-  });
+  // var khach = await KhachHang.findAll({
+  //   raw: true,
+  //   nest: true,
+  //   include: 'nguoi',
+  // });
+  // console.log(khach);
+  // return res.json({
+  //   status: 200,
+  // });
+  var result = await _demoAddHoaDonBan();
+  return res.json(result);
 }
 
+async function _demoAddHoaDonBan(){
+  var user = 11;
+  var data = {
+    data: [
+    {
+      "_id": "1",
+      "soLuong": 10
+    },
+    {
+      "_id": "3",
+      "soLuong": 10
+    },
+    {
+      "_id": "2",
+      "soLuong": 10
+    },
+  ]
+};
+  var res = await hoaDonBanService.themHoaDonBan(data, user);
+  console.log(res);
+  return {
+    status: 'success',
+  }
+}

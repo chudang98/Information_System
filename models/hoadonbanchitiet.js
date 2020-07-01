@@ -12,6 +12,14 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   HoaDonBanChiTiet.associate = function(models) {
     // associations can be defined here
+    HoaDonBanChiTiet.belongsTo(models.HoaDonNhap, {
+      foreignKey: 'HDBanid',
+      sourceKey: '_id',
+    })
+    HoaDonBanChiTiet.belongsTo(models.MatHang, {
+      foreignKey: 'MatHangid',
+      sourceKey: '_id',
+    })
   };
   return HoaDonBanChiTiet;
 };
