@@ -36,16 +36,26 @@ module.exports = (sequelize, DataTypes) => {
       sourceKey: '_id',
       as: 'nhanvien'
     });
+    
     HoaDonBan.belongsToMany(models.MatHang, {
-      through: 'HoaDonBanChiTiet',
+      through: models.HoaDonBanChiTiet,
       foreignKey: 'HDBanid',
       sourceKey: '_id',
-      as: 'mathang',
+      // otherKey: 'MatHangid',
     });
+
     HoaDonBan.hasMany(models.HoaDonBanChiTiet, {
       foreignKey: 'HDBanid',
-      targetKey: '_id',
+      sourceKey: '_id'
     })
+    // HoaDonBan.belongsToMany(models.MatHang, {
+    //   through: 'HoaDonBanChiTiets',
+    //   foreignKey: 'HDBanid',
+    //   // sourceKey: '_id',
+    //   otherKey: 'MatHangid',
+    //   as: 'mathang',
+    // });
+
   };
 
   return HoaDonBan;

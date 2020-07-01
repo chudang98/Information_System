@@ -3,6 +3,7 @@ const HDBan = db.HoaDonBan;
 const HDChitiet = db.HoaDonBanChiTiet;
 const moment = require('moment');
 const _ = require('lodash');
+const MatHang = db.MatHang;
 
 module.exports = {
 	layHoaDonBanTheoUser,
@@ -16,29 +17,28 @@ async function layHoaDonChiTiet(idHoaDon) {
     where: {
       _id: idHoaDon,
     },
-    include: [{all: true}],
-    // include: ['khachhang', 'nhanvien', 'mathang', 'nguoi_khach_hang', 'nguoi_nhan_vien'],
+    include: ['khachhang', 'nguoi_khach_hang'],
     raw: true,
     nest: true,
   });
-  // then(results => {
-  //   _.forEach(results, hoaDon => {
-
-  //   })
-  // });
-  return HD;
+  result = await _matHangTrongHoaDon(HD._id);
+  return {
+    ...HD,
+    mathang: result
+  };
 }
 
 async function layHoaDonBanTheoUser(idUser) {
+  var result = [];
   var HDBans = await HDBan.findAll({
     where: {
       KhachHangid: idUser
     },
-    include: 'mathang',
     raw: true,
     nest: true,
   });
-  return HDBans;
+  result = await _matHangListHoaDon(HDBans);
+  return result;
 }
 
 async function themHoaDonBan(data, idUser) {
@@ -48,13 +48,13 @@ async function themHoaDonBan(data, idUser) {
       thoiGian: moment(),
       trangThai: 'Chờ xử lý',
     });
-    _.forEach(data.data, async product => {
+    for(product of data){
       await HDChitiet.create({
         HDBanid: hoaDonBan._id,
         MatHangid : product._id,
         soLuong: product.soLuong
       });
-    });
+    };
     return {
       status: 'success',
     }
@@ -93,4 +93,44 @@ async function thanhToanThanhCongHoaDon(idUser){
 
 async function _xoaMatHangKhoiHoaDon(idMatHang, idHoaDon){
 
+}
+
+async function _matHangListHoaDon(listHD) {
+  var result = [];
+  for(hoadon of listHD){
+    var matHang = await _matHangTrongHoaDon(hoadon._id);
+    result.push({
+      ...hoadon,
+      mathang: matHang,
+    });
+  };
+  return result;
+}
+
+async function _matHangTrongHoaDon(idHoaDon){
+  var hoaDonChiTiet = await HDChitiet.findAll({
+    where: {
+      HDBanid: idHoaDon,
+    },
+    raw: true,
+    nest: true,
+  });
+
+  var result = [];
+
+  for(hoaDon of hoaDonChiTiet){
+    var matHang = await MatHang.findOne({
+      where: {
+        _id: hoaDon.MatHangid,
+      },
+      raw: true,
+      nest: true,
+    });
+    result.push({
+      ...matHang,
+      soLuong: hoaDon.soLuong,
+    });
+  };
+  
+  return result;
 }

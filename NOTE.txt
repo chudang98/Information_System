@@ -36,3 +36,45 @@ Danh sách hóa đơn :
       }
     ]
   }
+
+[
+  {
+    _id: 1,
+    thoiGian: 2020-07-01T02:18:30.289Z,
+    xepHang: null,
+    noiDung: null,
+    trangThai: 'Chờ xử lý',
+    createdAt: 2020-07-01T02:18:30.294Z,
+    updatedAt: 2020-07-01T02:18:30.294Z,
+    KhachHangid: 1,
+    NhanVienid: null,
+    NhanVienId: null,
+    mathang: []
+  },
+  {
+    _id: 2,
+    thoiGian: 2020-07-01T02:30:51.619Z,
+    xepHang: null,
+    noiDung: null,
+    trangThai: 'Chờ xử lý',
+    createdAt: 2020-07-01T02:30:51.621Z,
+    updatedAt: 2020-07-01T02:30:51.621Z,
+    KhachHangid: 1,
+    NhanVienid: null,
+    NhanVienId: null,
+    mathang: [ [Object], [Object], [Object] ]
+  },
+  {
+    _id: 3,
+    thoiGian: 2020-07-01T07:50:52.617Z,
+    xepHang: null,
+    noiDung: null,
+    trangThai: 'Chờ xử lý',
+    createdAt: 2020-07-01T07:50:52.619Z,
+    updatedAt: 2020-07-01T07:50:52.619Z,
+    KhachHangid: 1,
+    NhanVienid: null,
+    NhanVienId: null,
+    mathang: [ [Object], [Object], [Object] ]
+  }
+]

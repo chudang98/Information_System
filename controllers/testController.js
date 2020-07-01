@@ -4,6 +4,7 @@ const db = require('../models');
 // const KhachHang = require('../models/khachhang')(db.sequelize, db.Sequelize);
 const Nguoi = db.Nguoi;
 const KhachHang = db.KhachHang;
+const HDBan = db.HoaDonBan;
 const HoaDonChiTiet = db.HoaDonBanChiTiet;
 const bcrypt = require('bcryptjs');
 const hoaDonBanService = require('../services/hoaDonBanService');
@@ -86,11 +87,12 @@ async function _demoAddHoaDonBan(){
 }
 
 async function _layDanhSachHoaDon(){
-  var hd = await hoaDonBanService.layHoaDonBanTheoUser(1);
-  console.log(hd);
+  var list = await hoaDonBanService.layHoaDonChiTiet(2);
+  console.log(list);
   return {
-    status: 'success',
-  };
+    s: 's',
+  }
+  
 }
 
 async function _updateDemo(){

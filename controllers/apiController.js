@@ -11,6 +11,7 @@ module.exports = {
   dangKy,
   thanhToan,
   getHoaDon,
+  getHoaDonChiTiet,
 };
 
 async function checkAccount(req, res) {
@@ -79,20 +80,30 @@ async function dangKy(req, res) {
 }
 
 async function thanhToan(req, res){
-  const gioHang = req.body;
-  const cookie = req.cookies.jwt;
-  var user = jwtUtil.getUserByCookie(cookie);
-  console.log(user);
+  var gioHang = req.body.data;
+  var cookie = req.body.jwt;
+  var jwt = await jwtUtil._decodeCookie(cookie);
+  await hoaDonBanService.themHoaDonBan(gioHang, jwt.id);
   return res.json({
     status: 'success',
   })
 }
 
 async function getHoaDon(req, res){ 
-  var idHoaDon = req.body;
-  var res = await hoaDonBanService.layHoaDonChiTiet(idHoaDon);
-  return {
+  const cookie = req.body.jwt;
+  var jwt = await jwtUtil.getUserByCookie(cookie);
+  var result = await hoaDonBanService.layHoaDonBanTheoUser(jwt._id);
+  return res.json({
     status: 'success',
-    data: res,
-  }
+    data: result,
+  });
+}
+
+async function getHoaDonChiTiet(req, res){
+  var idHoaDon;
+  var hoaDon =  await hoaDonBanService.layHoaDonChiTiet(idHoaDon);
+  return res.json({
+    status: 'success',
+    data: hoaDon,
+  })
 }

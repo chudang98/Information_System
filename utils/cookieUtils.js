@@ -2,13 +2,14 @@ const jwt = require('jsonwebtoken');
 const { promisify } = require('util');
 
 const db = require('../models');
-const User = require('../models/KhachHang')(db.sequelize, db.Sequelize);
+const User = db.KhachHang;
 
 module.exports = {
   setTokenCookie,
   // checkUserByCookie,
   getUserByCookie,
   _createToken,
+  _decodeCookie,
 };
 
 async function setTokenCookie(dataUser, response) {
@@ -61,7 +62,7 @@ async function _decodeCookie(jwtCookie){
 
 async function _createToken(data){
   var objectData = {
-    id: data.id,
+    id: data._id,
     username: data.userName,
   };
   const token = jwt.sign(objectData, process.env.JWT_SECRET, {
