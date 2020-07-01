@@ -91,8 +91,9 @@ async function thanhToan(req, res){
 
 async function getHoaDon(req, res){ 
   const cookie = req.body.jwt;
-  var jwt = await jwtUtil._decodeCookie(cookie);
-  var result = await hoaDonBanService.layHoaDonBanTheoUser(jwt.id);
+  console.log(cookie);
+  var token = await jwtUtil._decodeCookie(cookie);
+  var result = await hoaDonBanService.layHoaDonBanTheoUser(token.id);
   return res.json({
     status: 'success',
     data: result,
@@ -100,7 +101,7 @@ async function getHoaDon(req, res){
 }
 
 async function getHoaDonChiTiet(req, res){
-  var idHoaDon;
+  var idHoaDon = req.body;
   var hoaDon =  await hoaDonBanService.layHoaDonChiTiet(idHoaDon);
   return res.json({
     status: 'success',

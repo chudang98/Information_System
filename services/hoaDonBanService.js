@@ -92,7 +92,17 @@ async function thanhToanThanhCongHoaDon(idUser){
 }
 
 async function _xoaMatHangKhoiHoaDon(idMatHang, idHoaDon){
-  // await 
+  var result = await HDChitiet.destroy({
+    where: {
+      HDBanid: idHoaDon,
+      MatHangid: idMatHang,
+    },
+  });
+  console.log(result);
+  return {
+    status: 'success',
+  }
+  
 }
 
 async function _matHangListHoaDon(listHD) {

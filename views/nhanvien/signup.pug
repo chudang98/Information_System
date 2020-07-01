@@ -44,6 +44,15 @@ block content
 				label.form-check.form-check-inline
 					input.form-check-input(type='radio', name='chucVu', value='NhanVienQuanLy')
 					span.form-check-label Nhân viên quản lý
+      .form-group
+				label Chi Nhánh
+				br
+				label.form-check.form-check-inline
+					input.form-check-input(type='radio', name='CuaHangid', value='1', checked)
+					span.form-check-label  Hà Nội
+				label.form-check.form-check-inline
+					input.form-check-input(type='radio', name='CuaHangid', value='2')
+					span.form-check-label Thành phố Hồ Chí Minh
 			.form-group
 				label Tên đăng nhập
 				input#username.form-control.not-null(minlength="5" name="userName" type='text')
