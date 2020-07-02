@@ -9,6 +9,7 @@ module.exports = {
   getClientById,
   updateInfor,
   timKhachHangTheoSdt,
+  getDetailCustomer,
 };
 
 async function luuKhachHang(data) {
@@ -66,6 +67,18 @@ async function updateInfor(data, idCustomer){
   return {
     status: 'success',
   }
+}
+
+async function getDetailCustomer(idCustomer){
+  var data = await KhachHang.findOne({
+    where: {
+      _id: idCustomer,
+    },
+    include: 'nguoi',
+    raw: true,
+    nest: true,
+  });
+  return data;
 }
 
 async function timKhachHangTheoSdt(sdt){
