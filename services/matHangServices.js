@@ -166,16 +166,26 @@ async function timMatHangTheoLoai(maLoaiMatHang) {
 }
 
 async function layNhanXet(idMatHang) {
-  try{
-    const danhGia = await DanhGia.findAll({ 
-      matHang: idMatHang,
-      raw: true,
-      nest: true,
-    });
-    return danhGia;
-  }catch(err){
-    return [];
-  }
+  var danhgia = [];
+  var HDCT = await HDChiTiet.findAll({
+    where: {
+      MatHangid: idMatHang,
+    },
+    raw: true,
+    nest: true,
+  });
+  // for(){
+
+  // }
+  var danhGia = await DanhGia.findAll({ 
+    where: {
+      HDBanChiTiet: '',
+    },
+    raw: true,
+    nest: true,
+  });
+  
+  return danhGia;
 
 }
 

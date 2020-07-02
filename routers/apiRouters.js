@@ -30,5 +30,6 @@ router.route('/thanhtoan').post(controller.thanhToan);
 router.route('/hoadon').post(controller.getHoaDon);
 router.route('/updatethongtin').post(controller.updateThongTinKhachHang);
 router.route('/timkiemmathang').post(controller.timKiemMatHangTheoTen);
+router.route('/laynhanxet').post(controller.layNhanXetMatHang);
 
 module.exports = router;
