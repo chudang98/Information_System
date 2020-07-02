@@ -3,7 +3,7 @@ const bcrypt = require('bcryptjs');
 const Nguoi = require('./Nguoi');
 
 module.exports = (sequelize, Sequelize) => {
-  const KhachHang = sequelize.define('KhachHang', {
+const KhachHang = sequelize.define('KhachHang', {
     _id: {
       allowNull: false,
       autoIncrement: true,

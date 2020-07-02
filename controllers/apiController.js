@@ -1,6 +1,7 @@
 const service = require('../services/authenticateService');
 const matHangService = require('../services/matHangServices');
 const hoaDonBanService = require('../services/hoaDonBanService');
+const khachHangService = require('../services/khachHangService');
 const jwtUtil = require('../utils/cookieUtils');
 
 module.exports = {
@@ -12,7 +13,29 @@ module.exports = {
   thanhToan,
   getHoaDon,
   getHoaDonChiTiet,
+  updateThongTinKhachHang,
+  thongTinCaNhan,
 };
+
+async function thongTinCaNhan(req, res) {
+  var token = req.body.jwt;
+  var user = await jwtUtil._decodeCookie(token);
+  var data = await khachHangService.getClientById(user.id);
+  console.log(data);
+  return {
+    status: 'success',
+    data: data,
+  }
+}
+
+async function updateThongTinKhachHang(req, res) {
+  var token = req.body.jwt;
+  var data = req.body.data;
+  await khachHangService.u
+  return res.json({
+    status: 'success',
+  })
+}
 
 async function checkAccount(req, res) {
   var { userName } = req.body;
@@ -91,7 +114,7 @@ async function thanhToan(req, res){
 
 async function getHoaDon(req, res){ 
   const cookie = req.body.jwt;
-  console.log(cookie);
+  // console.log(cookie);
   var token = await jwtUtil._decodeCookie(cookie);
   var result = await hoaDonBanService.layHoaDonBanTheoUser(token.id);
   return res.json({

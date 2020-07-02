@@ -26,9 +26,9 @@ router.route('/login').post(controller.dangNhap);
 	! Chú ý : tên các trường trong input đặt đúng theo quy tắt các trường thông tin trong file Nguoi.js
 */
 router.route('/signup').post(controller.dangKy);
-
+router.route('/thongtincanhan').post(controller.thongTinCaNhan)
 router.route('/thanhtoan').post(controller.thanhToan);
 router.route('/hoadon').post(controller.getHoaDon);
-
+router.route('/updatethongtin').post(controller.updateThongTinKhachHang);
 
 module.exports = router;

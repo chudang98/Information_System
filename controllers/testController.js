@@ -8,6 +8,7 @@ const HDBan = db.HoaDonBan;
 const HoaDonChiTiet = db.HoaDonBanChiTiet;
 const bcrypt = require('bcryptjs');
 const hoaDonBanService = require('../services/hoaDonBanService');
+const KhachHangService = require('../services/khachHangService');
 
 module.exports = {
   layMatHang,
@@ -57,8 +58,11 @@ async function taoNguoi(req, res) {
   // return res.json({
   //   status: 200,
   // });
-  var result = await _layDanhSachHoaDon();
-  return res.json(result);
+  var result = await KhachHangService.getAllClient();
+  console.log(result);
+  return res.json({
+    a : 's',
+  });
 }
 
 async function _demoAddHoaDonBan(){

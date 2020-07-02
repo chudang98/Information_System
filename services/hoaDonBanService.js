@@ -91,6 +91,10 @@ async function thanhToanThanhCongHoaDon(idUser){
 
 }
 
+async function themDanhGiaHoaDon(idHoaDon, danhGia) {
+  
+}
+
 async function _xoaMatHangKhoiHoaDon(idMatHang, idHoaDon){
   var result = await HDChitiet.destroy({
     where: {

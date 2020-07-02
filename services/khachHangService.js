@@ -6,11 +6,24 @@ module.exports = {
   luuKhachHang,
   checkAccount,
   getAllClient,
+  getClientById,
 };
 
 async function luuKhachHang() {}
 
 async function checkAccount() {}
+
+async function getClientById(idCustomer){
+  var data = await KhachHang.findOne({
+    where: {
+      _id: idCustomer,
+    },
+    indlude: 'nguoi',
+    raw: true,
+    nest: true,
+  });
+  return data;
+}
 
 async function getAllClient() {
     var clients = await KhachHang.findAll({
@@ -19,6 +32,25 @@ async function getAllClient() {
       include: 'nguoi',
     });
     return clients;
+}
+
+async function updateInfor(data, idCustomer){
+  var customer = await KhachHang.findOne({
+    where: {
+      _id: idCustomer,
+    },
+    raw: true,
+    nest: true,
+  });
+  await Nguoi.update( data, {
+    where: {
+      _id: customer.Nguoiid,
+    }
+  });
+
+  return {
+    status: 'success',
+  }
 }
 
 // async function getClientById(id) {
