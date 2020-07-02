@@ -3,6 +3,7 @@ const matHangService = require('../services/matHangServices');
 const hoaDonBanService = require('../services/hoaDonBanService');
 const khachHangService = require('../services/khachHangService');
 const jwtUtil = require('../utils/cookieUtils');
+const MatHang = require('../models/MatHang');
 
 module.exports = {
   checkAccount,
@@ -15,6 +16,7 @@ module.exports = {
   getHoaDonChiTiet,
   updateThongTinKhachHang,
   thongTinCaNhan,
+  timKiemMatHangTheoTen,
 };
 
 async function thongTinCaNhan(req, res) {
@@ -69,6 +71,14 @@ async function timMatHangTheoLoai(req, res) {
   })
 }
 
+async function timKiemMatHangTheoTen(req, res){
+  var ten = req.body.ten;
+  var data = await matHangService.timMatHangTheoTen(ten);
+  return {
+    status: 'success',
+    data,
+  }
+}
 async function dangNhap(req, res) {
   var { userName, password } = req.body;
   var result = await service.checkUserLogin(userName, password);

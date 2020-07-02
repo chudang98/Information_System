@@ -7,17 +7,32 @@ const Op = Sequelize.Op;
 const _ = require('lodash');
 
 module.exports = {
-  takeProduct,
+  takeAllProduct,
   themMatHang,
   timMatHangTheoTen,
   timMatHangTheoLoai,
   layNhanXet,
   themNhanXet,
+  layMatHangBangId,
 };
 
-async function takeProduct() {
-  var matHang = await MatHang.findAll({});
+async function takeAllProduct() {
+  var matHang = await MatHang.findAll({
+    raw: true,
+    nest: true,
+  });
   return matHang;
+}
+
+async function layMatHangBangId(idMatHang){
+  var mathang = await MatHang.findOne({
+    where: {
+      _id: idMatHang, 
+    },
+    raw: true,
+    nest: true,
+  });
+  return mathang;
 }
 
 async function themMatHang(matHangMoi) {
@@ -151,7 +166,7 @@ async function timMatHangTheoLoai(maLoaiMatHang) {
 
 async function layNhanXet(idMatHang) {
   try{
-    const danhGia = await DanhGia.find({ matHang: idMatHang });
+    const danhGia = await DanhGia.findAll({ matHang: idMatHang });
     return danhGia;
   }catch(err){
     return [];

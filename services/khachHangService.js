@@ -8,9 +8,21 @@ module.exports = {
   getAllClient,
   getClientById,
   updateInfor,
+  timKhachHangTheoSdt,
 };
 
 async function luuKhachHang(data) {
+  var {
+    ten, diaChi, ngaySinh, gioiTinh, email, sdt
+  } = data;
+  try{
+    var nguoi = await Nguoi.create({
+      ten, diaChi, ngaySinh, gioiTinh, email, sdt,
+    });
+  }catch(err) {
+
+  };
+
 
 }
 
@@ -56,6 +68,19 @@ async function updateInfor(data, idCustomer){
   }
 }
 
+async function timKhachHangTheoSdt(sdt){
+  var data = await KhachHang.findAll({
+    where: {
+      sdt: {
+        [Op.like]: `%${sdt}%`,
+      },
+    },
+    include: 'nguoi',
+    raw: true,
+    nest: true,
+  });
+  return data;
+}
 // async function getClientById(id) {
 //   var client = await Client
 // }

@@ -1,8 +1,6 @@
 //sử dụng khách hàng sẻrvice
 const khServices = require('../services/khachHangService');
 
-
-
 module.exports = {
     getSignup,
     getLogin,
