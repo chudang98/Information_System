@@ -29,9 +29,10 @@ async function thongTinCaNhan(req, res) {
 }
 
 async function updateThongTinKhachHang(req, res) {
-  var token = req.body.jwt;
+  var cookie = req.body.jwt;
   var data = req.body.data;
-  await khachHangService.u
+  var token = await jwtUtil._decodeCookie(cookie);
+  await khachHangService.updateInfor(data, token.id);
   return res.json({
     status: 'success',
   })

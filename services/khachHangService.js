@@ -7,9 +7,12 @@ module.exports = {
   checkAccount,
   getAllClient,
   getClientById,
+  updateInfor,
 };
 
-async function luuKhachHang() {}
+async function luuKhachHang(data) {
+
+}
 
 async function checkAccount() {}
 
@@ -42,12 +45,12 @@ async function updateInfor(data, idCustomer){
     raw: true,
     nest: true,
   });
-  await Nguoi.update( data, {
+  await KhachHang.update( data, 
+  {
     where: {
       _id: customer.Nguoiid,
     }
-  });
-
+  })
   return {
     status: 'success',
   }
