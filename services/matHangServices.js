@@ -1,23 +1,39 @@
 const db = require('../models');
-const MatHang = require('../models/MatHang')(db.sequelize, db.Sequelize);
-const DanhGia = require('../models/DanhGia')(db.sequelize, db.Sequelize);
+const MatHang = db.MatHang;
+const DanhGia = db.DanhGia;
+const HDChiTiet = db.HoaDonBanChiTiet;
 const Sequelize = require('sequelize');
 const Op = Sequelize.Op;
 
 const _ = require('lodash');
 
 module.exports = {
-  takeProduct,
+  takeAllProduct,
   themMatHang,
   timMatHangTheoTen,
   timMatHangTheoLoai,
   layNhanXet,
   themNhanXet,
+  layMatHangBangId,
 };
 
-async function takeProduct() {
-  var matHang = await MatHang.findAll({});
+async function takeAllProduct() {
+  var matHang = await MatHang.findAll({
+    raw: true,
+    nest: true,
+  });
   return matHang;
+}
+
+async function layMatHangBangId(idMatHang){
+  var mathang = await MatHang.findOne({
+    where: {
+      _id: idMatHang, 
+    },
+    raw: true,
+    nest: true,
+  });
+  return mathang;
 }
 
 async function themMatHang(matHangMoi) {
@@ -48,7 +64,7 @@ async function timMatHangTheoTen(tenMatHang) {
     });
     return docs;
   }catch(err){
-    return []
+    return [];
   }
 }
 
@@ -151,7 +167,11 @@ async function timMatHangTheoLoai(maLoaiMatHang) {
 
 async function layNhanXet(idMatHang) {
   try{
-    const danhGia = await DanhGia.find({ matHang: idMatHang });
+    const danhGia = await DanhGia.findAll({ 
+      matHang: idMatHang,
+      raw: true,
+      nest: true,
+    });
     return danhGia;
   }catch(err){
     return [];
@@ -161,12 +181,18 @@ async function layNhanXet(idMatHang) {
 
 async function themNhanXet(idHoaDon, idMatHang, nhanXet) {
   try{
-    const nhanXet = new DanhGia({
-      ...nhanXet,
-      matHang : idMatHang,
-      hoaDonBan : idHoaDon,
+    var hdct = await HDChiTiet.findOne({
+      where: {
+        HDBanid: idHoaDon,
+        MatHangid: idMatHang,
+      },
+      raw: true,
+      nest: true,
     });
-    await nhanXet.save();
+    await DanhGia.create({
+      nhanXet,
+      HDBanChiTiet: hdct._id,
+    })
     return {
       status: 'success',
     }

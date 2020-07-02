@@ -7,9 +7,25 @@ module.exports = {
   checkAccount,
   getAllClient,
   getClientById,
+  updateInfor,
+  timKhachHangTheoSdt,
+  getDetailCustomer,
 };
 
-async function luuKhachHang() {}
+async function luuKhachHang(data) {
+  var {
+    ten, diaChi, ngaySinh, gioiTinh, email, sdt
+  } = data;
+  try{
+    var nguoi = await Nguoi.create({
+      ten, diaChi, ngaySinh, gioiTinh, email, sdt,
+    });
+  }catch(err) {
+
+  };
+
+
+}
 
 async function checkAccount() {}
 
@@ -18,7 +34,7 @@ async function getClientById(idCustomer){
     where: {
       _id: idCustomer,
     },
-    indlude: 'nguoi',
+    include: 'nguoi',
     raw: true,
     nest: true,
   });
@@ -42,17 +58,42 @@ async function updateInfor(data, idCustomer){
     raw: true,
     nest: true,
   });
-  await Nguoi.update( data, {
+  await KhachHang.update( data, 
+  {
     where: {
       _id: customer.Nguoiid,
     }
-  });
-
+  })
   return {
     status: 'success',
   }
 }
 
+async function getDetailCustomer(idCustomer){
+  var data = await KhachHang.findOne({
+    where: {
+      _id: idCustomer,
+    },
+    include: 'nguoi',
+    raw: true,
+    nest: true,
+  });
+  return data;
+}
+
+async function timKhachHangTheoSdt(sdt){
+  var data = await KhachHang.findAll({
+    where: {
+      sdt: {
+        [Op.like]: `%${sdt}%`,
+      },
+    },
+    include: 'nguoi',
+    raw: true,
+    nest: true,
+  });
+  return data;
+}
 // async function getClientById(id) {
 //   var client = await Client
 // }

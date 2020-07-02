@@ -3,6 +3,7 @@ const matHangService = require('../services/matHangServices');
 const hoaDonBanService = require('../services/hoaDonBanService');
 const khachHangService = require('../services/khachHangService');
 const jwtUtil = require('../utils/cookieUtils');
+const MatHang = require('../models/MatHang');
 
 module.exports = {
   checkAccount,
@@ -15,6 +16,7 @@ module.exports = {
   getHoaDonChiTiet,
   updateThongTinKhachHang,
   thongTinCaNhan,
+  timKiemMatHangTheoTen,
 };
 
 async function thongTinCaNhan(req, res) {
@@ -22,16 +24,17 @@ async function thongTinCaNhan(req, res) {
   var user = await jwtUtil._decodeCookie(token);
   var data = await khachHangService.getClientById(user.id);
   console.log(data);
-  return {
+  return res.json({
     status: 'success',
     data: data,
-  }
+  });
 }
 
 async function updateThongTinKhachHang(req, res) {
-  var token = req.body.jwt;
+  var cookie = req.body.jwt;
   var data = req.body.data;
-  await khachHangService.u
+  var token = await jwtUtil._decodeCookie(cookie);
+  await khachHangService.updateInfor(data, token.id);
   return res.json({
     status: 'success',
   })
@@ -68,6 +71,14 @@ async function timMatHangTheoLoai(req, res) {
   })
 }
 
+async function timKiemMatHangTheoTen(req, res){
+  var ten = req.body.ten;
+  var data = await matHangService.timMatHangTheoTen(ten);
+  return {
+    status: 'success',
+    data,
+  }
+}
 async function dangNhap(req, res) {
   var { userName, password } = req.body;
   var result = await service.checkUserLogin(userName, password);

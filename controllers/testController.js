@@ -9,6 +9,8 @@ const HoaDonChiTiet = db.HoaDonBanChiTiet;
 const bcrypt = require('bcryptjs');
 const hoaDonBanService = require('../services/hoaDonBanService');
 const KhachHangService = require('../services/khachHangService');
+const Sequelize = require('sequelize');
+const Op = Sequelize.Op;
 
 module.exports = {
   layMatHang,
@@ -58,8 +60,15 @@ async function taoNguoi(req, res) {
   // return res.json({
   //   status: 200,
   // });
-  var result = await KhachHangService.getAllClient();
-  console.log(result);
+  // var result = await KhachHangService.getAllClient();
+  // console.log(result);
+
+
+  var data = await _findByNameDemo();
+  console.log(data);
+ 
+ 
+ 
   return res.json({
     a : 's',
   });
@@ -123,4 +132,17 @@ async function _updateDemo(){
   }
 }
 
+async function _findByNameDemo(){
+  var strMau = 'a123123123';
+  var data = await Nguoi.findAll({
+    where: {
+      sdt: {
+        [Op.like]: `%${strMau}%`,
+      }
+    },
+    raw: true,
+    nest: true,
+  });
+  return data;
+}
 // async function _layHoaDon()}
