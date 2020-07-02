@@ -22,10 +22,10 @@ async function thongTinCaNhan(req, res) {
   var user = await jwtUtil._decodeCookie(token);
   var data = await khachHangService.getClientById(user.id);
   console.log(data);
-  return {
+  return res.json({
     status: 'success',
     data: data,
-  }
+  });
 }
 
 async function updateThongTinKhachHang(req, res) {

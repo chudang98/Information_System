@@ -48,6 +48,7 @@ module.exports = (sequelize, Sequelize) => {
       Nguoi.hasOne(models.KhachHang, {
         sourceKey: '_id',
         foreignKey: 'Nguoiid',
+        as: 'nhanvien',
       });
 
       Nguoi.hasOne(models.NhanVien, {

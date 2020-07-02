@@ -18,7 +18,7 @@ async function getClientById(idCustomer){
     where: {
       _id: idCustomer,
     },
-    indlude: 'nguoi',
+    include: 'nguoi',
     raw: true,
     nest: true,
   });
