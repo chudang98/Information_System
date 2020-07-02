@@ -4,7 +4,6 @@ const KhachHang = db.KhachHang;
 
 module.exports = {
   luuKhachHang,
-  checkAccount,
   getAllClient,
   getClientById,
   updateInfor,
@@ -27,7 +26,6 @@ async function luuKhachHang(data) {
 
 }
 
-async function checkAccount() {}
 
 async function getClientById(idCustomer){
   var data = await KhachHang.findOne({

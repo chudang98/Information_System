@@ -17,6 +17,7 @@ module.exports = {
   updateThongTinKhachHang,
   thongTinCaNhan,
   timKiemMatHangTheoTen,
+  layNhanXetMatHang,
 };
 
 async function thongTinCaNhan(req, res) {
@@ -79,6 +80,11 @@ async function timKiemMatHangTheoTen(req, res){
     data,
   }
 }
+
+async function layNhanXetMatHang(req, res){
+  
+}
+
 async function dangNhap(req, res) {
   var { userName, password } = req.body;
   var result = await service.checkUserLogin(userName, password);
