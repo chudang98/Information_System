@@ -32,7 +32,10 @@ async function getLogin(req, res) {
     return res.status(200).render('seller/banhang', {});
 }
 async function banHangView(req, res) {
-    return res.status(200).render('seller/banhang', {});
+    var clients = await khServices.getAllClient();
+    return res.status(200).render('seller/banhang', {
+        khachhangs: clients,
+    });
 }
 async function themKHview(req, res) {
     return res.status(200).render('seller/themkh', {});
