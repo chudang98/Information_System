@@ -1,6 +1,9 @@
 const authService = require('../services/authenticateService');
 const cookieUtils = require('../utils/cookieUtils');
 
+const khachHangService = require('../services/khachHangService');
+const nhanVienServices = require('../services/nhanVienServices');
+
 module.exports = {
   getSignup,
   signupAcc,
@@ -10,8 +13,10 @@ module.exports = {
   dangKyKhachHang,
 };
 
-async function dangKyKhachHang(){
-  
+async function dangKyKhachHang(req, res){
+  var data = req.body;
+  await khachHangService.luuKhachHang(data);
+  return res.redirect('/seller/banhang');
 }
 
 async function getSignup(req, res) {

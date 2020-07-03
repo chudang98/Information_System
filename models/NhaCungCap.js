@@ -11,7 +11,12 @@ module.exports = (sequelize, Sequelize) => {
   }, {});
   NhaCungCap.associate = function(models) {
     // associations can be defined here
-    // NhaCungCap.belongsTo(models.Nguoi, { foreignKey: 'Nguoiid' });
+    NhaCungCap.belongsTo(models.Nguoi, { 
+      foreignKey: 'Nguoiid',
+      targetKey: '_id',
+      as: 'nguoi',
+    });
+    
   };
   return NhaCungCap;
 };

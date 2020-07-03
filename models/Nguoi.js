@@ -56,6 +56,11 @@ module.exports = (sequelize, Sequelize) => {
         foreignKey: 'Nguoiid',
       });
 
+      Nguoi.hasOne(models.NhaCungCap, {
+        sourceKey: '_id',
+        foreignKey: 'Nguoiid',
+      });
+
  
   };
   return Nguoi;

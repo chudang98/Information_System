@@ -7,7 +7,7 @@ const router = express.Router();
 router.route('/banhang').get(nvbhController.banHangView);
 router.route('/themkh')
   .get(nvbhController.themKHview)
-  // .post(nvbhController.dangKyKhachHang);
+  .post(nvbhController.dangKyKhachHang);
 router.route('/choxuly').get(nvbhController.choXulyview);
 router.route('/xemhdOl').get(nvbhController.xemHDolview);
 router.route('/thongtinkh').get(nvbhController.thongtinKHview);
