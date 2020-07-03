@@ -9,7 +9,6 @@ const _ = require('lodash');
 
 module.exports = {
   takeAllProduct,
-  // themMatHang,
   timMatHangTheoTen,
   timMatHangTheoLoai,
   layNhanXet,
