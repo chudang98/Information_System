@@ -6,8 +6,12 @@ block content
     h2(style='border-bottom: 1px solid black;') Danh Sách Nhân Viên 
     form.content-form
       .form-group.form-search-nv.row
-        input#exampleInputEmail1.form-control.col-md-9(type='email', placeholder='Nhập vào tên nhân viên ', aria-describedby='emailHelp')
-        a.btn.btn-pri.btn-add-nv.col-md-2.offset-md-1(href='/admin/themnhanvien') Thêm mới   
+        .col-md-8
+          input#exampleInputEmail1.form-control(type='text', placeholder='Nhập vào tên nhân viên  ', aria-describedby='emailHelp')
+        .col-md-2
+          button.btn.btn-pri.btn-seller(type='submit') Tìm kiếm   
+        .col-md-2
+          a.btn.btn-pri.btn-seller(href='/seller/themkh') Thêm
     table.table.table-bordered.table-striped.text-center
       thead.thead-table
         tr

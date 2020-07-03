@@ -1,13 +1,15 @@
 const jwt = require('jsonwebtoken');
 const { promisify } = require('util');
 
-const User = require('../models/NhanVien');
+const db = require('../models');
+const User = db.KhachHang;
 
 module.exports = {
   setTokenCookie,
-  checkUserByCookie,
+  // checkUserByCookie,
   getUserByCookie,
   _createToken,
+  _decodeCookie,
 };
 
 async function setTokenCookie(dataUser, response) {
@@ -22,17 +24,23 @@ async function setTokenCookie(dataUser, response) {
   response.cookie('jwt', token, cookieOption);
 }
 
-async function checkUserByCookie(jwtCookie) {
-  var decoded = await _decodeCookie(jwtCookie);
-  const user = await User.findById(decoded.id);
-  if (!user) return false;
-  if (user.isChangedPasswordAfter(decoded.iat)) return false;
-  return true;
-}
+// async function checkUserByCookie(jwtCookie) {
+//   var decoded = await _decodeCookie(jwtCookie);
+//   const user = await User.findById(decoded.id);
+//   if (!user) return false;
+//   if (user.isChangedPasswordAfter(decoded.iat)) return false;
+//   return true;
+// }
 
 async function getUserByCookie(jwtCookie) {
   var decoded = await _decodeCookie(jwtCookie);
-  const user = await User.findById(decoded.id);
+  const user = await User.findOne({ 
+    where: {
+      _id: decoded.id, 
+    },
+    raw: true,
+    nest: true,
+  });
   if(!user)
     return {
       status: 'null',
@@ -54,7 +62,7 @@ async function _decodeCookie(jwtCookie){
 
 async function _createToken(data){
   var objectData = {
-    id: data.id,
+    id: data._id,
     username: data.userName,
   };
   const token = jwt.sign(objectData, process.env.JWT_SECRET, {

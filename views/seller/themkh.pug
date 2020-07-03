@@ -9,24 +9,24 @@ block content
 		form.content-form
 			.form-group
 				label(for='exampleInputName') Họ và tên            
-				input#exampleInputName.form-control(type='text')                 
-			.form-group
-				label(for='exampleInputCMT') Thẻ căn cước     
-				input#exampleInputPassword1.form-control(type='text', value='12398546')          
+				input#exampleInputName.form-control(type='text',name='ten')                        
 			.form-group
 				label(for='exampleInputSDT') Số điện thoại                        
-				input#exampleInputSDT.form-control(type='number')               
+				input#exampleInputSDT.form-control(type='text',name='sdt')
+			.form-group
+				label(for='exampleInputemail') Email                       
+				input#exampleInputemail.form-control(type='email',name='email')                 
 			.form-group
 				label(for='ngaysinh') Ngày sinh                     
-				input#ngaysinh.form-control(type='date')               
+				input#ngaysinh.form-control(type='date',name='ngaySinh')               
 			.form-group
 				label(for='diachi') Địa chỉ                       
-				input#diachi.form-control(type='text' )              
+				input#diachi.form-control(type='text',name='diaChi' )              
 			.form-group
 				label(for='Energy') Giới tính                      
 				br
-				input#Energy(type='radio', name='energy', value='', disabled='')
+				input#Energy(type='radio', name='gioiTinh', value='', disabled='')
 				| Nam               
-				input#Energy(type='radio', name='energy', value='', disabled='')
+				input#Energy(type='radio', name='gioiTinh', disabled='')
 				| Nữ             
 			button.btn.btn-pri(type='submit') Thêm mới  

@@ -1,3 +1,4 @@
+const khServices = require('../services/khachHangService');
 module.exports = {
 
     getLogin,
@@ -42,10 +43,19 @@ async function xemchitietNVView(req, res) {
     return res.status(200).render('admin/xemchitietnv', {});
 }
 async function thongtinKHView(req, res) {
-    return res.status(200).render('admin/thongtinkhachhang', {});
+    var clients = await khServices.getAllClient();
+    console.log(clients);
+    return res.status(200).render('admin/thongtinkhachhang', {
+        khachhang: clients,
+    });
 }
 async function xemchitietKHView(req, res) {
-    return res.status(200).render('admin/xemchitietkh', {});
+    var idkh = req.params.id
+    var data = await khServices.getClientById(idkh)
+    console.log(data);
+    return res.status(200).render('admin/xemchitietkh', {
+        infor: data,
+    });
 }
 async function thongtinNCCView(req, res) {
     return res.status(200).render('admin/thongtinncc', {});

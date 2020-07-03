@@ -1,8 +1,6 @@
 //sử dụng khách hàng sẻrvice
 const khServices = require('../services/khachHangService');
-
-
-
+const mhServices = require('../services/matHangServices');
 module.exports = {
     getSignup,
     getLogin,
@@ -14,6 +12,14 @@ module.exports = {
     xemchitietview,
     timkiemMHview,
     hoaDonview,
+    choXulyview,
+    xemHDolview,
+    danggiaoHview,
+    xemHDdanggiaoview,
+    thanhCongview,
+    xemHDthanhcongview,
+    huyview,
+    xemHDhuyview,
 
 };
 
@@ -24,7 +30,10 @@ async function getLogin(req, res) {
     return res.status(200).render('seller/banhang', {});
 }
 async function banHangView(req, res) {
-    return res.status(200).render('seller/banhang', {});
+    var clients = await khServices.getAllClient();
+    return res.status(200).render('seller/banhang', {
+        khachhangs: clients,
+    });
 }
 async function themKHview(req, res) {
     return res.status(200).render('seller/themkh', {});
@@ -37,17 +46,50 @@ async function thongtinKHview(req, res) {
     });
 }
 async function thongtinMHview(req, res) {
-    return res.status(200).render('seller/thongtinmh', {});
+    var mh = await mhServices.takeAllProduct();
+    console.log(mh);
+    return res.status(200).render('seller/thongtinmh', {
+        mathang: mh,
+    });
 }
 async function thongtinCNview(req, res) {
     return res.status(200).render('seller/thongtincanhan', {});
 }
 async function xemchitietview(req, res) {
-    return res.status(200).render('seller/xemchitiet', {});
+    var idkh = req.params.id
+    var data = await khServices.getClientById(idkh)
+    console.log(data);
+    return res.status(200).render('seller/xemchitiet', {
+        infor: data,
+    });
 }
 async function timkiemMHview(req, res) {
     return res.status(200).render('seller/timkiemmh', {});
 }
 async function hoaDonview(req, res) {
     return res.status(200).render('seller/hoadon', {});
+}
+async function choXulyview(req, res) {
+    return res.status(200).render('seller/choxuly', {});
+}
+async function xemHDolview(req, res) {
+    return res.status(200).render('seller/xemhdOl', {});
+}
+async function danggiaoHview(req, res) {
+    return res.status(200).render('seller/danggiaohang', {});
+}
+async function xemHDdanggiaoview(req, res) {
+    return res.status(200).render('seller/xemhddanggiao', {});
+}
+async function thanhCongview(req, res) {
+    return res.status(200).render('seller/thanhcong', {});
+}
+async function xemHDthanhcongview(req, res) {
+    return res.status(200).render('seller/xemhdthanhcong', {});
+}
+async function huyview(req, res) {
+    return res.status(200).render('seller/huy', {});
+}
+async function xemHDhuyview(req, res) {
+    return res.status(200).render('seller/xemhdhuy', {});
 }

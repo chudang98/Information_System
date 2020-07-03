@@ -1,6 +1,5 @@
 'use strict';
 
-const bcrypt = require('bcryptjs');
 module.exports = (sequelize, Sequelize) => {
   const Nguoi = sequelize.define('Nguoi', {
     _id: {
@@ -43,8 +42,21 @@ module.exports = (sequelize, Sequelize) => {
     }
   }, {}
   );
+
   Nguoi.associate = function(models) {
     // associations can be defined here
+      Nguoi.hasOne(models.KhachHang, {
+        sourceKey: '_id',
+        foreignKey: 'Nguoiid',
+        as: 'nhanvien',
+      });
+
+      Nguoi.hasOne(models.NhanVien, {
+        sourceKey: '_id',
+        foreignKey: 'Nguoiid',
+      });
+
+ 
   };
   return Nguoi;
 };

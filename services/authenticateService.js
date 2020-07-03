@@ -1,7 +1,7 @@
 const db = require('../models');
-const KhachHang = require('../models/KhachHang')(db.sequelize, db.Sequelize);
-const Nguoi = require('../models/Nguoi')(db.sequelize, db.Sequelize);
-const NhanVien = require('../models/NhanVien')(db.sequelize, db.Sequelize);
+const KhachHang = db.KhachHang;
+const Nguoi = db.Nguoi;
+const NhanVien = db.NhanVien;
 const _ = require('lodash');
 const bcrypt = require('bcryptjs');
 
@@ -55,34 +55,34 @@ async function nhanVienSignup(data){
 
 async function checkUserLogin(username, password){
 	if (_.isEmpty(username) || _.isEmpty(password)) return { status: 'fail' };
-  const user = await KhachHang.findOnefindOne({ 
+  const user = await KhachHang.findOne({ 
     where: {
       userName: username,
     },
     raw: true,
     nest: true,
   });
-  if (!user || _validatePassword(password, user) == false ) {
+  var checkAcc = await _validatePassword(password, user);
+  if ( !user ||  checkAcc == false ) {
     return { status: 'fail' };
-  }
-  return {
-    status: 'success',
-    infor: user,
-  };
+  }else
+    return {
+      status: 'success',
+      infor: user,
+    };
 }
 
 async function userSignup(data){	
 	try{
 		var nguoi = await _createNguoi(data);
-		var user = new KhachHang({
+		var user = await KhachHang.create({
 			Nguoiid: nguoi._id,
-			userName: data.userName,
-			password: data.password,
+			userName: !_.isEmpty(data.userName) ? data.userName : null,
+			password: !_.isEmpty(data.password) ? data.password : null,
 		});
-		await user.save();
 		return {
       status: 'success',
-      infor: user,
+      infor: user.toJSON(),
 		}
 	}catch(err){
     console.log(err);

@@ -1,20 +1,39 @@
-const MatHang = require('../models/MatHang');
-const DanhGia = require('../models/DanhGia');
+const db = require('../models');
+const MatHang = db.MatHang;
+const DanhGia = db.DanhGia;
+const HDChiTiet = db.HoaDonBanChiTiet;
+const Sequelize = require('sequelize');
+const Op = Sequelize.Op;
 
 const _ = require('lodash');
 
 module.exports = {
-  takeProduct,
+  takeAllProduct,
   themMatHang,
   timMatHangTheoTen,
   timMatHangTheoLoai,
   layNhanXet,
   themNhanXet,
+  layMatHangBangId,
 };
 
-async function takeProduct() {
-  var matHang = await MatHang.find({});
+async function takeAllProduct() {
+  var matHang = await MatHang.findAll({
+    raw: true,
+    nest: true,
+  });
   return matHang;
+}
+
+async function layMatHangBangId(idMatHang){
+  var mathang = await MatHang.findOne({
+    where: {
+      _id: idMatHang, 
+    },
+    raw: true,
+    nest: true,
+  });
+  return mathang;
 }
 
 async function themMatHang(matHangMoi) {
@@ -36,50 +55,108 @@ async function themMatHang(matHangMoi) {
 
 async function timMatHangTheoTen(tenMatHang) {
   try{
-    const docs = await MatHang.find({ ten :  { $regex: `.*${tenMatHang}.*` } });
+    const docs = await MatHang.findAll({ 
+      where :  { 
+        [Op.like]: `%${tenMatHang}%`
+      },
+      raw: true,
+      nest: true,
+    });
     return docs;
   }catch(err){
-    return []
+    return [];
   }
 }
 
 async function timMatHangTheoLoai(maLoaiMatHang) {
+  console.log(maLoaiMatHang);
   try{
     switch(maLoaiMatHang){
       case 1: {
-        const docs = await MatHang.find({ loai: 'Áo Sơ mi' });
+        var docs = await MatHang.findAll({
+          where: {
+           loai: 'Áo Sơ mi',
+          },
+          raw: true,
+          nest: true,
+        });
         return _mappingProcuct(docs);
       };
       case 2: {
-        const docs = await MatHang.find({ loai: 'Áo khoác' });
+        var docs = await MatHang.findAll({
+          where: {
+            loai: 'Áo khoác',
+          },
+          raw: true,
+          nest: true,
+        });
         return _mappingProcuct(docs);
       };
       case 3 : {
-        const docs = await MatHang.find({ loai: 'Áo Vest' });
+        var docs = await MatHang.findAll({
+          where: {
+            loai: 'Áo Vest',
+          },
+          raw: true,
+          nest: true,
+        });
         return _mappingProcuct(docs);
       };
       case 4 : {
-        const docs = await MatHang.find({ loai: 'Áo phông' });
+        var docs = await MatHang.findAll({
+          where: {
+            loai: 'Áo phông',
+          },
+          raw: true,
+          nest: true,
+        });
         return _mappingProcuct(docs);
       };
       case 5 : {
-        const docs = await MatHang.find({ loai: 'Quần vải' });
+        var docs = await MatHang.findAll({
+          where: {
+            loai: 'Quần vải',
+          },
+          raw: true,
+          nest: true,
+        });
         return _mappingProcuct(docs);
       };
       case 6 : {
-        const docs = await MatHang.find({ loai: 'Quần Kaki' });
+        var docs = await MatHang.findAll({
+          where: {
+            loai: 'Quần Kaki',
+          },
+          raw: true,
+          nest: true,
+        });
         return _mappingProcuct(docs);
       };
       case 7 : {
-        const docs = await MatHang.find({ loai: 'Quần jean ống rộng' });
+        var docs = await MatHang.findAll({
+          where: {
+            loai: 'Quần jean ống rộng',
+          },
+          raw: true,
+          nest: true,
+        });
         return _mappingProcuct(docs);
       };
       case 8 : {
-        const docs = await MatHang.find({ loai: 'Quần jean ống đứng' });
+        var docs = await MatHang.findAll({
+          where: {
+            loai: 'Quần jean ống đứng',
+          },
+          raw: true,
+          nest: true,
+        });
         return _mappingProcuct(docs);
       };
       default : {
-        const docs = await MatHang.find();
+        var docs = await MatHang.findAll({
+          raw: true,
+          nest: true,
+        });
         return _mappingProcuct(docs);
       }
     }
@@ -89,23 +166,43 @@ async function timMatHangTheoLoai(maLoaiMatHang) {
 }
 
 async function layNhanXet(idMatHang) {
-  try{
-    const danhGia = await DanhGia.find({ matHang: idMatHang });
-    return danhGia;
-  }catch(err){
-    return [];
-  }
+  var danhgia = [];
+  var HDCT = await HDChiTiet.findAll({
+    where: {
+      MatHangid: idMatHang,
+    },
+    raw: true,
+    nest: true,
+  });
+  // for(){
+
+  // }
+  var danhGia = await DanhGia.findAll({ 
+    where: {
+      HDBanChiTiet: '',
+    },
+    raw: true,
+    nest: true,
+  });
+  
+  return danhGia;
 
 }
 
 async function themNhanXet(idHoaDon, idMatHang, nhanXet) {
   try{
-    const nhanXet = new DanhGia({
-      ...nhanXet,
-      matHang : idMatHang,
-      hoaDonBan : idHoaDon,
+    var hdct = await HDChiTiet.findOne({
+      where: {
+        HDBanid: idHoaDon,
+        MatHangid: idMatHang,
+      },
+      raw: true,
+      nest: true,
     });
-    await nhanXet.save();
+    await DanhGia.create({
+      nhanXet,
+      HDBanChiTiet: hdct._id,
+    })
     return {
       status: 'success',
     }
@@ -134,6 +231,7 @@ async function _mappingProcuct(products){
         mauSac.push({
           _id: product._id,
           mauSac: product.mauSac,
+          Anh: product.Anh,
         });
       })
       var kichCo = {
@@ -149,18 +247,44 @@ async function _mappingProcuct(products){
       giaBan: value[0].giaBan,
       sanPham: sanPham,
     };
-
-    // _.forEach(value, product => {
-    //   // _.groupBy( , 'kichCo');
-    //   products.push({
-    //     _id: product._id,
-    //     mauSac: product.mauSac,
-    //     kichCo: product.kichCo,
-    //     Anh: product.Anh,
-    //   })
-    // });
-   
     result.push(sanPhamNho);
   });
   return result;
+}
+
+async function _checkDuSoLuongMatHang(soLuongCan, idMatHang){
+  var product = await MatHang.findOne({
+    where: {
+      _id: idMatHang,
+    },
+    raw: true,
+    nest: true,
+  });
+  return product.soLuong >= soLuongCan;
+}
+
+async function _updateSoLuongMatHang(soluong, idMatHang){
+  var hd = await HoaDonChiTiet.findOne({
+    where: {
+      _id: idMatHang,
+    },
+    raw: true,
+    nest: true,
+  });
+
+  await MatHang.update(
+    {
+      soLuong: hd.soLuong - soluong,
+    },
+    {
+      where: {
+        _id: idMatHang,
+      },
+      returning: true,
+      plain: true,
+    },
+  );
+  return {
+    status: 'success',
+  }
 }

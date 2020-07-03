@@ -1,7 +1,16 @@
 const matHangService = require('../services/matHangServices');
 const db = require('../models');
-const Nguoi = require('../models/nguoi')(db.sequelize, db.Sequelize);
+// const Nguoi = require('../models/nguoi')(db.sequelize, db.Sequelize);
+// const KhachHang = require('../models/khachhang')(db.sequelize, db.Sequelize);
+const Nguoi = db.Nguoi;
+const KhachHang = db.KhachHang;
+const HDBan = db.HoaDonBan;
+const HoaDonChiTiet = db.HoaDonBanChiTiet;
 const bcrypt = require('bcryptjs');
+const hoaDonBanService = require('../services/hoaDonBanService');
+const KhachHangService = require('../services/khachHangService');
+const Sequelize = require('sequelize');
+const Op = Sequelize.Op;
 
 module.exports = {
   layMatHang,
@@ -26,15 +35,15 @@ async function taoNguoi(req, res) {
   // var nguoi = await Nguoi.create(data);
   // var data = nguoi.toJSON();
 
-   var nguoi = await Nguoi.findOne({
-    where: {
-      _id: 18,
-    },
-    raw: true,
-    nest: true,
-  });
-  console.log(nguoi);
-  console.log(bcrypt.compareSync('chudang98@gmail.com', nguoi.email));
+  //  var nguoi = await Nguoi.findOne({
+  //   where: {
+  //     _id: 18,
+  //   },
+  //   raw: true,
+  //   nest: true,
+  // });
+  // console.log(nguoi);
+  // console.log(bcrypt.compareSync('chudang98@gmail.com', nguoi.email));
  
   // var nguoi = await Nguoi.findAll({
   //   raw: true,
@@ -42,8 +51,98 @@ async function taoNguoi(req, res) {
   // });
   // console.log(nguoi);
   
+  // var khach = await KhachHang.findAll({
+  //   raw: true,
+  //   nest: true,
+  //   include: 'nguoi',
+  // });
+  // console.log(khach);
+  // return res.json({
+  //   status: 200,
+  // });
+  // var result = await KhachHangService.getAllClient();
+  // console.log(result);
+
+
+  var data = await _findByNameDemo();
+  console.log(data);
+ 
+ 
+ 
   return res.json({
-    status: 200,
+    a : 's',
   });
 }
 
+async function _demoAddHoaDonBan(){
+  var user = 1;
+  var data = {
+    data: [
+    {
+      "_id": "1",
+      "soLuong": 10
+    },
+    {
+      "_id": "3",
+      "soLuong": 10
+    },
+    {
+      "_id": "2",
+      "soLuong": 10
+    },
+  ]
+};
+  var res = await hoaDonBanService.themHoaDonBan(data, user);
+  console.log(res);
+  return {
+    status: 'success',
+  }
+}
+
+async function _layDanhSachHoaDon(){
+  var list = await hoaDonBanService.layHoaDonChiTiet(2);
+  console.log(list);
+  return {
+    s: 's',
+  }
+  
+}
+
+async function _updateDemo(){
+  var hd = await HoaDonChiTiet.findOne({
+    where: {
+      MatHangid: 3,
+      HDBanid: 2,
+    },
+    raw: true,
+    nest: true,
+  });
+
+  await HoaDonChiTiet.update(
+    {
+      soLuong: hd.soLuong - 3,
+    },{
+      where: {
+        _id: 5,
+      }
+    }
+  );
+  return {
+    status: 'success',
+  }
+}
+
+async function _findByNameDemo(){
+  var strMau = 'a123123123';
+  var data = await Nguoi.findAll({
+    where: {
+      sdt: {
+        [Op.like]: `%${strMau}%`,
+      }
+    },
+    raw: true,
+    nest: true,
+  });
+  return data;
+}
+// async function _layHoaDon()}

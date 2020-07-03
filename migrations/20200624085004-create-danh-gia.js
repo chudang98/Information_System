@@ -14,7 +14,7 @@ module.exports = {
       HDBanChiTiet: {
         type: Sequelize.INTEGER,
         references: {
-          model: 'HDBanChiTiets',
+          model: 'HoaDonBanChiTiets',
           key: '_id',
         }
       }, 

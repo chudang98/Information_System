@@ -35,13 +35,6 @@ module.exports = {
       Anh: {
         type: Sequelize.STRING,
       },
-      CuaHangid: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: 'CuaHangs',
-          key: '_id',
-        }
-      },
       createdAt: {
         type: Sequelize.DATE
       },
