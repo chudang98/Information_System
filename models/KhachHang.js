@@ -33,6 +33,12 @@ const KhachHang = sequelize.define('KhachHang', {
       foreignKey: 'KhachHangid',
       sourceKey: '_id',
       as: 'khachhang',
+    });
+
+    KhachHang.hasMany(models.DanhGia, {
+      foreignKey: 'KhachHangid',
+      sourceKey: '_id',
+      as: 'danhgia',
     })
   };
   return KhachHang;

@@ -11,13 +11,20 @@ module.exports = {
       nhanXet: {
         type: Sequelize.STRING
       },
-      HDBanChiTiet: {
+      MatHangid: {
         type: Sequelize.INTEGER,
         references: {
-          model: 'HoaDonBanChiTiets',
+          model: 'MatHangs',
           key: '_id',
-        }
+        },
       }, 
+      KhachHangid: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'KhachHangs',
+          key: '_id',
+        },
+      },
       createdAt: {
         type: Sequelize.DATE
       },

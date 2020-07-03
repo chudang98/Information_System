@@ -7,9 +7,13 @@ const MatHang = db.MatHang;
 
 module.exports = {
 	layHoaDonBanTheoUser,
-  updateStateToanHoaDon,
+  updateStateHoaDon,
   themHoaDonBan,
   layHoaDonChiTiet,
+  thanhToanHoaDonTrucTiep,
+  thanhToanThanhCongHoaDon,
+  updateNhanVienChoHoaDon,
+  layHoaDonTheoMatHang,
 };
 
 async function layHoaDonChiTiet(idHoaDon) {
@@ -66,9 +70,8 @@ async function themHoaDonBan(data, idUser) {
   }   
 }
 
-async function updateStateToanHoaDon(idHoaDon, trangthai) {
-  var hoadon = null;
-  hoadon = await HDBan.update(
+async function updateStateHoaDon(idHoaDon, trangthai) {
+  await HDBan.update(
     {
       trangThai: trangthai,
     },
@@ -80,19 +83,104 @@ async function updateStateToanHoaDon(idHoaDon, trangthai) {
       plain: true,
     },
   );
-  return hoadon;
+  return {
+    status: 'success',
+  };
 }
 
-async function thanhToanHoaDonTrucTiep(data){
+async function thanhToanHoaDonTrucTiep(listMatHang, idCustomer, idNhanVien){
 
 }
 
-async function thanhToanThanhCongHoaDon(idUser){
+async function layHoaDonTheoMatHang(idMatHang){
+  var HDCT = await HDChitiet.findAll({
+    where: {
+      MatHangid: idMatHang,
+    },
+    raw: true,
+    nest: true,
+  });
+  // for(hoadon of HDCT){
+    
+  // }
 
 }
 
-async function themDanhGiaHoaDon(idHoaDon, danhGia) {
-  
+// TODO : Trừ số lượng trực tiếp vào hóa đơn.
+async function thanhToanThanhCongHoaDon(idClient, idHoaDon){
+  var hoaDon = await HDBan.findOne({
+    where: {
+      _id: idHoaDon,
+    },
+    raw: true,
+    nest: true,
+  });
+
+  if(hoaDon.trangThai == 'Đã hoàn thành' || hoaDon.trangThai == 'Đã hủy'){
+    return {
+      status: 'fail',
+    }
+  }
+
+  await HDBan.update(
+    {
+      trangThai: 'Đã hoàn thành',
+    },
+    {
+      where: {
+        _id: idHoaDon,
+      }
+    }
+  );
+
+  var hdct = await HDChitiet.findAll({
+    where: {
+      HDBanid: HDBan._id,
+    },
+    raw: true,
+    nest: true,
+  });
+
+  await _updateSoLuongMatHang(hdct);
+
+  return true;
+}
+
+async function updateNhanVienChoHoaDon(idNhanVien, idHoaDon){
+  await HDBan.update(
+    {
+      NhanVienid: idNhanVien,
+    },
+    {
+    where: {
+      _id: idNhanVien,
+    }
+  });
+  return true;
+}
+
+async function _updateSoLuongMatHang(hdct) {
+  for(mahang of hdct){
+    var mathang = await MatHang.findOne(
+      {
+        where: {
+          _id: mahang.MatHangid,
+        },
+        raw: true,
+        nest: true,
+      },
+    );
+    await MatHang.update(
+      {
+        soLuong: mathang.soLuong - data.soLuong,
+      }, 
+      {
+        where: {
+          _id: mathang._id,
+        }
+      }
+    );
+  }
 }
 
 async function _xoaMatHangKhoiHoaDon(idMatHang, idHoaDon){
@@ -102,7 +190,7 @@ async function _xoaMatHangKhoiHoaDon(idMatHang, idHoaDon){
       MatHangid: idMatHang,
     },
   });
-  console.log(result);
+  // console.log(result);
   return {
     status: 'success',
   }

@@ -19,13 +19,16 @@ async function luuKhachHang(data) {
     var nguoi = await Nguoi.create({
       ten, diaChi, ngaySinh, gioiTinh, email, sdt,
     });
+    await KhachHang.create({
+      Nguoiid: nguoi._id,
+    })
+    return true;
   }catch(err) {
-
+    return false;
   };
 
 
 }
-
 
 async function getClientById(idCustomer){
   var data = await KhachHang.findOne({

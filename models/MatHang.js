@@ -48,8 +48,12 @@ module.exports = (sequelize, Sequelize) => {
     MatHang.hasMany(models.HoaDonBanChiTiet, {
       foreignKey: 'MatHangid',
       sourceKey: '_id',
-    })
+    });
     
+    MatHang.hasMany(models.DanhGia, {
+      foreignKey: 'MatHangid',
+      sourceKey: '_id',
+    });
   };
   return MatHang;
 };
