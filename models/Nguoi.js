@@ -45,21 +45,21 @@ module.exports = (sequelize, Sequelize) => {
 
   Nguoi.associate = function(models) {
     // associations can be defined here
-      Nguoi.hasOne(models.KhachHang, {
-        sourceKey: '_id',
-        foreignKey: 'Nguoiid',
-        as: 'nhanvien',
-      });
+    Nguoi.hasOne(models.KhachHang, {
+      sourceKey: '_id',
+      foreignKey: 'Nguoiid',
+      as: 'nhanvien',
+    });
 
-      Nguoi.hasOne(models.NhanVien, {
-        sourceKey: '_id',
-        foreignKey: 'Nguoiid',
-      });
+    Nguoi.hasOne(models.NhanVien, {
+      sourceKey: '_id',
+      foreignKey: 'Nguoiid',
+    });
 
-      Nguoi.hasOne(models.NhaCungCap, {
-        sourceKey: '_id',
-        foreignKey: 'Nguoiid',
-      });
+    Nguoi.hasOne(models.NhaCungCap, {
+      sourceKey: '_id',
+      foreignKey: 'Nguoiid',
+    });
 
  
   };

@@ -1,7 +1,5 @@
 'use strict';
 const bcrypt = require('bcryptjs');
-const Nguoi = require('./Nguoi');
-
 module.exports = (sequelize, Sequelize) => {
 const KhachHang = sequelize.define('KhachHang', {
     _id: {
@@ -10,14 +8,24 @@ const KhachHang = sequelize.define('KhachHang', {
       primaryKey: true,
       type: Sequelize.INTEGER
     },
-    moTa: Sequelize.STRING,
-    userName: Sequelize.STRING,
-    password: Sequelize.STRING,
+    moTa: {
+      type: Sequelize.STRING,
+      allowNull: true,
+    },
+    userName: {
+      type: Sequelize.STRING,
+      allowNull: true,
+    },
+    password: {
+      type: Sequelize.STRING,
+      allowNull: true,
+    },
     // Nguoiid: Sequelize.STRING,
   }, {
     hooks: {
       beforeCreate: async (user, option) => {
-        user.password = await bcrypt.hash(user.password, 12);
+        if(user.password)
+          user.password = await bcrypt.hash(user.password, 12);
       }
     }
     
