@@ -99,7 +99,8 @@ async function layNhanXetMatHang(req, res){
 }
 
 async function themNhanXet(req, res){
-  var { nhanXet, idSanPham, token } = req.body.data;
+  var { nhanXet, idSanPham } = req.body.data;
+  var token = req.body.token;
   var user = await jwtUtil._decodeCookie(token);
   await matHangService.themNhanXet(user.id, idSanPham, nhanXet);
   return res.json({
