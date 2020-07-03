@@ -17,6 +17,15 @@
     margin: 0 auto;
 }
 
+.btn-search {
+    background-color: #5E6472;
+    color: aliceblue;
+}
+
+.form-search-mh {
+    margin: 0;
+}
+
 .btn-in {
     margin-right: 20px;
 }
