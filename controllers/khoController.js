@@ -1,3 +1,4 @@
+const mhServices = require('../services/matHangServices');
 module.exports = {
 
     getLogin,
@@ -42,10 +43,20 @@ async function thongtinCNView(req, res) {
     return res.status(200).render('nvkho/thongtincanhan', {});
 }
 async function thongtinMHView(req, res) {
-    return res.status(200).render('nvkho/thongtinmh', {});
+    var mh = await mhServices.takeAllProduct();
+    console.log(mh);
+    return res.status(200).render('nvkho/thongtinmh', {
+        mathang: mh,
+    });
+
 }
 async function xemchitietMHView(req, res) {
-    return res.status(200).render('nvkho/xemchitietmh', {});
+    var idmh = req.params.id
+    var data = await mhServices.layMatHangBangId(idmh)
+    console.log(data);
+    return res.status(200).render('nvkho/xemchitietmh', {
+        infor: data,
+    });
 }
 async function themMHView(req, res) {
     return res.status(200).render('nvkho/themmh', {});

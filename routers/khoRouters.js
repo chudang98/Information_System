@@ -16,6 +16,6 @@ router.route('/xemchitiet').get(khoController.xemchitietNCCView);
 router.route('/themncc').get(khoController.themNCCView);
 router.route('/thongtincanhan').get(khoController.thongtinCNView);
 router.route('/thongtinmh').get(khoController.thongtinMHView);
-router.route('/xemchitietmh').get(khoController.xemchitietMHView);
+router.route('/xemchitietmh/:id').get(khoController.xemchitietMHView);
 router.route('/themmh').get(khoController.themMHView);
 module.exports = router;
