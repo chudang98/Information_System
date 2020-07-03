@@ -93,17 +93,7 @@ async function thanhToanHoaDonTrucTiep(listMatHang, idCustomer, idNhanVien){
 }
 
 async function layHoaDonTheoMatHang(idMatHang){
-  var HDCT = await HDChitiet.findAll({
-    where: {
-      MatHangid: idMatHang,
-    },
-    raw: true,
-    nest: true,
-  });
-  // for(hoadon of HDCT){
-    
-  // }
-
+  
 }
 
 // TODO : Trừ số lượng trực tiếp vào hóa đơn.

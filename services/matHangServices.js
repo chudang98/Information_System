@@ -49,7 +49,6 @@ async function timMatHangTheoTen(tenMatHang) {
     return [];
   }
 }
-
 async function timMatHangTheoLoai(maLoaiMatHang) {
   console.log(maLoaiMatHang);
   try{

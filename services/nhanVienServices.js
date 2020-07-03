@@ -8,6 +8,7 @@ module.exports = {
   saveAccount,
   isExistAccount,
   layThongTinNhanVien,
+  layTatCaNhanVien,
 };
 async function saveAccount(data) {
   try {
@@ -66,7 +67,6 @@ async function isExistAccount(username) {
   return true;
 }
 
-
 async function layThongTinNhanVien(idNhanVien){
   var nhanvien = await NhanVien.findOne({
     where: {
@@ -78,4 +78,13 @@ async function layThongTinNhanVien(idNhanVien){
   });
 
   return nhanvien;
+}
+
+async function layTatCaNhanVien(){
+  var data = await NhanVien.findAll({
+    include: 'nguoi',
+    raw: true,
+    nest: true,
+  });
+  return data
 }

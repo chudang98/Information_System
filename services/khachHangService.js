@@ -59,7 +59,7 @@ async function updateInfor(data, idCustomer){
     raw: true,
     nest: true,
   });
-  await KhachHang.update( data, 
+  await Nguoi.update( data, 
   {
     where: {
       _id: customer.Nguoiid,
@@ -95,6 +95,3 @@ async function timKhachHangTheoSdt(sdt){
   });
   return data;
 }
-// async function getClientById(id) {
-//   var client = await Client
-// }

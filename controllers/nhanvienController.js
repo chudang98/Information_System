@@ -7,7 +7,12 @@ module.exports = {
   getLogin,
   checkLogin,
   getHome,
+  dangKyKhachHang,
 };
+
+async function dangKyKhachHang(){
+  
+}
 
 async function getSignup(req, res) {
   return res.status(200).render('nhanvien/signup', {});
