@@ -11,7 +11,7 @@ router
 router.route('/thongtinnhanvien').get(adminController.thongtinNVView);
 router.route('/xemchitietnv').get(adminController.xemchitietNVView);
 router.route('/thongtinkhachhang').get(adminController.thongtinKHView);
-router.route('/xemchitietkh').get(adminController.xemchitietKHView);
+router.route('/xemchitietkh/:id').get(adminController.xemchitietKHView);
 router.route('/thongtinncc').get(adminController.thongtinNCCView);
 router.route('/xemchitietncc').get(adminController.xemchitietNCCView);
 router.route('/themnhanvien').get(adminController.themNVView);
