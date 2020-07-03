@@ -18,6 +18,7 @@ module.exports = {
   thongTinCaNhan,
   timKiemMatHangTheoTen,
   layNhanXetMatHang,
+  themNhanXet,
 };
 
 async function thongTinCaNhan(req, res) {
@@ -82,7 +83,29 @@ async function timKiemMatHangTheoTen(req, res){
 }
 
 async function layNhanXetMatHang(req, res){
-  
+  var idMatHang = req.body.idSanPham;
+  var data = await matHangService.layNhanXet(idMatHang);
+  if(!data)
+    return res.json({
+      status: 'success',
+      data: [],
+    });
+
+  else
+    return res.json({
+      status: 'success',
+      data: data,
+    });
+}
+
+async function themNhanXet(req, res){
+  var { nhanXet, idSanPham } = req.body.data;
+  var token = req.body.token;
+  var user = await jwtUtil._decodeCookie(token);
+  await matHangService.themNhanXet(user.id, idSanPham, nhanXet);
+  return res.json({
+    status: 'success',
+  })
 }
 
 async function dangNhap(req, res) {

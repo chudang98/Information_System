@@ -9,7 +9,6 @@ const _ = require('lodash');
 
 module.exports = {
   takeAllProduct,
-  themMatHang,
   timMatHangTheoTen,
   timMatHangTheoLoai,
   layNhanXet,
@@ -36,23 +35,6 @@ async function layMatHangBangId(idMatHang){
   return mathang;
 }
 
-async function themMatHang(matHangMoi) {
-  const matHang = new MatHang({ 
-    ...matHangMoi,
-    anh: null
-  });
-  try{
-    await matHang.save();
-    return {
-      status: 'success',
-    };
-  }catch(err) {
-    return {
-      status: 'fail',
-    }
-  }
-}
-
 async function timMatHangTheoTen(tenMatHang) {
   try{
     const docs = await MatHang.findAll({ 
@@ -67,7 +49,6 @@ async function timMatHangTheoTen(tenMatHang) {
     return [];
   }
 }
-
 async function timMatHangTheoLoai(maLoaiMatHang) {
   console.log(maLoaiMatHang);
   try{
@@ -166,42 +147,24 @@ async function timMatHangTheoLoai(maLoaiMatHang) {
 }
 
 async function layNhanXet(idMatHang) {
-  var danhgia = [];
-  var HDCT = await HDChiTiet.findAll({
+  var danhGia = await DanhGia.findAll({
     where: {
       MatHangid: idMatHang,
     },
+    include: 'khachhang',
     raw: true,
     nest: true,
-  });
-  // for(){
-
-  // }
-  var danhGia = await DanhGia.findAll({ 
-    where: {
-      HDBanChiTiet: '',
-    },
-    raw: true,
-    nest: true,
-  });
-  
+  })
   return danhGia;
 
 }
 
-async function themNhanXet(idHoaDon, idMatHang, nhanXet) {
+async function themNhanXet(idUser, idMatHang, nhanXet) {
   try{
-    var hdct = await HDChiTiet.findOne({
-      where: {
-        HDBanid: idHoaDon,
-        MatHangid: idMatHang,
-      },
-      raw: true,
-      nest: true,
-    });
     await DanhGia.create({
       nhanXet,
-      HDBanChiTiet: hdct._id,
+      KhachHangid: idUser,
+      MatHangid: idMatHang,
     })
     return {
       status: 'success',

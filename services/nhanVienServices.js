@@ -1,16 +1,15 @@
-const NhanVien = require('../models/NhanVien');
-const Nguoi = require('../models/Nguoi');
+const db = require('../models');
+const NhanVien = db.NhanVien;
+const Nguoi = db.Nguoi;
 
 const _ = require('lodash');
 module.exports = {
-  checkLogin,
   loginAccount,
   saveAccount,
   isExistAccount,
+  layThongTinNhanVien,
+  layTatCaNhanVien,
 };
-
-async function checkLogin(username, password) {}
-
 async function saveAccount(data) {
   try {
     var {
@@ -25,7 +24,7 @@ async function saveAccount(data) {
       diaChi,
     } = data;
     console.log(data);
-    var infor_nguoi = new Nguoi({
+    var infor_nguoi = await Nguoi.create({
       ten,
       diaChi,
       ngaySinh,
@@ -33,14 +32,12 @@ async function saveAccount(data) {
       email,
       sdt,
     });
-    await infor_nguoi.save();
-    var nhanVien = new NhanVien({
+    var nhanVien = await NhanVien.create({
       userName,
       password,
       chucVu,
-      nguoi: infor_nguoi._id,
+      Nguoiid: infor_nguoi._id,
     });
-    await nhanVien.save();
     return {
       status: 'success',
       nhanvien: nhanVien,
@@ -53,9 +50,7 @@ async function saveAccount(data) {
 
 async function loginAccount(username, password) {
   if (_.isEmpty(username) || _.isEmpty(password)) return { status: 'wrong' };
-  const user = await NhanVien.findOne({ userName: username }).select(
-    '+password'
-  );
+  const user = await NhanVien.findOne({ userName: username });
   if (!user || !(await user.isCorrectPassword(password, user.password))) {
     return { status: 'fail' };
   }
@@ -70,4 +65,26 @@ async function isExistAccount(username) {
   var user = await NhanVien.findOne({ userName: username });
   if (!user) return false;
   return true;
+}
+
+async function layThongTinNhanVien(idNhanVien){
+  var nhanvien = await NhanVien.findOne({
+    where: {
+      _id: idNhanVien,
+    },
+    include: 'nguoi',
+    raw: true,
+    nest: true,
+  });
+
+  return nhanvien;
+}
+
+async function layTatCaNhanVien(){
+  var data = await NhanVien.findAll({
+    include: 'nguoi',
+    raw: true,
+    nest: true,
+  });
+  return data
 }

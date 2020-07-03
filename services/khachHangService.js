@@ -13,19 +13,19 @@ module.exports = {
 
 async function luuKhachHang(data) {
   var {
-    ten, diaChi, ngaySinh, gioiTinh, email, sdt
+    ten, diaChi, ngaySinh, gioiTinh, sdt, email
   } = data;
-  try{
-    var nguoi = await Nguoi.create({
-      ten, diaChi, ngaySinh, gioiTinh, email, sdt,
-    });
-  }catch(err) {
-
-  };
-
-
+  console.log(ten, diaChi);
+  var nguoi = await Nguoi.create({
+    ten, diaChi, ngaySinh, gioiTinh, email, sdt,
+  });
+  console.log(nguoi.dataValues._id);
+  var kh = await KhachHang.create({
+    Nguoiid: nguoi.dataValues._id,
+  });
+  console.log(kh);
+  return false;
 }
-
 
 async function getClientById(idCustomer){
   var data = await KhachHang.findOne({
@@ -56,7 +56,7 @@ async function updateInfor(data, idCustomer){
     raw: true,
     nest: true,
   });
-  await KhachHang.update( data, 
+  await Nguoi.update( data, 
   {
     where: {
       _id: customer.Nguoiid,
@@ -92,6 +92,3 @@ async function timKhachHangTheoSdt(sdt){
   });
   return data;
 }
-// async function getClientById(id) {
-//   var client = await Client
-// }

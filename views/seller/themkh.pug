@@ -6,7 +6,7 @@ block page_title
 block content
 	.content-ttkh.content.container
 		h2(style='border-bottom: 1px solid black;') Thêm mới khách hàng :            
-		form.content-form
+		form.content-form(action='/seller/themkh', method='post')
 			.form-group
 				label(for='exampleInputName') Họ và tên            
 				input#exampleInputName.form-control(type='text',name='ten')                        
@@ -25,8 +25,8 @@ block content
 			.form-group
 				label(for='Energy') Giới tính                      
 				br
-				input#Energy(type='radio', name='gioiTinh', value='', disabled='')
+				input#Energy(type='radio', name='gioiTinh', value='Nam', checked)
 				| Nam               
-				input#Energy(type='radio', name='gioiTinh', disabled='')
+				input#Energy(type='radio', name='gioiTinh', value='Nữ')
 				| Nữ             
 			button.btn.btn-pri(type='submit') Thêm mới  
