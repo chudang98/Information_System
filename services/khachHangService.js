@@ -13,12 +13,16 @@ module.exports = {
 
 async function luuKhachHang(data) {
   var {
-    ten, diaChi, ngaySinh, gioiTinh, email, sdt
+    ten, diaChi, ngaySinh, gioiTinh, sdt
   } = data;
+  console.log(ten, diaChi);
+  
   try{
     var nguoi = await Nguoi.create({
       ten, diaChi, ngaySinh, gioiTinh, email, sdt,
     });
+    console.log(nguoi);
+    
     await KhachHang.create({
       Nguoiid: nguoi._id,
     })

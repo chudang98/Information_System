@@ -20,8 +20,15 @@ module.exports = {
     xemHDthanhcongview,
     huyview,
     xemHDhuyview,
-
+    dangKyKhachHang,
 };
+
+async function dangKyKhachHang(req, res){
+  var data = req.body;
+  console.log(data);
+  await khServices.luuKhachHang(data);
+  return res.redirect('/seller/banhang');
+}
 
 async function getSignup(req, res) {
     return res.status(200).render('seller/thongtinkh', {});
