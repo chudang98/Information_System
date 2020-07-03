@@ -1,6 +1,6 @@
 //sử dụng khách hàng sẻrvice
 const khServices = require('../services/khachHangService');
-
+const mhServices = require('../services/matHangServices');
 module.exports = {
     getSignup,
     getLogin,
@@ -30,7 +30,10 @@ async function getLogin(req, res) {
     return res.status(200).render('seller/banhang', {});
 }
 async function banHangView(req, res) {
-    return res.status(200).render('seller/banhang', {});
+    var clients = await khServices.getAllClient();
+    return res.status(200).render('seller/banhang', {
+        khachhangs: clients,
+    });
 }
 async function themKHview(req, res) {
     return res.status(200).render('seller/themkh', {});
@@ -43,15 +46,22 @@ async function thongtinKHview(req, res) {
     });
 }
 async function thongtinMHview(req, res) {
-    return res.status(200).render('seller/thongtinmh', {});
+    var mh = await mhServices.takeAllProduct();
+    console.log(mh);
+    return res.status(200).render('seller/thongtinmh', {
+        mathang: mh,
+    });
 }
 async function thongtinCNview(req, res) {
     return res.status(200).render('seller/thongtincanhan', {});
 }
 async function xemchitietview(req, res) {
-    var idkh = req.params.idkh;
-
-    return res.status(200).render('seller/xemchitiet', {});
+    var idkh = req.params.id
+    var data = await khServices.getClientById(idkh)
+    console.log(data);
+    return res.status(200).render('seller/xemchitiet', {
+        infor: data,
+    });
 }
 async function timkiemMHview(req, res) {
     return res.status(200).render('seller/timkiemmh', {});
