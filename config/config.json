@@ -1,7 +1,7 @@
 {
     "development": {
         "username": "sa",
-        "password": "12345678",
+        "password": "123456",
         "database": "cuahangbanhang",
         "host": "localhost",
         "dialect": "mssql",
@@ -9,7 +9,7 @@
     },
     "test": {
         "username": "sa",
-        "password": "12345678",
+        "password": "123456",
         "database": "cuahangbanhang",
         "host": "localhost",
         "dialect": "mssql",
@@ -17,7 +17,7 @@
     },
     "production": {
         "username": "sa",
-        "password": "12345678",
+        "password": "123456",
         "database": "cuahangbanhang",
         "host": "localhost",
         "dialect": "mssql",
