@@ -7,7 +7,6 @@ const MatHang = require('../models/MatHang');
 
 module.exports = {
   checkAccount,
-  timMatHangTheoTen,
   timMatHangTheoLoai,
   dangNhap,
   dangKy,
@@ -52,16 +51,6 @@ async function checkAccount(req, res) {
   });
 }
 
-async function timMatHangTheoTen(req, res) {
-  const ten = req.params.tenMatHang;
-  const docs = await matHangService.timMatHangTheoTen(ten);
-  return res.status(200).json({
-    status: 'success',
-    lenght: docs.length,
-    result: docs,
-  })
-}
-
 async function timMatHangTheoLoai(req, res) {
   var loai = req.params.maLoai;
   loai = loai*1;
@@ -76,10 +65,12 @@ async function timMatHangTheoLoai(req, res) {
 async function timKiemMatHangTheoTen(req, res){
   var ten = req.body.ten;
   var data = await matHangService.timMatHangTheoTen(ten);
-  return {
+  console.log(data);
+  
+  return res.json({
     status: 'success',
     data,
-  }
+  });
 }
 
 async function layNhanXetMatHang(req, res){

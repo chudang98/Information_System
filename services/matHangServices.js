@@ -37,14 +37,16 @@ async function layMatHangBangId(idMatHang){
 
 async function timMatHangTheoTen(tenMatHang) {
   try{
-    const docs = await MatHang.findAll({ 
+    var docs = await MatHang.findAll({ 
       where :  { 
-        [Op.like]: `%${tenMatHang}%`
+        ten: {
+          [Op.like]: `%${tenMatHang}%`,
+        }
       },
       raw: true,
       nest: true,
     });
-    return docs;
+    return await _mappingProcuct(docs);
   }catch(err){
     return [];
   }
