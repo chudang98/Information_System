@@ -1,19 +1,19 @@
 /* eslint-disable */
 var urlAPI = 'http://localhost:3000/ajax';
 
-// document.addEventListener('DOMContentLoaded', (event) => {
+document.addEventListener('DOMContentLoaded', (event) => {
 
-//     let valueSdt = document.getElementById("exampleInputEmail1").value;
+    let valueSdt = document.getElementById("exampleInputEmail1").value;
 
-//     document.getElementById("submitSearchTenKhachHang").addEventListener("click", function () {
-//         let data = timKiemKhachHang(valueSdt)
+    document.getElementById("submitSearchTenKhachHang").addEventListener("click", function () {
+        let data = timKiemKhachHang(valueSdt)
 
 
-//         // document.getElementById("demo").innerHTML = "Hello World";
-//     });
+        // document.getElementById("demo").innerHTML = "Hello World";
+    });
 
  
-// });
+});
 
 function themGioHang(product) {
     console.log(product)
@@ -23,10 +23,10 @@ function themGioHang(product) {
 }
 
 
-// const timKiemKhachHang = async (valueSdt) => {
+// const getMatHang = async (idMh) => {
 //     const res = await axios({
 //         method: 'GET',
-//         url: `${urlAPI}/khachang/${valueSdt}`,
+//         url: `${urlAPI}/mathang/${idMh}`,
 //     });
 //     console.log(res.data);
 
