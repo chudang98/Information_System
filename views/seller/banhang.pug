@@ -26,11 +26,11 @@ block content
           each khachhang in khachhangs
             tr
               th(scope='row')= dem++   
-              td=	khachhang.nguoi._id                  
+              td=	khachhang._id                  
               td=	khachhang.nguoi.ten               
               td= khachhang.nguoi.sdt           
               td=	khachhang.nguoi.diaChi           
               td
-                a.btn.btn-info(href=`/seller/timkiemmh/${khachhang.nguoi._id} `) Chọn
-//- block script
-//-   script(src='/script/khachhang/khachhang.js')
+                a.btn.btn-info(href=`/seller/timkiemmh/${khachhang._id} ` onclick=`chonKhachHang(${khachhang._id})`) Chọn
+block script
+  script(src='/script/khachhang/khachhang.js')

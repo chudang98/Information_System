@@ -15,11 +15,11 @@ document.addEventListener('DOMContentLoaded', (event) => {
  
 });
 
-function chonKhachHang(id) {
-
-    localStorage.setItem("adIdKh", id);
-    localStorage.setItem("adGioHang",JSON.stringify([]));
-}
+// function chonKhachHang(id) {
+//     // var gioHang = [1, 2];
+//     localStorage.setItem("adIdKh", 10);
+//     localStorage.setItem("adGioHang",'1231');
+// }
 
 
 const timKiemKhachHang = async (valueSdt) => {

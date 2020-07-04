@@ -1,6 +1,7 @@
 //sử dụng khách hàng sẻrvice
 const khServices = require('../services/khachHangService');
 const mhServices = require('../services/matHangServices');
+const matHangServices = require('../services/matHangServices');
 module.exports = {
     getSignup,
     getLogin,
@@ -38,6 +39,7 @@ async function getLogin(req, res) {
 }
 async function banHangView(req, res) {
     var clients = await khServices.getAllClient();
+    console.log(clients)
     return res.status(200).render('seller/banhang', {
         khachhangs: clients,
     });
@@ -71,10 +73,22 @@ async function xemchitietview(req, res) {
     });
 }
 async function timkiemMHview(req, res) {
-    return res.status(200).render('seller/timkiemmh', {});
+// sessionStorage.setItem('key', 'value');
+    var idKH = req.params.id
+    var dataMh = await matHangServices.takeAllProduct()
+    console.log(dataMh)
+    return res.status(200).render('seller/timkiemmh', {
+        matHangs:{
+            idKh: idKH,
+            data: dataMh
+        }
+    });
 }
 async function hoaDonview(req, res) {
-    return res.status(200).render('seller/hoadon', {});
+    var idKH = req.params.id
+    return res.status(200).render('seller/hoadon', {
+        data: idKH
+    });
 }
 async function choXulyview(req, res) {
     return res.status(200).render('seller/choxuly', {});
