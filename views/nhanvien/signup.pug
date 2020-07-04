@@ -1,69 +1,69 @@
 extends base
 
 block page_title
-	title Signup account
+  title Signup account
 
 block content
-	article.card-body.col-8
-		form#form-submit(action='/user/signup' method='post')
-			#error
-			.form-row
-				.col.form-group
-					label Tên 
-					input.form-control.not-null(name="ten" type='text', placeholder='')
-				.col.form-group
-					label Số điện thoại
-					input.form-control.not-null(minlength="10" name="sdt" type='text', placeholder='')
-			.form-group
-				label Email
-				input.form-control(name="email" type='email', placeholder='')
-				small.form-text.text-muted
-			.form-group
-				label Địa chỉ
-				input.form-control(minlength="5" name="diaChi" type='text', placeholder='')
-				small.form-text.text-muted
-			.form-group
-				label Ngày sinh
-				input.form-control(name="ngaySinh" type='date', placeholder='')
-				small.form-text.text-muted
-			.form-group
-				label Giới tính
-				br
-				label.form-check.form-check-inline
-					input.form-check-input(type='radio', name='gioiTinh', value='Nam', checked)
-					span.form-check-label  Nam 
-				label.form-check.form-check-inline
-					input.form-check-input(type='radio', name='gioiTinh', value='Nữ')
-					span.form-check-label  Nữ
-			.form-group
-				label Vị trí của nhân viên
-				br
-				label.form-check.form-check-inline
-					input.form-check-input(type='radio', name='chucVu', value='NhanVienBanHang', checked)
-					span.form-check-label  Nhân viên bán hàng
-				label.form-check.form-check-inline
-					input.form-check-input(type='radio', name='chucVu', value='NhanVienQuanLy')
-					span.form-check-label Nhân viên quản lý
+  article.card-body.col-8
+    form#form-submit(action='/user/signup' method='post')
+      #error
+      .form-row
+        .col.form-group
+          label Tên 
+          input.form-control.not-null(name="ten" type='text', placeholder='')
+        .col.form-group
+          label Số điện thoại
+          input.form-control.not-null(minlength="10" name="sdt" type='text', placeholder='')
       .form-group
-				label Chi Nhánh
-				br
-				label.form-check.form-check-inline
-					input.form-check-input(type='radio', name='CuaHangid', value='1', checked)
-					span.form-check-label  Hà Nội
-				label.form-check.form-check-inline
-					input.form-check-input(type='radio', name='CuaHangid', value='2')
-					span.form-check-label Thành phố Hồ Chí Minh
-			.form-group
-				label Tên đăng nhập
-				input#username.form-control.not-null(minlength="5" name="userName" type='text')
-			.form-group
-				label Mật khẩu
-				input#password.form-control.not-null(minlength="5" name="password" type='password')
-			.form-group
-				label Xác nhận mật khẩu
-				input#confirm-password.form-control.not-null(minlength="5" type='password')
-			.form-group
-				button#submit.btn.btn-primary.btn-block.col-5(type='button')  Đăng ký  
+        label Email
+        input.form-control(name="email" type='email', placeholder='')
+        small.form-text.text-muted
+      .form-group
+        label Địa chỉ
+        input.form-control(minlength="5" name="diaChi" type='text', placeholder='')
+        small.form-text.text-muted
+      .form-group
+        label Ngày sinh
+        input.form-control(name="ngaySinh" type='date', placeholder='')
+        small.form-text.text-muted
+      .form-group
+        label Giới tính
+        br
+        label.form-check.form-check-inline
+          input.form-check-input(type='radio', name='gioiTinh', value='Nam', checked)
+          span.form-check-label  Nam 
+        label.form-check.form-check-inline
+          input.form-check-input(type='radio', name='gioiTinh', value='Nữ')
+          span.form-check-label  Nữ
+      .form-group
+        label Vị trí của nhân viên
+        br
+        label.form-check.form-check-inline
+          input.form-check-input(type='radio', name='chucVu', value='NhanVienBanHang', checked)
+          span.form-check-label  Nhân viên bán hàng
+        label.form-check.form-check-inline
+          input.form-check-input(type='radio', name='chucVu', value='NhanVienQuanLy')
+          span.form-check-label Nhân viên quản lý
+      .form-group
+        label Chi Nhánh
+        br
+        label.form-check.form-check-inline
+          input.form-check-input(type='radio', name='CuaHangid', value='1', checked)
+          span.form-check-label  Hà Nội
+        label.form-check.form-check-inline
+          input.form-check-input(type='radio', name='CuaHangid', value='2')
+          span.form-check-label Thành phố Hồ Chí Minh
+      .form-group
+        label Tên đăng nhập
+        input#username.form-control.not-null(minlength="5" name="userName" type='text')
+      .form-group
+        label Mật khẩu
+        input#password.form-control.not-null(minlength="5" name="password" type='password')
+      .form-group
+        label Xác nhận mật khẩu
+        input#confirm-password.form-control.not-null(minlength="5" type='password')
+      .form-group
+        button#submit.btn.btn-primary.btn-block.col-5(type='button')  Đăng ký  
 
 block script
-	script(src='/script/nhanvien/signup.js')
+  script(src='/script/nhanvien/signup.js')

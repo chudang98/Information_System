@@ -194,6 +194,7 @@ async function _mappingProcuct(products){
         mauSac.push({
           _id: product._id,
           mauSac: product.mauSac,
+          soLuong: product.soLuong,
           Anh: product.Anh,
         });
       })
