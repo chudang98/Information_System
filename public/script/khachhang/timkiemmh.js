@@ -1,34 +1,35 @@
 /* eslint-disable */
 var urlAPI = 'http://localhost:3000/ajax';
 
-document.addEventListener('DOMContentLoaded', (event) => {
+// document.addEventListener('DOMContentLoaded', (event) => {
 
-    let valueSdt = document.getElementById("exampleInputEmail1").value;
+//     let valueSdt = document.getElementById("exampleInputEmail1").value;
 
-    document.getElementById("submitSearchTenKhachHang").addEventListener("click", function () {
-        let data = timKiemKhachHang(valueSdt)
+//     document.getElementById("submitSearchTenKhachHang").addEventListener("click", function () {
+//         let data = timKiemKhachHang(valueSdt)
 
 
-        // document.getElementById("demo").innerHTML = "Hello World";
-    });
+//         // document.getElementById("demo").innerHTML = "Hello World";
+//     });
 
  
-});
+// });
 
-// function chonKhachHang(id) {
-//     // var gioHang = [1, 2];
-//     localStorage.setItem("adIdKh", 10);
-//     localStorage.setItem("adGioHang",'1231');
-// }
+function themGioHang(product) {
+    console.log(product)
+    var cart1 = JSON.parse(localStorage.getItem('adGioHang'))
+    cart1.push(product)
+    localStorage.setItem("adGioHang",JSON.stringify(cart1));
+}
 
 
-const timKiemKhachHang = async (valueSdt) => {
-    const res = await axios({
-        method: 'GET',
-        url: `${urlAPI}/khachang/${valueSdt}`,
-    });
-    console.log(res.data);
+// const timKiemKhachHang = async (valueSdt) => {
+//     const res = await axios({
+//         method: 'GET',
+//         url: `${urlAPI}/khachang/${valueSdt}`,
+//     });
+//     console.log(res.data);
 
-    if (res.data.status == 'success') return res.data.exist;
-    else return false;
-};
+//     if (res.data.status == 'success') return res.data.exist;
+//     else return false;
+// };

@@ -29,6 +29,8 @@ block content
             td=	product.mauSac 
             td=	product.kichCo           
             td
-              a.btn.btn-info(href=`/seller/hoadon/${product._id} `) Chọn
+              a.btn.btn-info(href=`/seller/hoadon/${product._id} ` onclick=`themGioHang(${product._id})` ) Chọn
+block script
+  script(src='/script/khachhang/timkiemmh.js')
 
 
