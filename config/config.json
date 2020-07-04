@@ -2,7 +2,7 @@
     "development": {
         "username": "sa",
         "password": "12345678",
-        "database": "cuahang",
+        "database": "cuahangbanhang",
         "host": "localhost",
         "dialect": "mssql",
         "operatorsAliases": false
@@ -10,7 +10,7 @@
     "test": {
         "username": "sa",
         "password": "12345678",
-        "database": "cuahang",
+        "database": "cuahangbanhang",
         "host": "localhost",
         "dialect": "mssql",
         "operatorsAliases": false
@@ -18,7 +18,7 @@
     "production": {
         "username": "sa",
         "password": "12345678",
-        "database": "cuahang",
+        "database": "cuahangbanhang",
         "host": "localhost",
         "dialect": "mssql",
         "operatorsAliases": false

@@ -15,13 +15,15 @@ module.exports = {
     */
    return queryInterface.bulkInsert('CuaHangs', [
     {
+      _id: 1,
       ten: 'Chi nhánh Hà Nội',
       diaChi: 'Hà Nội',
       moTa: 'Không có mô tả',
     },
     {
-      ten: 'Chi nhánh Hà Nội',
-      diaChi: 'Hà Nội',
+      _id: 2,
+      ten: 'Chi nhánh Hồ Chí Minh',
+      diaChi: 'Hồ Chí Minh',
       moTa: 'Không có mô tả',
     }
     ], {});
