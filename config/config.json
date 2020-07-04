@@ -1,24 +1,24 @@
 {
     "development": {
         "username": "sa",
-        "password": "123456",
-        "database": "cuahangbanhang",
+        "password": "12345678",
+        "database": "cuahang",
         "host": "localhost",
         "dialect": "mssql",
         "operatorsAliases": false
     },
     "test": {
         "username": "sa",
-        "password": "123456",
-        "database": "cuahangbanhang",
+        "password": "12345678",
+        "database": "cuahang",
         "host": "localhost",
         "dialect": "mssql",
         "operatorsAliases": false
     },
     "production": {
         "username": "sa",
-        "password": "123456",
-        "database": "cuahangbanhang",
+        "password": "12345678",
+        "database": "cuahang",
         "host": "localhost",
         "dialect": "mssql",
         "operatorsAliases": false
