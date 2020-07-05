@@ -2,6 +2,7 @@
 const khServices = require('../services/khachHangService');
 const mhServices = require('../services/matHangServices');
 const matHangServices = require('../services/matHangServices');
+const hoaDonBanService = require('../services/hoaDonBanService');
 module.exports = {
     getSignup,
     getLogin,
@@ -90,10 +91,18 @@ async function hoaDonview(req, res) {
     });
 }
 async function choXulyview(req, res) {
-    // var dataMh = await matHangServices.takeAllProduct()
-    return res.status(200).render('seller/choxuly', {});
+    var dataHdCxl = await hoaDonBanService.layHoaDonTheoTrangThai("Chờ xử lý")
+    console.log(dataHdCxl)
+    return res.status(200).render('seller/choxuly', {
+        HdCxl: dataHdCxl
+    });
 }
 async function xemHDolview(req, res) {
+    var idKHCxl = req.params.id;
+    var dataHdCxlCt = await hoaDonBanService.layHoaDonChiTiet(idKHCxl);
+    console.log(dataHdCxlCt);
+    
+
     return res.status(200).render('seller/xemhdOl', {});
 }
 async function danggiaoHview(req, res) {
