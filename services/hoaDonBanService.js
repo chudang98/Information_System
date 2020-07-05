@@ -40,7 +40,8 @@ async function layHoaDonChiTiet(idHoaDon) {
     raw: true,
     nest: true,
   });
-  result = await _matHangTrongHoaDon(HD._id);
+  var result = await _matHangTrongHoaDon(HD._id);
+  // console.log(result);
   return {
     ...HD,
     mathang: result
@@ -273,7 +274,7 @@ async function _matHangListHoaDon(listHD) {
 }
 
 async function _matHangTrongHoaDon(idHoaDon){
-  var hoaDonChiTiet = await HDChitiet.findAll({
+  return await HDChitiet.findAll({
     where: {
       HDBanid: idHoaDon,
     },
@@ -282,21 +283,21 @@ async function _matHangTrongHoaDon(idHoaDon){
     nest: true,
   });
 
-  var result = [];
+  // var result = [];
 
-  for(hoaDon of hoaDonChiTiet){
-    var matHang = await MatHang.findOne({
-      where: {
-        _id: hoaDon.MatHangid,
-      },
-      raw: true,
-      nest: true,
-    });
-    result.push({
-      ...matHang,
-      soLuong: hoaDon.soLuong,
-    });
-  };
+  // for(hoaDon of hoaDonChiTiet){
+  //   var matHang = await MatHang.findOne({
+  //     where: {
+  //       _id: hoaDon.MatHangid,
+  //     },
+  //     raw: true,
+  //     nest: true,
+  //   });
+  //   result.push({
+  //     ...matHang,
+  //     soLuong: hoaDon.soLuong,
+  //   });
+  // };
   
-  return result;
+  // return hoaDonChiTiet;
 }
