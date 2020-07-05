@@ -99,6 +99,16 @@ async function updateStateHoaDon(idHoaDon, trangthai, idClient) {
       plain: true,
     },
   );
+  if(trangThai == 'Đang giao hàng'){
+    var hdct = await HDChitiet.findAll({
+      where: {
+        HDBanid: idHoaDon,
+      },
+      raw: true,
+      nest: true,
+    });
+    _updateSoLuongMatHang(hdct);
+  }
   return {
     status: 'success',
   };

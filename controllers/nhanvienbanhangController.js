@@ -25,7 +25,16 @@ module.exports = {
     huyview,
     xemHDhuyview,
     dangKyKhachHang,
+    xacNhanGiaoHang,
 };
+
+async function xacNhanGiaoHang(req, res){  
+  var id = req.params.idHD;
+  var cookie = req.cookies.jwt;
+  var user = await ultiCookie._decodeCookie(cookie);
+  await hoaDonBanService.updateStateHoaDon(id, 'Đang giao hàng', user.id);
+  return res.redirect('/seller/choXuLy');
+}
 
 async function dangKyKhachHang(req, res) {
     var data = req.body;
