@@ -28,7 +28,7 @@ async function layHoaDonTheoTrangThai(trangThai){
   });
   // result = await _matHangListHoaDon(HD);
   // console.log(222, result);
-  return result;
+  return HD;
 }
 
 async function layHoaDonChiTiet(idHoaDon) {
