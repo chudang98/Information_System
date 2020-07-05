@@ -89,5 +89,17 @@ async function timKhachHangTheoSdt(sdt){
     raw: true,
     nest: true,
   });
+  var result = [];
+  for(nguoi of data){
+    await KhachHang.findOne({
+      where: {
+        Nguoiid: nguoi._id,
+      },
+      include: 'nguoi',
+      raw: true,
+      nest: true,
+    });
+    
+  }
   return data;
 }

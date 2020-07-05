@@ -3,6 +3,7 @@ const HDBan = db.HoaDonBan;
 const HDChitiet = db.HoaDonBanChiTiet;
 const moment = require('moment');
 const _ = require('lodash');
+const { result } = require('lodash');
 const MatHang = db.MatHang;
 
 module.exports = {
@@ -14,7 +15,20 @@ module.exports = {
   thanhToanThanhCongHoaDon,
   updateNhanVienChoHoaDon,
   layTongTienMatHang,
+  layHoaDonTheoTrangThai
 };
+
+async function layHoaDonTheoTrangThai(trangThai){
+  var HD = await HDBan.findOne({
+    where: {
+      trangThai: trangThai,
+    },
+    raw: true,
+    nest: true,
+  });
+  result = await _matHangListHoaDon(HD);
+  return result;
+}
 
 async function layHoaDonChiTiet(idHoaDon) {
   var HD = await HDBan.findOne({
