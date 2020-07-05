@@ -8,7 +8,7 @@ module.exports = {
     getNCCById,
     updateInfor,
     timKhachHangTheoSdt,
-    getDetailCustomer,
+    getDetailNCC,
 };
 
 async function luuNhacungcap(data) {
@@ -76,8 +76,8 @@ async function updateInfor(data, idCustomer) {
     }
 }
 
-async function getDetailCustomer(idCustomer) {
-    var data = await KhachHang.findOne({
+async function getDetailNCC(idCustomer) {
+    var data = await NhaCungCap.findOne({
         where: {
             _id: idCustomer,
         },

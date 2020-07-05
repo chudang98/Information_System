@@ -276,6 +276,7 @@ async function _matHangTrongHoaDon(idHoaDon){
     where: {
       HDBanid: idHoaDon,
     },
+    include: 'MatHang',
     raw: true,
     nest: true,
   });
