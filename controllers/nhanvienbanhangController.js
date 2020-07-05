@@ -73,7 +73,6 @@ async function xemchitietview(req, res) {
     });
 }
 async function timkiemMHview(req, res) {
-// sessionStorage.setItem('key', 'value');
     var idKH = req.params.id
     var dataMh = await matHangServices.takeAllProduct()
     console.log(dataMh)
@@ -91,6 +90,7 @@ async function hoaDonview(req, res) {
     });
 }
 async function choXulyview(req, res) {
+    // var dataMh = await matHangServices.takeAllProduct()
     return res.status(200).render('seller/choxuly', {});
 }
 async function xemHDolview(req, res) {
