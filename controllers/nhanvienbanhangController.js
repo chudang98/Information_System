@@ -105,7 +105,6 @@ async function hoaDonview(req, res) {
 }
 async function choXulyview(req, res) {
     var dataHdCxl = await hoaDonBanService.layHoaDonTheoTrangThai("Chờ xử lý")
-    console.log(dataHdCxl)
     return res.status(200).render('seller/choxuly', {
         HdCxl: dataHdCxl
     });
@@ -113,16 +112,12 @@ async function choXulyview(req, res) {
 async function xemHDolview(req, res) {
     var idKHCxl = req.params.id;
     var dataHdCxlCt = await hoaDonBanService.layHoaDonChiTiet(idKHCxl);
-    console.log(1111);
-    
-    console.log(dataHdCxlCt.mathang[0].MatHang);
     return res.status(200).render('seller/xemhdOl', {
         data : dataHdCxlCt
     });
 }
 async function danggiaoHview(req, res) {
     var dataHdDdh = await hoaDonBanService.layHoaDonTheoTrangThai("Đang giao hàng")
-    console.log(dataHdDdh)
     return res.status(200).render('seller/danggiaohang', {
         data : dataHdDdh
     });
