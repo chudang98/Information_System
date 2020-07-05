@@ -19,30 +19,18 @@ block content
           th(scope='col') Kích thước  
           th(scope='col') Chức năng
       tbody
-        tr
-          th(scope='row') 1
-          td A001
-          td Áo sơ mi
-          td 100.000
-          td Đen
-          td M
-          td
-            a.btn.btn-info(href='/seller/hoadon') Chọn   
-        tr
-          th(scope='row') 2
-          td A002
-          td Áo sơ mi
-          td 100.000
-          td Đen 
-          td L
-          td
-            a.btn.btn-info(href='/seller/hoadon') Chọn  
-        tr
-          th(scope='row') 3
-          td A003
-          td Áo sơ mi
-          td 100.000
-          td Đen
-          td S
-          td
-            a.btn.btn-info(href='/seller/hoadon') Chọn
+      - var dem = 1
+        each product in matHangs.data
+          tr
+            th(scope='row')= dem++   
+            td=	product._id                  
+            td=	product.ten               
+            td=product.giaBan           
+            td=	product.mauSac 
+            td=	product.kichCo           
+            td
+              a.btn.btn-info(href=`/seller/hoadon/${product._id} ` onclick=`themGioHang(${product._id})` ) Chọn
+block script
+  script(src='/script/khachhang/timkiemmh.js')
+
+

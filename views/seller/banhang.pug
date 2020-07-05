@@ -7,9 +7,9 @@ block content
     form.content-form
       .form-group.form-search-nv.row
         .col-md-8
-          input#exampleInputEmail1.form-control(type='email', placeholder='Nhập vào sdt khách hàng  ', aria-describedby='emailHelp')
+          input#exampleInputEmail1.form-control(type='text', placeholder='Nhập vào sdt khách hàng  ', aria-describedby='emailHelp')
         .col-md-2
-          button.btn.btn-pri.btn-seller(type='submit') Tìm kiếm   
+          button#submitSearchTenKhachHang.btn.btn-pri.btn-seller(type='submit') Tìm kiếm   
         .col-md-2
           a.btn.btn-pri.btn-seller(href='/seller/themkh') Thêm
     table.table.table-bordered.table-striped.text-center
@@ -21,28 +21,16 @@ block content
           th(scope='col') Số điện thoại khách hàng 
           th(scope='col') Địa chỉ 
           th(scope='col') Chức năng
-      tbody 
-        tr
-          th(scope='row') 1
-          td KH001
-          td Trần Tiểu Cúc 
-          td 0987654343
-          td Hà Nội
-          td
-            a.btn.btn-info(href='/seller/timkiemmh') Chọn  
-        tr
-          th(scope='row') 2
-          td KH002
-          td Trần Tiểu Yến 
-          td 0987674343
-          td Hà Nội
-          td
-            a.btn.btn-info(href='/seller/timkiemmh') Chọn  
-        tr
-          th(scope='row') 3
-          td KH003
-          td Trần Tiểu Long 
-          td 0987654743
-          td Hà Nội
-          td
-            a.btn.btn-info(href='/seller/timkiemmh') Chọn 
+      tbody#bodyKhachHang
+        - var dem = 1
+          each khachhang in khachhangs
+            tr
+              th(scope='row')= dem++   
+              td=	khachhang._id                  
+              td=	khachhang.nguoi.ten               
+              td= khachhang.nguoi.sdt           
+              td=	khachhang.nguoi.diaChi           
+              td
+                a.btn.btn-info(href=`/seller/timkiemmh/${khachhang._id} ` onclick=`chonKhachHang(${khachhang._id})`) Chọn
+block script
+  script(src='/script/khachhang/khachhang.js')
