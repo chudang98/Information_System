@@ -40,7 +40,7 @@ async function nhanVienSignup(data) {
             password: data.password,
             chucVu: data.chucVu,
             Nguoiid: nguoi._id,
-            CuaHangid: 1,
+            CuaHangid: data.CuaHangid,
         });
         return {
             status: 'success',

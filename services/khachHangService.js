@@ -80,13 +80,12 @@ async function getDetailCustomer(idCustomer){
 }
 
 async function timKhachHangTheoSdt(sdt){
-  var data = await KhachHang.findAll({
+  var data = await Nguoi.findAll({
     where: {
       sdt: {
         [Op.like]: `%${sdt}%`,
       },
     },
-    include: 'nguoi',
     raw: true,
     nest: true,
   });

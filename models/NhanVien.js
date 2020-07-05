@@ -30,6 +30,8 @@ module.exports = (sequelize, Sequelize) => {
       type: Sequelize.DATE
     },
   },{
+    freezeTableName: true,
+    tableName: 'NhanViens',
     hooks: {
       beforeCreate: async (user, option) => {
         user.password = await bcrypt.hash(user.password, 12);

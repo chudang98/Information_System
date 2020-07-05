@@ -17,6 +17,7 @@ const khoRoute = require('./routers/khoRouters');
 const nhanVienbanhangRoute = require('./routers/nhanvienbanhangRouters');
 const apiUserRoute = require('./routers/apiRouters');
 const testRoute = require('./routers/testRouters');
+const ajaxRoute = require('./routers/ajaxRouters');
 
 const app = express();
 
@@ -42,6 +43,7 @@ app.use('/admin', adminRoute);
 app.use('/nvkho', khoRoute);
 app.use('/api/user', apiUserRoute);
 app.use('/test', testRoute);
+app.use('/ajax/', ajaxRoute);
 app.use(express.static(path.join(__dirname, 'public')));
 
 // app.use(handlerError);

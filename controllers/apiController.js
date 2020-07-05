@@ -4,22 +4,21 @@ const hoaDonBanService = require('../services/hoaDonBanService');
 const khachHangService = require('../services/khachHangService');
 const nhanVienService = require('../services/nhanVienServices');
 const jwtUtil = require('../utils/cookieUtils');
-const MatHang = require('../models/MatHang');
 
 module.exports = {
-    checkAccount,
-    timMatHangTheoTen,
-    timMatHangTheoLoai,
-    dangNhap,
-    dangKy,
-    thanhToan,
-    getHoaDon,
-    getHoaDonChiTiet,
-    updateThongTinKhachHang,
-    thongTinCaNhan,
-    timKiemMatHangTheoTen,
-    layNhanXetMatHang,
-    themNhanXet,
+  checkAccount,
+  timMatHangTheoTen,
+  timMatHangTheoLoai,
+  dangNhap,
+  dangKy,
+  thanhToan,
+  getHoaDon,
+  getHoaDonChiTiet,
+  updateThongTinKhachHang,
+  thongTinCaNhan,
+  timKiemMatHangTheoTen,
+  layNhanXetMatHang,
+  themNhanXet,
 };
 
 async function thongTinCaNhan(req, res) {

@@ -13,7 +13,7 @@ module.exports = {
   thanhToanHoaDonTrucTiep,
   thanhToanThanhCongHoaDon,
   updateNhanVienChoHoaDon,
-  layHoaDonTheoMatHang,
+  layTongTienMatHang,
 };
 
 async function layHoaDonChiTiet(idHoaDon) {
@@ -70,10 +70,12 @@ async function themHoaDonBan(data, idUser) {
   }   
 }
 
-async function updateStateHoaDon(idHoaDon, trangthai) {
+/* Chỉ sử dụng khi update lên tất cả trạng thái trừ Đã hoàn thành */
+async function updateStateHoaDon(idHoaDon, trangthai, idClient) {
   await HDBan.update(
     {
       trangThai: trangthai,
+      nhanVienid: idClient,
     },
     {
       where: {
@@ -88,15 +90,70 @@ async function updateStateHoaDon(idHoaDon, trangthai) {
   };
 }
 
+/*
+  Nhân viên bán hàng thanh toán trực tiếp cho người trực tiếp đến mua hàng
+  @params: listMatHang : [ 
+    {_id: 1, soLuong: 2, giaBan: 10000 }, 
+    {_id: 2, soLuong: 2, giaBan: 20000} 
+  ]
+*/
 async function thanhToanHoaDonTrucTiep(listMatHang, idCustomer, idNhanVien){
+  var HDB = await HDBan.create({
+    NhanVienid: idNhanVien,
+    KhachHangid: idCustomer,
+    trangThai: 'Đã hoàn thành',
+  });
 
+  for(mathang of listMatHang){
+    await HDChitiet.create({
+      soLuong: mathang.soLuong,
+      donGia: mathang.giaBan,
+      HDBanid: HDB._id,
+      MatHangid: mathang._id,
+    });
+    var hang = await MatHang.findOne(
+      {
+        where: {
+          _id: mathang._id,
+        },
+        raw: true,
+        nest: true,
+      },
+    );
+    await MatHang.update(
+      {
+        soLuong: hang.soLuong - mahang.soLuong,
+      }, 
+      {
+        where: {
+          _id: mathang._id,
+        }
+      }
+    );
+  }
+
+  return true;
 }
 
-async function layHoaDonTheoMatHang(idMatHang){
-  
+async function layTongTienMatHang(idMatHang){
+  var data = await HDChitiet.findAll({
+    where: {
+      MatHangid: idMatHang,
+    },
+    raw: true,
+    nest: true,
+  });
+  var doanhSo = 0;
+  for(hoadon of data){
+    doanhSo += (data.soLuong * data.donGia);
+  }
+  return doanhSo;
 }
 
 // TODO : Trừ số lượng trực tiếp vào hóa đơn.
+/*
+  Sử dụng để thanh toán cho hóa đơn online
+*/
 async function thanhToanThanhCongHoaDon(idClient, idHoaDon){
   var hoaDon = await HDBan.findOne({
     where: {
@@ -115,6 +172,7 @@ async function thanhToanThanhCongHoaDon(idClient, idHoaDon){
   await HDBan.update(
     {
       trangThai: 'Đã hoàn thành',
+      NhanVienid: idClient,
     },
     {
       where: {
@@ -143,7 +201,7 @@ async function updateNhanVienChoHoaDon(idNhanVien, idHoaDon){
     },
     {
     where: {
-      _id: idNhanVien,
+      _id: idHoaDon,
     }
   });
   return true;
@@ -162,7 +220,7 @@ async function _updateSoLuongMatHang(hdct) {
     );
     await MatHang.update(
       {
-        soLuong: mathang.soLuong - data.soLuong,
+        soLuong: mathang.soLuong - mahang.soLuong,
       }, 
       {
         where: {
