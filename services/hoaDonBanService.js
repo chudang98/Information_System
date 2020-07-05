@@ -40,7 +40,7 @@ async function layHoaDonChiTiet(idHoaDon) {
     raw: true,
     nest: true,
   });
-  result = await _matHangTrongHoaDon(HD._id);
+  var result = await _matHangTrongHoaDon(HD._id);
   return {
     ...HD,
     mathang: result
@@ -281,22 +281,5 @@ async function _matHangTrongHoaDon(idHoaDon){
     raw: true,
     nest: true,
   });
-
-  var result = [];
-
-  for(hoaDon of hoaDonChiTiet){
-    var matHang = await MatHang.findOne({
-      where: {
-        _id: hoaDon.MatHangid,
-      },
-      raw: true,
-      nest: true,
-    });
-    result.push({
-      ...matHang,
-      soLuong: hoaDon.soLuong,
-    });
-  };
-  
-  return result;
+  return hoaDonChiTiet;
 }
