@@ -98,6 +98,11 @@ async function choXulyview(req, res) {
     });
 }
 async function xemHDolview(req, res) {
+    var idKHCxl = req.params.id;
+    var dataHdCxlCt = await hoaDonBanService.layHoaDonChiTiet(idKHCxl);
+    console.log(dataHdCxlCt);
+    
+
     return res.status(200).render('seller/xemhdOl', {});
 }
 async function danggiaoHview(req, res) {

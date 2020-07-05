@@ -9,7 +9,7 @@ router.route('/themkh')
   .get(nvbhController.themKHview)
   .post(nvbhController.dangKyKhachHang);
 router.route('/choxuly').get(nvbhController.choXulyview);
-router.route('/xemhdOl').get(nvbhController.xemHDolview);
+router.route('/xemhdOl/:id').get(nvbhController.xemHDolview);
 router.route('/thongtinkh').get(nvbhController.thongtinKHview);
 router.route('/thongtinmh').get(nvbhController.thongtinMHview);
 router.route('/thongtincanhan').get(nvbhController.thongtinCNview);
