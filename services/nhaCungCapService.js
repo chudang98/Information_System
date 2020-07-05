@@ -33,5 +33,27 @@ async function themNhaCungCap(data){
 }
 
 async function timNhaCungCapTheoSdt(sdt){
-  
+  var data = await Nguoi.findAll({
+    where: {
+      sdt: {
+        [Op.like]: `%${sdt}%`,
+      },
+    },
+    raw: true,
+    nest: true,
+  });
+  var result = [];
+  for(nguoi of data){
+    var NCC = await NhaCungCap.findOne({
+      where: {
+        Nguoiid: nguoi._id,
+      },
+      include: 'nguoi',
+      raw: true,
+      nest: true,
+    });
+    if(NCC)
+      result.push(NCC);
+  }
+  return data;
 }

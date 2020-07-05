@@ -99,7 +99,8 @@ async function timKhachHangTheoSdt(sdt){
       raw: true,
       nest: true,
     });
-    result.push(KH);
+    if(KH)
+      result.push(KH);
   }
   return data;
 }
