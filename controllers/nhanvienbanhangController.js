@@ -3,6 +3,8 @@ const khServices = require('../services/khachHangService');
 const mhServices = require('../services/matHangServices');
 const matHangServices = require('../services/matHangServices');
 const hoaDonBanService = require('../services/hoaDonBanService');
+const ultiCookie = require('../utils/cookieUtils');
+
 module.exports = {
     getSignup,
     getLogin,
@@ -40,7 +42,8 @@ async function getLogin(req, res) {
 }
 async function banHangView(req, res) {
     var clients = await khServices.getAllClient();
-    console.log(clients)
+    // var cookie = req.cookies.jwt;
+    // var user = await ultiCookie._decodeCookie(cookie);
     return res.status(200).render('seller/banhang', {
         khachhangs: clients,
     });

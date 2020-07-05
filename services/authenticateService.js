@@ -22,8 +22,8 @@ async function checkNhanVienLogin(username, password) {
         nest: true,
     });
 
-    if (!user || !_validatePassword(password, user) == false) {
-        return { status: 'fail' };
+    if (!user || _validatePassword(password, user) == false) {
+      return { status: 'fail' };
     }
 
     return {

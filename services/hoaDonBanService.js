@@ -19,16 +19,15 @@ module.exports = {
 };
 
 async function layHoaDonTheoTrangThai(trangThai){
-  var HD = await HDBan.findAll({
+  var HD = await HDBan.findOne({
     where: {
       trangThai: trangThai,
     },
     raw: true,
     nest: true,
   });
-  // result = await _matHangListHoaDon(HD);
-  // console.log(222, result);
-  return HD;
+  result = await _matHangListHoaDon(HD);
+  return result;
 }
 
 async function layHoaDonChiTiet(idHoaDon) {
@@ -263,7 +262,7 @@ async function _xoaMatHangKhoiHoaDon(idMatHang, idHoaDon){
 async function _matHangListHoaDon(listHD) {
   var result = [];
   for(hoadon of listHD){
-    // var matHang = await _matHangTrongHoaDon(hoadon._id);
+    var matHang = await _matHangTrongHoaDon(hoadon._id);
     result.push({
       ...hoadon,
       mathang: matHang,
@@ -281,22 +280,5 @@ async function _matHangTrongHoaDon(idHoaDon){
     raw: true,
     nest: true,
   });
-
-  var result = [];
-
-  for(hoaDon of hoaDonChiTiet){
-    var matHang = await MatHang.findOne({
-      where: {
-        _id: hoaDon.MatHangid,
-      },
-      raw: true,
-      nest: true,
-    });
-    result.push({
-      ...matHang,
-      soLuong: hoaDon.soLuong,
-    });
-  };
-  
-  return result;
+  return hoaDonChiTiet;
 }
