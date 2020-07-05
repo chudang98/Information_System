@@ -18,7 +18,8 @@ async function luuNhacungcap(data) {
         ngaySinh,
         gioiTinh,
         sdt,
-        email
+        email,
+        moTa
     } = data;
     console.log(ten, diaChi);
     var nguoi = await Nguoi.create({
@@ -32,6 +33,7 @@ async function luuNhacungcap(data) {
     console.log(nguoi.dataValues._id);
     var ncc = await NhaCungCap.create({
         Nguoiid: nguoi.dataValues._id,
+        moTa,
     });
     console.log(ncc);
     return false;

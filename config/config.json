@@ -1,47 +1,47 @@
 {
     "development": {
         "username": "sa",
-        "password": "12345678",
-        "database": "cuahang",
+        "password": "123456",
+        "database": "banhangcoha",
         "host": "localhost",
         "port": "1433",
         "dialect": "mssql",
         "operatorsAliases": false,
         "pool": {
-          "max": 5,
-          "min": 0,
-          "acquire": 30000,
-          "idle": 10000
+            "max": 5,
+            "min": 0,
+            "acquire": 30000,
+            "idle": 10000
         }
     },
     "test": {
         "username": "sa",
-        "password": "12345678",
-        "database": "cuahang",
+        "password": "123456",
+        "database": "banhangcoha",
         "host": "localhost",
         "dialect": "mssql",
         "port": "1433",
         "operatorsAliases": false,
         "pool": {
-          "max": 5,
-          "min": 0,
-          "acquire": 30000,
-          "idle": 10000
+            "max": 5,
+            "min": 0,
+            "acquire": 30000,
+            "idle": 10000
         }
     },
     "production": {
         "username": "sa",
-        "password": "12345678",
-        "database": "cuahang",
+        "password": "123456",
+        "database": "banhangcoha",
         "host": "localhost",
         "port": "1433",
         "dialect": "mssql",
         "operatorsAliases": false,
         "pool": {
-          "max": 5,
-          "min": 0,
-          "acquire": 30000,
-          "idle": 10000
+            "max": 5,
+            "min": 0,
+            "acquire": 30000,
+            "idle": 10000
         }
     }
 }
