@@ -18,5 +18,8 @@ block content
         label(for='diachi') Địa chỉ   
         input#diachi.form-control(type='text',value=`${infor.nguoi.diaChi}`)
       .form-group
+        label(for='mota') Mô tả                      
+        input#mota.form-control(type='text',name='moTa',value=`${infor.moTa}` )
+      .form-group
         label(for='Energy')=`Giới tính: ${infor.nguoi.gioiTinh}` 
       button.btn.btn-pri(type='submit') Sửa   

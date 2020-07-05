@@ -26,14 +26,32 @@ module.exports = {
     xemHDhuyview,
     dangKyKhachHang,
     xacNhanGiaoHang,
+    timKhachHangBandSdt,
+    timMathangBandTen,
 };
+async function timKhachHangBandSdt(req, res) {
+    var sdt = req.body.sdt;
+    var data = await khServices.timKhachHangTheoSdt(sdt);
+    console.log(data);
+    return res.status(200).render('seller/banhang', {
+        khachhangs: data,
+    });
+}
+async function timMathangBandTen(req, res) {
+    var ten = req.body.ten;
+    var data = await mhServices.timMatHangTheoTen(ten);
+    console.log(data);
+    return res.status(200).render('seller/timkiemmh', {
+        matHangs: data,
+    });
 
-async function xacNhanGiaoHang(req, res){  
-  var id = req.params.idHD;
-  var cookie = req.cookies.jwt;
-  var user = await ultiCookie._decodeCookie(cookie);
-  await hoaDonBanService.updateStateHoaDon(id, 'Đang giao hàng', user.id);
-  return res.redirect('/seller/choXuLy');
+}
+async function xacNhanGiaoHang(req, res) {
+    var id = req.params.idHD;
+    var cookie = req.cookies.jwt;
+    var user = await ultiCookie._decodeCookie(cookie);
+    await hoaDonBanService.updateStateHoaDon(id, 'Đang giao hàng', user.id);
+    return res.redirect('/seller/choXuLy');
 }
 
 async function dangKyKhachHang(req, res) {
@@ -78,11 +96,11 @@ async function thongtinCNview(req, res) {
     return res.status(200).render('seller/thongtincanhan', {});
 }
 async function xemchitietview(req, res) {
-    var idkh1 = req.params.id1
-    var data1 = await khServices.getClientById(idkh1)
-    console.log(data1);
+    var idkh = req.params.id
+    var data = await khServices.getClientById(idkh)
+    console.log(data);
     return res.status(200).render('seller/xemchitiet', {
-        infor1: data1,
+        infor: data,
     });
 }
 async function timkiemMHview(req, res) {
@@ -90,7 +108,7 @@ async function timkiemMHview(req, res) {
     var dataMh = await matHangServices.takeAllProduct()
     console.log(dataMh)
     return res.status(200).render('seller/timkiemmh', {
-        matHangs:{
+        matHangs: {
             idKh: idKH,
             data: dataMh
         }
@@ -113,7 +131,7 @@ async function xemHDolview(req, res) {
     var idKHCxl = req.params.id;
     var dataHdCxlCt = await hoaDonBanService.layHoaDonChiTiet(idKHCxl);
     console.log(dataHdCxlCt);
-    
+
 
     return res.status(200).render('seller/xemhdOl', {});
 }

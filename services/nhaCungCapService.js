@@ -1,13 +1,15 @@
 const db = require('../models');
 const Nguoi = db.Nguoi;
 const NhaCungCap = db.NhaCungCap;
+const Sequelize = require('sequelize');
+const Op = Sequelize.Op;
 
 module.exports = {
     luuNhacungcap,
     getAllNCC,
     getNCCById,
     updateInfor,
-    timKhachHangTheoSdt,
+    timNCCTheoSdt,
     getDetailNCC,
 };
 
@@ -90,16 +92,28 @@ async function getDetailNCC(idCustomer) {
     return data;
 }
 
-async function timKhachHangTheoSdt(sdt) {
-    var data = await KhachHang.findAll({
+async function timNCCTheoSdt(sdt) {
+    var data = await Nguoi.findAll({
         where: {
             sdt: {
                 [Op.like]: `%${sdt}%`,
             },
         },
-        include: 'nguoi',
         raw: true,
         nest: true,
     });
-    return data;
+    var result = [];
+    for (nguoi of data) {
+        var NCC = await NhaCungCap.findOne({
+            where: {
+                Nguoiid: nguoi._id,
+            },
+            include: 'nguoi',
+            raw: true,
+            nest: true,
+        });
+        if (NCC)
+            result.push(NCC);
+    }
+    return result;
 }

@@ -2,12 +2,15 @@
     "development": {
         "username": "sa",
         "password": "123456",
-        "database": "banhangcoha",
+        "database": "ChiNhanhHaNoi",
         "host": "localhost",
         "port": "1433",
         "dialect": "mssql",
         "dialectOptions": {
-          "options": { "requestTimeout": 300000 }
+            "options": { "requestTimeout": 300000 }
+        },
+        "options": {
+            "instanceName": "ADMIN"
         },
         "operatorsAliases": false,
         "pool": {
@@ -20,13 +23,16 @@
     "test": {
         "username": "sa",
         "password": "123456",
-        "database": "banhangcoha",
+        "database": "ChiNhanhHaNoi",
         "host": "localhost",
         "dialect": "mssql",
         "dialectOptions": {
-          "options": { "requestTimeout": 300000 }
+            "options": { "requestTimeout": 300000 }
         },
         "port": "1433",
+        "options": {
+            "instanceName": "ADMIN"
+        },
         "operatorsAliases": false,
         "pool": {
             "max": 5,
@@ -38,12 +44,15 @@
     "production": {
         "username": "sa",
         "password": "123456",
-        "database": "banhangcoha",
+        "database": "ChiNhanhHaNoi",
         "host": "localhost",
         "port": "1433",
         "dialect": "mssql",
         "dialectOptions": {
-          "options": { "requestTimeout": 300000 }
+            "options": { "requestTimeout": 300000 }
+        },
+        "options": {
+            "instanceName": "ADMIN"
         },
         "operatorsAliases": false,
         "pool": {

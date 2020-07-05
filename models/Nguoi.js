@@ -1,67 +1,69 @@
 'use strict';
 
 module.exports = (sequelize, Sequelize) => {
-  const Nguoi = sequelize.define('Nguoi', {
-    _id: {
-      allowNull: false,
-      autoIncrement: true,
-      primaryKey: true,
-      type: Sequelize.INTEGER
-    },
-    ten: {
-      type: Sequelize.STRING,
-      allowNull: false,
-    },
-    diaChi: {
-      type: Sequelize.STRING,
-      allowNull: false,
-    },
-    ngaySinh: {
-      type: Sequelize.DATEONLY,
-      allowNull: false,
-    },
-    gioiTinh: {
-      type: Sequelize.STRING,
-      allowNull: false,
-    },
-    email: {
-      type: Sequelize.STRING,
-      allowNull: false,
-    },
-    sdt: {
-      type: Sequelize.STRING,
-      allowNull: false,
-    },
-    createdAt: {
-      allowNull: true,
-      type: Sequelize.DATE
-    },
-    updatedAt: {
-      allowNull: true,
-      type: Sequelize.DATE
-    }
-  }, {}
-  );
-
-  Nguoi.associate = function(models) {
-    // associations can be defined here
-    Nguoi.hasOne(models.KhachHang, {
-      sourceKey: '_id',
-      foreignKey: 'Nguoiid',
-      as: 'nhanvien',
+    const Nguoi = sequelize.define('Nguoi', {
+        _id: {
+            allowNull: false,
+            autoIncrement: true,
+            primaryKey: true,
+            type: Sequelize.INTEGER
+        },
+        ten: {
+            type: Sequelize.STRING,
+            allowNull: false,
+        },
+        diaChi: {
+            type: Sequelize.STRING,
+            allowNull: false,
+        },
+        ngaySinh: {
+            type: Sequelize.DATEONLY,
+            allowNull: false,
+        },
+        gioiTinh: {
+            type: Sequelize.STRING,
+            allowNull: false,
+        },
+        email: {
+            type: Sequelize.STRING,
+            allowNull: false,
+        },
+        sdt: {
+            type: Sequelize.STRING,
+            allowNull: false,
+        },
+        createdAt: {
+            allowNull: true,
+            type: Sequelize.DATE
+        },
+        updatedAt: {
+            allowNull: true,
+            type: Sequelize.DATE
+        }
+    }, {
+        freezeTableName: true,
+        tableName: 'Nguois',
     });
 
-    Nguoi.hasOne(models.NhanVien, {
-      sourceKey: '_id',
-      foreignKey: 'Nguoiid',
-    });
+    Nguoi.associate = function(models) {
+        // associations can be defined here
+        Nguoi.hasOne(models.KhachHang, {
+            sourceKey: '_id',
+            foreignKey: 'Nguoiid',
+            as: 'nhanvien',
+        });
 
-    Nguoi.hasOne(models.NhaCungCap, {
-      sourceKey: '_id',
-      foreignKey: 'Nguoiid',
-    });
+        Nguoi.hasOne(models.NhanVien, {
+            sourceKey: '_id',
+            foreignKey: 'Nguoiid',
+        });
 
- 
-  };
-  return Nguoi;
+        Nguoi.hasOne(models.NhaCungCap, {
+            sourceKey: '_id',
+            foreignKey: 'Nguoiid',
+        });
+
+
+    };
+    return Nguoi;
 };

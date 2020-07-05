@@ -4,14 +4,14 @@ block page_title
 block content
   .content-ttkh.content.container
     h2(style='border-bottom: 1px solid black;') Danh Sách Nhân Viên 
-    form.content-form
+    form.content-form(action='/admin/timnvtheosdt', method='post')
       .form-group.form-search-nv.row
         .col-md-8
-          input#exampleInputEmail1.form-control(type='text', placeholder='Nhập vào tên nhân viên  ', aria-describedby='emailHelp')
+          input#exampleInputEmail1.form-control(type='text', placeholder='Nhập vào sdt nhân viên  ',name="sdt")
         .col-md-2
           button.btn.btn-pri.btn-seller(type='submit') Tìm kiếm   
         .col-md-2
-          a.btn.btn-pri.btn-seller(href='/seller/themkh') Thêm
+          a.btn.btn-pri.btn-seller(href='/user/signup') Thêm
     table.table.table-bordered.table-striped.text-center
       thead.thead-table
         tr
@@ -31,3 +31,4 @@ block content
             td=	nhanvien.nguoi.sdt           
             td
               a.btn.btn-info(href=`/admin/xemchitietnv/${nhanvien._id}`) Xem	
+              

@@ -36,21 +36,19 @@ async function layMatHangBangId(idMatHang) {
 }
 
 async function timMatHangTheoTen(tenMatHang) {
-    try {
-        const docs = await MatHang.findAll({
-            where: {
-                ten: {
-                    [Op.like]: `%${tenMatHang}%`,
-                },
+
+    var docs = await MatHang.findAll({
+        where: {
+            ten: {
+                [Op.like]: `%${tenMatHang}%`,
             },
-            raw: true,
-            nest: true,
-        });
-        return docs;
-    } catch (err) {
-        return [];
-    }
+        },
+        raw: true,
+        nest: true,
+    });
+    return docs;
 }
+
 async function timMatHangTheoLoai(maLoaiMatHang) {
     console.log(maLoaiMatHang);
     try {
