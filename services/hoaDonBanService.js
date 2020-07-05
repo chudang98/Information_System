@@ -99,6 +99,16 @@ async function updateStateHoaDon(idHoaDon, trangthai, idClient) {
       plain: true,
     },
   );
+  if(trangThai == 'Đang giao hàng'){
+    var hdct = await HDChitiet.findAll({
+      where: {
+        HDBanid: idHoaDon,
+      },
+      raw: true,
+      nest: true,
+    });
+    _updateSoLuongMatHang(hdct);
+  }
   return {
     status: 'success',
   };
@@ -276,25 +286,9 @@ async function _matHangTrongHoaDon(idHoaDon){
     where: {
       HDBanid: idHoaDon,
     },
+    include: 'MatHang',
     raw: true,
     nest: true,
   });
-
-  var result = [];
-
-  for(hoaDon of hoaDonChiTiet){
-    var matHang = await MatHang.findOne({
-      where: {
-        _id: hoaDon.MatHangid,
-      },
-      raw: true,
-      nest: true,
-    });
-    result.push({
-      ...matHang,
-      soLuong: hoaDon.soLuong,
-    });
-  };
-  
-  return result;
+  return hoaDonChiTiet;
 }

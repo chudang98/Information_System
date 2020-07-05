@@ -2,6 +2,9 @@
 const khServices = require('../services/khachHangService');
 const mhServices = require('../services/matHangServices');
 const matHangServices = require('../services/matHangServices');
+const hoaDonBanService = require('../services/hoaDonBanService');
+const ultiCookie = require('../utils/cookieUtils');
+
 module.exports = {
     getSignup,
     getLogin,
@@ -22,7 +25,16 @@ module.exports = {
     huyview,
     xemHDhuyview,
     dangKyKhachHang,
+    xacNhanGiaoHang,
 };
+
+async function xacNhanGiaoHang(req, res){  
+  var id = req.params.idHD;
+  var cookie = req.cookies.jwt;
+  var user = await ultiCookie._decodeCookie(cookie);
+  await hoaDonBanService.updateStateHoaDon(id, 'Đang giao hàng', user.id);
+  return res.redirect('/seller/choXuLy');
+}
 
 async function dangKyKhachHang(req, res) {
     var data = req.body;
@@ -39,7 +51,8 @@ async function getLogin(req, res) {
 }
 async function banHangView(req, res) {
     var clients = await khServices.getAllClient();
-    console.log(clients)
+    // var cookie = req.cookies.jwt;
+    // var user = await ultiCookie._decodeCookie(cookie);
     return res.status(200).render('seller/banhang', {
         khachhangs: clients,
     });
@@ -90,10 +103,18 @@ async function hoaDonview(req, res) {
     });
 }
 async function choXulyview(req, res) {
-    // var dataMh = await matHangServices.takeAllProduct()
-    return res.status(200).render('seller/choxuly', {});
+    var dataHdCxl = await hoaDonBanService.layHoaDonTheoTrangThai("Chờ xử lý")
+    console.log(dataHdCxl)
+    return res.status(200).render('seller/choxuly', {
+        HdCxl: dataHdCxl
+    });
 }
 async function xemHDolview(req, res) {
+    var idKHCxl = req.params.id;
+    var dataHdCxlCt = await hoaDonBanService.layHoaDonChiTiet(idKHCxl);
+    console.log(dataHdCxlCt);
+    
+
     return res.status(200).render('seller/xemhdOl', {});
 }
 async function danggiaoHview(req, res) {
