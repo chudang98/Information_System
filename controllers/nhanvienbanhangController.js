@@ -27,6 +27,8 @@ module.exports = {
     dangKyKhachHang,
 
     xacNhanGiaoHang,
+    xacNhanHuy,
+
 };
 
 async function xacNhanGiaoHang(req, res){  
@@ -34,8 +36,16 @@ async function xacNhanGiaoHang(req, res){
   var cookie = req.cookies.jwt;
   var user = await ultiCookie._decodeCookie(cookie);
   await hoaDonBanService.updateStateHoaDon(id, 'Đang giao hàng', user.id);
-  return res.redirect('/seller/choXuLy');
+  return res.redirect('/seller/choxuly');
 }
+async function xacNhanHuy(req, res){  
+    var id = req.params.idHD;
+    var cookie = req.cookies.jwt;
+    var user = await ultiCookie._decodeCookie(cookie);
+    await hoaDonBanService.updateStateHoaDon(id, 'Hủy', user.id);
+    return res.redirect('/seller/choxuly');
+  }
+
 
 async function dangKyKhachHang(req, res) {
     var data = req.body;
@@ -123,10 +133,17 @@ async function danggiaoHview(req, res) {
     });
 }
 async function xemHDdanggiaoview(req, res) {
-    return res.status(200).render('seller/xemhddanggiao', {});
+    var idKHTc = req.params.id;
+    var dataHdTc = await hoaDonBanService.layHoaDonChiTiet(idKHTc);
+    return res.status(200).render('seller/xemhddanggiao', {
+        data: dataHdTc
+    });
 }
 async function thanhCongview(req, res) {
-    return res.status(200).render('seller/thanhcong', {});
+    var dataHdDht = await hoaDonBanService.layHoaDonTheoTrangThai("Đã hoàn thành")
+    return res.status(200).render('seller/thanhcong', {
+        data: dataHdDht
+    });
 }
 async function xemHDthanhcongview(req, res) {
     return res.status(200).render('seller/xemhdthanhcong', {});
