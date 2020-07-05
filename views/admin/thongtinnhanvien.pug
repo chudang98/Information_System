@@ -21,24 +21,13 @@ block content
           th(scope='col') Số điện thoại 
           th(scope='col') Chi Tiết 
       tbody
-        tr
-          th(scope='row') 1
-          td Trần Tiểu Cúc
-          td 1 
-          td 0987654343
-          td
-            a.btn.btn-info(href='/admin/xemchitietnv') Xem  
-        tr
-          th(scope='row') 1
-          td Trần Tiểu Cúc
-          td 1 
-          td 0987654343
-          td
-            a.btn.btn-info(href='/admin/xemchitietnv') Xem   
-        tr
-          th(scope='row') 1
-          td Trần Tiểu Cúc
-          td 1 
-          td 0987654343
-          td
-            a.btn.btn-info(href='/admin/xemchitietnv') Xem  
+        - var dem = 1
+        each nhanvien in nv
+          if(dem<=15)
+          tr
+            th(scope='row')= dem++                     
+            td=	nhanvien.nguoi.ten               
+            td= nhanvien.nguoi._id           
+            td=	nhanvien.nguoi.sdt           
+            td
+              a.btn.btn-info(href=`/admin/xemchitietnv/${nhanvien.nguoi._id}`) Xem	
