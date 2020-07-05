@@ -23,4 +23,5 @@ router.route('/xemhdthanhcong').get(nvbhController.xemHDthanhcongview);
 router.route('/huy').get(nvbhController.huyview);
 router.route('/xemhdhuy').get(nvbhController.xemHDhuyview);
 
+router.route('/xacnhanhd/:id').get(nvbhController.xacNhanHoaDon);
 module.exports = router;

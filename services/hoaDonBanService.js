@@ -101,6 +101,8 @@ async function updateStateHoaDon(idHoaDon, trangthai, idClient) {
       plain: true,
     },
   );
+  if(trangThai == 'Đang giao hàng' || trangThai == 'Đã hoàn thành')
+    await 
   return {
     status: 'success',
   };

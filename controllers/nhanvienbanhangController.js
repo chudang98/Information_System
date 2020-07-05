@@ -23,7 +23,13 @@ module.exports = {
     huyview,
     xemHDhuyview,
     dangKyKhachHang,
+    xacNhanHoaDon,
 };
+
+async function xacNhanHoaDon(req, res){
+    var id = req.params.id;
+    await hoaDonBanService.updateStateHoaDon('')
+}
 
 async function dangKyKhachHang(req, res) {
     var data = req.body;
@@ -103,16 +109,16 @@ async function xemHDolview(req, res) {
     console.log(1111);
     
     console.log(dataHdCxlCt.mathang[0].MatHang);
-    // dataHdCxlCt.forEach(item => {
-    //     console.log(item);
-        
-    // })
     return res.status(200).render('seller/xemhdOl', {
         data : dataHdCxlCt
     });
 }
 async function danggiaoHview(req, res) {
-    return res.status(200).render('seller/danggiaohang', {});
+    var dataHdDdh = await hoaDonBanService.layHoaDonTheoTrangThai("Đang giao hàng")
+    console.log(dataHdDdh)
+    return res.status(200).render('seller/danggiaohang', {
+        data : dataHdDdh
+    });
 }
 async function xemHDdanggiaoview(req, res) {
     return res.status(200).render('seller/xemhddanggiao', {});
