@@ -17,24 +17,13 @@ block content
           th(scope='col') Địa chỉ 
           th(scope='col') Chi Tiết 
       tbody
-        tr
-          th(scope='row') 1
-          td Trần Tiểu Cúc 
-          td 0987654343
-          td Hà Nội 
-          td
-            a.btn.btn-info(href='/admin/xemchitietncc') Xem  
-        tr
-          th(scope='row') 1
-          td Trần Tiểu Cúc 
-          td 0987654343
-          td Hà Nội 
-          td
-            a.btn.btn-info(href='/admin/xemchitietncc') Xem  
-        tr
-          th(scope='row') 1
-          td Trần Tiểu Cúc 
-          td 0987654343
-          td Hà Nội 
-          td
-            a.btn.btn-info(href='/admin/xemchitietncc') Xem  
+        - var dem = 1
+        each ncc in nhacungcap
+          if(dem<=15)
+          tr
+            th(scope='row')= dem++                     
+            td=	ncc.nguoi.ten               
+            td= ncc.nguoi.sdt           
+            td=	ncc.nguoi.diaChi           
+            td
+              a.btn.btn-info(href=`/admin/xemchitietncc/${ncc.nguoi._id}`) Xem	

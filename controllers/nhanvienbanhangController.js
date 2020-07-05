@@ -23,11 +23,11 @@ module.exports = {
     dangKyKhachHang,
 };
 
-async function dangKyKhachHang(req, res){
-  var data = req.body;
-  console.log(data);
-  await khServices.luuKhachHang(data);
-  return res.redirect('/seller/banhang');
+async function dangKyKhachHang(req, res) {
+    var data = req.body;
+    console.log(data);
+    await khServices.luuKhachHang(data);
+    return res.redirect('/seller/banhang');
 }
 
 async function getSignup(req, res) {
@@ -63,11 +63,11 @@ async function thongtinCNview(req, res) {
     return res.status(200).render('seller/thongtincanhan', {});
 }
 async function xemchitietview(req, res) {
-    var idkh = req.params.id
-    var data = await khServices.getClientById(idkh)
-    console.log(data);
+    var idkh1 = req.params.id1
+    var data1 = await khServices.getClientById(idkh1)
+    console.log(data1);
     return res.status(200).render('seller/xemchitiet', {
-        infor: data,
+        infor1: data1,
     });
 }
 async function timkiemMHview(req, res) {

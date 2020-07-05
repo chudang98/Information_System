@@ -4,24 +4,27 @@ block page_title
 block content
   .content.container
     h2(style='border-bottom: 1px solid black;') Thông tin nhân viên 
-    form.content-form
+    form.content-form(action='/admin/themnhanvien', method='post')
       .form-group
         label(for='exampleInputName') Họ và tên 
-        input#exampleInputName.form-control(type='text', aria-describedby='emailHelp')
+        input#exampleInputName.form-control(type='text')
       .form-group
-        label(for='exampleInputCMT') Thẻ căn cước 
-        input#exampleInputPassword1.form-control(type='text', value='12398546')
-      .form-group
-        label(for='exampleInputSDT') Số điện thoại  
+        label(for='exampleInputSDT') Số điện thoại 
         input#exampleInputSDT.form-control(type='number')
+      .form-group
+        label(for='exampleInputusername') Username
+        input#exampleInputusername.form-control(type='text')
+      .form-group
+        label(for='exampleInputpass') Password 
+        input#exampleInputpass.form-control(type='text')
       .form-group
         label(for='email') Email  
         input#email.form-control(type='email')
       .form-group
-        label(for='ngaysinh') Ngày sinh 
+        label(for='ngaysinh') Ngày sinh  
         input#ngaysinh.form-control(type='date')
       .form-group
-        label(for='diachi') địa chỉ  
+        label(for='diachi') Địa chỉ   
         input#diachi.form-control(type='text')
       .form-group
         label(for='Energy') Giới tính 

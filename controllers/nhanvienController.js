@@ -34,7 +34,7 @@ async function signupAcc(req, res) {
         console.log(result.infor._id);
         var idUser = result.infor._id;
         cookieUtils.setTokenCookie(idUser, res);
-        return res.redirect('/user/home');
+        return res.redirect('/admin/thongtinnhanvien');
     } else
         return res.redirect('/user/login');
 }

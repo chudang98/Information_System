@@ -1,4 +1,7 @@
 const khServices = require('../services/khachHangService');
+const nvServices = require('../services/nhanVienServices');
+const nccServices = require('../services/nhaCungCapService');
+const authService = require('../services/authenticateService');
 module.exports = {
 
     getLogin,
@@ -27,20 +30,45 @@ module.exports = {
     danhsachHDNCCView,
     hoadonNCCchitietView,
     thongtinCNView,
+    signupAcc,
 
 
 
 };
+async function signupAcc(req, res) {
+    var data = req.body;
+    var result = await authService.nhanVienSignup(data);
+    console.log(result.infor._id);
+    var idUser = result.infor._id;
+    cookieUtils.setTokenCookie(idUser, res);
+    return res.redirect('/admin/thongtinnhanvien');
 
+}
 
 async function getLogin(req, res) {
-    return res.status(200).render('admin/thongtinnhanvien', {});
+    var nv = await nvServices.layTatCaNhanVien();
+    console.log(nv);
+    return res.status(200).render('admin/thongtinnhanvien', {
+        nv: nv,
+    });
 }
 async function thongtinNVView(req, res) {
-    return res.status(200).render('admin/thongtinnhanvien', {});
+
+    let nv = await nvServices.layTatCaNhanVien();
+    console.log(nv);
+    return res.status(200).render('admin/thongtinnhanvien', {
+        nv: nv,
+    });
+
 }
 async function xemchitietNVView(req, res) {
-    return res.status(200).render('admin/xemchitietnv', {});
+    var idnv = req.params.id
+    var data = await nvServices.layThongTinNhanVien(idnv)
+    console.log(data);
+    return res.status(200).render('admin/xemchitietnv', {
+        infor: data,
+    });
+
 }
 async function thongtinKHView(req, res) {
     var clients = await khServices.getAllClient();
@@ -58,10 +86,20 @@ async function xemchitietKHView(req, res) {
     });
 }
 async function thongtinNCCView(req, res) {
-    return res.status(200).render('admin/thongtinncc', {});
+    var ncc = await nccServices.getAllNCC();
+    console.log(ncc);
+    return res.status(200).render('admin/thongtinncc', {
+        nhacungcap: ncc,
+    });
+
 }
 async function xemchitietNCCView(req, res) {
-    return res.status(200).render('admin/xemchitietncc', {});
+    var idncc = req.params.id
+    var data = await nccServices.getNCCById(idncc)
+    console.log(data);
+    return res.status(200).render('admin/xemchitietncc', {
+        infor: data,
+    });
 }
 async function themNVView(req, res) {
     return res.status(200).render('admin/themnhanvien', {});
