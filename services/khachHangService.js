@@ -91,7 +91,7 @@ async function timKhachHangTheoSdt(sdt){
   });
   var result = [];
   for(nguoi of data){
-    await KhachHang.findOne({
+    var KH = await KhachHang.findOne({
       where: {
         Nguoiid: nguoi._id,
       },
@@ -99,7 +99,7 @@ async function timKhachHangTheoSdt(sdt){
       raw: true,
       nest: true,
     });
-    
+    result.push(KH);
   }
   return data;
 }
