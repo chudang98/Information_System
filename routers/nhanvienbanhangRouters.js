@@ -14,8 +14,8 @@ router.route('/thongtinkh').get(nvbhController.thongtinKHview);
 router.route('/thongtinmh').get(nvbhController.thongtinMHview);
 router.route('/thongtincanhan').get(nvbhController.thongtinCNview);
 router.route('/xemchitiet/:id1').get(nvbhController.xemchitietview);
-router.route('/timkiemmh').get(nvbhController.timkiemMHview);
-router.route('/hoadon').get(nvbhController.hoaDonview);
+router.route('/timkiemmh/:id').get(nvbhController.timkiemMHview);
+router.route('/hoadon/:id').get(nvbhController.hoaDonview);
 router.route('/danggiaohang').get(nvbhController.danggiaoHview);
 router.route('/xemhddanggiao').get(nvbhController.xemHDdanggiaoview);
 router.route('/thanhcong').get(nvbhController.thanhCongview);
@@ -24,5 +24,4 @@ router.route('/huy').get(nvbhController.huyview);
 router.route('/xemhdhuy').get(nvbhController.xemHDhuyview);
 router.route('/xacnhangiaohang/:idHD').get(nvbhController.xacNhanGiaoHang);
 
-router.route('/xacnhanhd/:id').get(nvbhController.xacNhanHoaDon);
 module.exports = router;
