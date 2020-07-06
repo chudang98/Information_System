@@ -21,6 +21,7 @@ const ajaxRoute = require('./routers/ajaxRouters');
 
 const app = express();
 
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.json());
 
 app.use(bodyParser());

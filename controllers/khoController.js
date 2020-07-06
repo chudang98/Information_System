@@ -14,18 +14,42 @@ module.exports = {
     xemchitietMHView,
     themMHView,
     dangKyNCC,
+    XemMathangBandTen,
+    xemNCCBandSdt,
+    dangkyMHview,
 
 
 
 };
+async function xemNCCBandSdt(req, res) {
+    var sdt = req.body.sdt;
+    var data = await nccServices.timNCCTheoSdt(sdt);
+    console.log(data);
+    return res.status(200).render('nvkho/thongtinncc', {
+        nhacungcap: data,
+    });
+}
+async function XemMathangBandTen(req, res) {
+    var ten = req.body.ten;
+    var data = await mhServices.timMatHangTheoTen(ten);
+    // console.log(data);
+    return res.status(200).render('nvkho/thongtinmh', {
+        mathang: data,
+    });
 
+}
 async function dangKyNCC(req, res) {
     var data = req.body;
     console.log(data);
     await nccServices.luuNhacungcap(data);
     return res.redirect('/nvkho/thongtinncc');
 }
-
+async function dangkyMHview(req, res) {
+    var data = req.body;
+    console.log(data);
+    await mhServices.luuMatHang(data);
+    return res.redirect('/nvkho/thongtinmh');
+}
 async function getLogin(req, res) {
     return res.status(200).render('nvkho/nhapkho', {});
 }
