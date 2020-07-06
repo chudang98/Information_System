@@ -11,9 +11,13 @@ router
 router.route('/themnhanvien')
     .get(adminController.themNVView)
     .post(adminController.signupAcc);
+router.route('/thongtinkhachhang')
+    .get(adminController.thongtinKHView);
+router.route('/timkhtheosdt').post(adminController.timKhachHangBandSdt);
+router.route('/timnvtheosdt').post(adminController.timNhanVienBandSdt);
+router.route('/timncctheosdt').post(adminController.timNCCBandSdt);
 router.route('/thongtinnhanvien').get(adminController.thongtinNVView);
 router.route('/xemchitietnv/:id').get(adminController.xemchitietNVView);
-router.route('/thongtinkhachhang').get(adminController.thongtinKHView);
 router.route('/xemchitietkh/:id').get(adminController.xemchitietKHView);
 router.route('/thongtinncc').get(adminController.thongtinNCCView);
 router.route('/xemchitietncc/:id').get(adminController.xemchitietNCCView);

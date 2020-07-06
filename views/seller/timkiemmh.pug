@@ -4,9 +4,9 @@ block page_title
 block content
   .content.container
     h2(style='border-bottom: 1px solid black;') Tìm kiếm mặt hàng :
-    form.content-form
+    form.content-form(action='/seller/timmhtheoten', method='post')
       .form-group.form-search-mh.row
-        input#exampleInputEmail1.form-control.col-md-9(type='email', placeholder='Nhập tên mặt hàng  ', aria-describedby='emailHelp')
+        input#exampleInputEmail1.form-control.col-md-9(type='text', placeholder='Nhập tên mặt hàng  ', name="ten")
         button.btn.btn-search.col-md-2.offset-md-1(type='submit') Tìm kiếm   
     table.table.table-bordered.table-striped.text-center
       thead.thead-table
