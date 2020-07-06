@@ -156,6 +156,8 @@ async function getHoaDon(req, res) {
     const cookie = req.body.jwt;
     // console.log(cookie);
     var token = await jwtUtil._decodeCookie(cookie);
+    console.log(token);
+    
     var result = await hoaDonBanService.layHoaDonBanTheoUser(token.id);
     return res.json({
         status: 'success',

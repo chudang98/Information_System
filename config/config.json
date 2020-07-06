@@ -2,7 +2,7 @@
     "development": {
         "username": "sa",
         "password": "12345678",
-        "database": "cuahang",
+        "database": "banhangcoha",
         "host": "localhost",
         "port": "1433",
         "dialect": "mssql",
@@ -20,7 +20,7 @@
     "test": {
         "username": "sa",
         "password": "12345678",
-        "database": "cuahang",
+        "database": "banhangcoha",
         "host": "localhost",
         "dialect": "mssql",
         "dialectOptions": {
@@ -38,7 +38,7 @@
     "production": {
         "username": "sa",
         "password": "12345678",
-        "database": "cuahang",
+        "database": "banhangcoha",
         "host": "localhost",
         "port": "1433",
         "dialect": "mssql",

@@ -48,7 +48,7 @@ async function layHoaDonChiTiet(idHoaDon) {
 }
 
 async function layHoaDonBanTheoUser(idUser) {
-  var result = [];
+  // var result = [];
   var HDBans = await HDBan.findAll({
     where: {
       KhachHangid: idUser
@@ -56,7 +56,7 @@ async function layHoaDonBanTheoUser(idUser) {
     raw: true,
     nest: true,
   });
-  result = await _matHangListHoaDon(HDBans);
+  var result = await _matHangListHoaDon(HDBans);
   return result;
 }
 
@@ -135,7 +135,7 @@ async function thanhToanHoaDonTrucTiep(listMatHang, idCustomer, idNhanVien){
     );
     await MatHang.update(
       {
-        soLuong: hang.soLuong - mahang.soLuong,
+        soLuong: hang.soLuong - 1,
       }, 
       {
         where: {
@@ -261,7 +261,7 @@ async function _xoaMatHangKhoiHoaDon(idMatHang, idHoaDon){
 async function _matHangListHoaDon(listHD) {
   var result = [];
   for(hoadon of listHD){
-    // var matHang = await _matHangTrongHoaDon(hoadon._id);
+    var matHang = await _matHangTrongHoaDon(hoadon._id);
     result.push({
       ...hoadon,
       mathang: matHang,
