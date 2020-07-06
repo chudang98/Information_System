@@ -6,6 +6,20 @@ const hoaDonBanService = require('../services/hoaDonBanService');
 module.exports = {
   timMatHangTheoTen,
   timKhachHangTheoSdt,
+  timMatHangDanhSach,
+}
+
+async function timMatHangDanhSach(req, res){
+  var data = req.body.data;
+  console.log(data);
+  var result = [];
+  for(id of data){
+    var sanpham = await matHangService.layMatHangBangId(id);
+    result.push(sanpham);
+  }
+  return res.status(200).json({
+    data: result,
+  })
 }
 
 async function timMatHangTheoTen(req, res){
