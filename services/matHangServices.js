@@ -14,6 +14,7 @@ module.exports = {
     layNhanXet,
     themNhanXet,
     layMatHangBangId,
+    luuMatHang,
 };
 
 async function takeAllProduct() {
@@ -23,7 +24,30 @@ async function takeAllProduct() {
     });
     return matHang;
 }
+async function luuMatHang(data) {
+    var {
+        ten,
+        loai,
+        soLuong,
+        mauSac,
+        kichCo,
+        giaNhap,
+        giaBan
+    } = data;
+    console.log(ten, mauSac);
+    var mh = await MatHang.create({
+        ten,
+        loai,
+        soLuong,
+        mauSac,
+        kichCo,
+        giaNhap,
+        giaBan,
+    });
 
+    console.log(mh);
+    return false;
+}
 async function layMatHangBangId(idMatHang) {
     var mathang = await MatHang.findOne({
         where: {
@@ -36,21 +60,19 @@ async function layMatHangBangId(idMatHang) {
 }
 
 async function timMatHangTheoTen(tenMatHang) {
-    try {
-        const docs = await MatHang.findAll({
-            where: {
-                ten: {
-                    [Op.like]: `%${tenMatHang}%`,
-                },
+
+    var docs = await MatHang.findAll({
+        where: {
+            ten: {
+                [Op.like]: `%${tenMatHang}%`,
             },
-            raw: true,
-            nest: true,
-        });
-        return docs;
-    } catch (err) {
-        return [];
-    }
+        },
+        raw: true,
+        nest: true,
+    });
+    return docs;
 }
+
 async function timMatHangTheoLoai(maLoaiMatHang) {
     console.log(maLoaiMatHang);
     try {

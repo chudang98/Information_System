@@ -2,6 +2,7 @@ const khServices = require('../services/khachHangService');
 const nvServices = require('../services/nhanVienServices');
 const nccServices = require('../services/nhaCungCapService');
 const authService = require('../services/authenticateService');
+const khachHangService = require('../services/khachHangService');
 module.exports = {
 
     getLogin,
@@ -31,10 +32,37 @@ module.exports = {
     hoadonNCCchitietView,
     thongtinCNView,
     signupAcc,
-
+    timKhachHangBandSdt,
+    timNCCBandSdt,
+    timNhanVienBandSdt,
 
 
 };
+async function timKhachHangBandSdt(req, res) {
+    var sdt = req.body.sdt;
+    var data = await khachHangService.timKhachHangTheoSdt(sdt);
+    console.log(data);
+    return res.status(200).render('admin/thongtinkhachhang', {
+        khachhang: data,
+    });
+}
+async function timNhanVienBandSdt(req, res) {
+    var sdt = req.body.sdt;
+    var data = await nvServices.timNhanVienTheoSdt(sdt);
+    console.log(data);
+    return res.status(200).render('admin/thongtinnhanvien', {
+        nv: data,
+    });
+}
+async function timNCCBandSdt(req, res) {
+    var sdt = req.body.sdt;
+    var data = await nccServices.timNCCTheoSdt(sdt);
+    console.log(data);
+    return res.status(200).render('admin/thongtinncc', {
+        nhacungcap: data,
+    });
+}
+
 async function signupAcc(req, res) {
     var data = req.body;
     var result = await authService.nhanVienSignup(data);

@@ -4,7 +4,7 @@ block page_title
 block content
   .content.container
     h2(style='border-bottom: 1px solid black;') Thông tin nhân viên :
-    //- label(for='exampleInputName')=`Mã nhân viên : ${infor.nguoi._id}` 
+    label(for='exampleInputName')=`Mã nhân viên : ${infor.nguoi._id}` 
     form.content-form
       .form-group
         label(for='exampleInputName') Họ và tên 
@@ -27,4 +27,4 @@ block content
       .form-group
         label(for='Energy')=`Giới tính: ${infor.nguoi.gioiTinh}`  
       button.btn.btn-pri.btn-in(type='submit') Sửa 
-    
+

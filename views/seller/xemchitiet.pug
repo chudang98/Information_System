@@ -4,25 +4,25 @@ block page_title
 	title Home page
 block content
 	.content-ttkh.content.container
-		h2(style='border-bottom: 1px solid black;')=`Thông tin khách hàng :${infor1._id}`            
+		h2(style='border-bottom: 1px solid black;')=`Thông tin khách hàng :${infor._id}`            
 		form.content-form
 			.form-group
 				label(for='exampleInputName') Họ và tên            
-				input#exampleInputName.form-control(type='text',name='ten',value=`${infor1.nguoi.ten}`)                 
+				input#exampleInputName.form-control(type='text',name='ten',value=`${infor.nguoi.ten}`)                 
 			.form-group
 				label(for='exampleInputSDT') Số điện thoại                        
-				input#exampleInputSDT.form-control(type='number',name='sdt',value=`${infor1.nguoi.sdt}`)
+				input#exampleInputSDT.form-control(type='number',name='sdt',value=`${infor.nguoi.sdt}`)
 			.form-group
 				label(for='exampleInputemai') Email                      
-				input#exampleInputemai.form-control(type='email',name='email',value=`${infor1.nguoi.email}`)                
+				input#exampleInputemai.form-control(type='email',name='email',value=`${infor.nguoi.email}`)                
 			.form-group
 				label(for='ngaysinh') Ngày sinh                     
-				input#ngaysinh.form-control(type='date',name='ngaySinh',value=`${infor1.nguoi.ngaySinh}`)               
+				input#ngaysinh.form-control(type='date',name='ngaySinh',value=`${infor.nguoi.ngaySinh}`)               
 			.form-group
 				label(for='diachi') Địa chỉ                       
-				input#diachi.form-control(type='text' ,name='diaChi',value=`${infor1.nguoi.diaChi}`)              
+				input#diachi.form-control(type='text' ,name='diaChi',value=`${infor.nguoi.diaChi}`)              
 			.form-group
-				label(for='Energy')=`Giới tính: ${infor1.nguoi.gioiTinh}`                      
+				label(for='Energy')=`Giới tính: ${infor.nguoi.gioiTinh}`                     
 				//- br
 				//- input#Energy(type='radio', name='energy', value='', disabled='')
 				|             

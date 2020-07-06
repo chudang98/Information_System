@@ -8,24 +8,19 @@ block content
 		form.content-form
 			.form-group
 				label(for='exampleInputName') Họ và tên            
-				input#exampleInputName.form-control(type='text')                 
-			.form-group
-				label(for='exampleInputCMT') Thẻ căn cước     
-				input#exampleInputPassword1.form-control(type='text', value='12398546')          
+				input#exampleInputName.form-control(type='text',value=`${infor.nguoi.ten}`)                   
 			.form-group
 				label(for='exampleInputSDT') Số điện thoại                        
-				input#exampleInputSDT.form-control(type='number')               
+				input#exampleInputSDT.form-control(type='number',value=`${infor.nguoi.sdt}`)               
 			.form-group
 				label(for='ngaysinh') Ngày sinh                     
-				input#ngaysinh.form-control(type='date')               
+				input#ngaysinh.form-control(type='date',value=`${infor.nguoi.ngaySinh}`)               
 			.form-group
 				label(for='diachi') Địa chỉ                       
-				input#diachi.form-control(type='text' )              
+				input#diachi.form-control(type='text',value=`${infor.nguoi.diaChi}` )
 			.form-group
-				label(for='Energy') Giới tính                      
-				br
-				input#Energy(type='radio', name='energy', value='', disabled='')
-				| Nam               
-				input#Energy(type='radio', name='energy', value='', disabled='')
-				| Nữ             
-			button.btn.btn-pri(type='submit') Sửa   
+				label(for='mota') Mô tả                      
+				input#mota.form-control(type='text',name='moTa',value=`${infor.moTa}` )               
+			//- .form-group
+			//- 	label(for='Energy')=`Giới tính: ${infor.nguoi.gioiTinh}`                             
+			//- button.btn.btn-pri(type='submit') Sửa   
