@@ -1,20 +1,17 @@
 {
     "development": {
         "username": "sa",
-        "password": "123456",
-        "database": "banhangcoha",
+        "password": "12345678",
+        "database": "cuahangdemo",
         "host": "localhost",
         "port": "1433",
         "dialect": "mssql",
         "dialectOptions": {
-            "options": { "requestTimeout": 300000 }
-        },
-        "options": {
-            "instanceName": "ADMIN"
+          
         },
         "operatorsAliases": false,
         "pool": {
-            "max": 5,
+            "max": 1000,
             "min": 0,
             "acquire": 30000,
             "idle": 10000
@@ -22,20 +19,22 @@
     },
     "test": {
         "username": "sa",
-        "password": "123456",
-        "database": "ChiNhanhHaNoi",
+        "password": "12345678",
+        "database": "cuahangbanhang",
         "host": "localhost",
         "dialect": "mssql",
         "dialectOptions": {
-            "options": { "requestTimeout": 300000 }
+            "options": { 
+              "instanceName": "DANGSQLSERVER",
+              "requestTimeout": 300000
+            },
+            "trustedConnection": true
+
         },
         "port": "1433",
-        "options": {
-            "instanceName": "ADMIN"
-        },
         "operatorsAliases": false,
         "pool": {
-            "max": 5,
+            "max": 1000,
             "min": 0,
             "acquire": 30000,
             "idle": 10000
@@ -43,20 +42,22 @@
     },
     "production": {
         "username": "sa",
-        "password": "123456",
-        "database": "banhangcoha",
+        "password": "12345678",
+        "database": "cuahangbanhang",
         "host": "localhost",
         "port": "1433",
         "dialect": "mssql",
         "dialectOptions": {
-            "options": { "requestTimeout": 300000 }
-        },
-        "options": {
-            "instanceName": "ADMIN"
+            
+            "options": { 
+              "requestTimeout": 300000,
+              "instanceName": "DANGSQLSERVER"
+            },
+            "trustedConnection": true
         },
         "operatorsAliases": false,
         "pool": {
-            "max": 5,
+            "max": 1000,
             "min": 0,
             "acquire": 30000,
             "idle": 10000
