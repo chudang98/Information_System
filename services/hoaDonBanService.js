@@ -49,17 +49,16 @@ async function layHoaDonChiTiet(idHoaDon) {
 }
 
 async function layHoaDonBanTheoUser(idUser) {
-    var result = [];
-    var HDBans = await HDBan.findAll({
-        where: {
-            KhachHangid: idUser
-        },
-        raw: true,
-        nest: true,
-    });
-    result = await _matHangListHoaDon(HDBans);
-    return result;
-}
+  // var result = [];
+  var HDBans = await HDBan.findAll({
+    where: {
+      KhachHangid: idUser
+    },
+    raw: true,
+    nest: true,
+  });
+  var result = await _matHangListHoaDon(HDBans);
+  return result;
 
 async function themHoaDonBan(data, idUser) {
     try {
@@ -150,12 +149,36 @@ async function layTongTienMatHang(idMatHang) {
         },
         raw: true,
         nest: true,
-    });
-    var doanhSo = 0;
-    for (hoadon of data) {
-        doanhSo += (data.soLuong * data.donGia);
-    }
-    return doanhSo;
+      },
+    );
+    await MatHang.update(
+      {
+        soLuong: hang.soLuong - 1,
+      }, 
+      {
+        where: {
+          _id: mathang._id,
+        }
+      }
+    );
+  }
+
+  return true;
+}
+
+async function layTongTienMatHang(idMatHang){
+  var data = await HDChitiet.findAll({
+    where: {
+      MatHangid: idMatHang,
+    },
+    raw: true,
+    nest: true,
+  });
+  var doanhSo = 0;
+  for(hoadon of data){
+    doanhSo += (data.soLuong * data.donGia);
+  }
+  return doanhSo;
 }
 
 // TODO : Trừ số lượng trực tiếp vào hóa đơn.
@@ -244,15 +267,15 @@ async function _xoaMatHangKhoiHoaDon(idMatHang, idHoaDon) {
 }
 
 async function _matHangListHoaDon(listHD) {
-    var result = [];
-    for (hoadon of listHD) {
-        // var matHang = await _matHangTrongHoaDon(hoadon._id);
-        result.push({
-            ...hoadon,
-            mathang: matHang,
-        });
-    };
-    return result;
+  var result = [];
+  for(hoadon of listHD){
+    var matHang = await _matHangTrongHoaDon(hoadon._id);
+    result.push({
+      ...hoadon,
+      mathang: matHang,
+    });
+  };
+  return result;
 }
 
 async function _matHangTrongHoaDon(idHoaDon) {
