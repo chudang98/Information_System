@@ -2,7 +2,7 @@
     "development": {
         "username": "sa",
         "password": "123456",
-        "database": "ChiNhanhHaNoi",
+        "database": "banhangcoha",
         "host": "localhost",
         "port": "1433",
         "dialect": "mssql",
@@ -44,7 +44,7 @@
     "production": {
         "username": "sa",
         "password": "123456",
-        "database": "ChiNhanhHaNoi",
+        "database": "banhangcoha",
         "host": "localhost",
         "port": "1433",
         "dialect": "mssql",

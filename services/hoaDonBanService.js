@@ -19,15 +19,16 @@ module.exports = {
 };
 
 async function layHoaDonTheoTrangThai(trangThai){
-  var HD = await HDBan.findOne({
+  var HD = await HDBan.findAll({
     where: {
       trangThai: trangThai,
     },
     raw: true,
     nest: true,
   });
-  result = await _matHangListHoaDon(HD);
-  return result;
+  // result = await _matHangListHoaDon(HD);
+  // console.log(222, result);
+  return HD;
 }
 
 async function layHoaDonChiTiet(idHoaDon) {
@@ -39,7 +40,7 @@ async function layHoaDonChiTiet(idHoaDon) {
     raw: true,
     nest: true,
   });
-  result = await _matHangTrongHoaDon(HD._id);
+  var result = await _matHangTrongHoaDon(HD._id);
   return {
     ...HD,
     mathang: result
@@ -99,16 +100,6 @@ async function updateStateHoaDon(idHoaDon, trangthai, idClient) {
       plain: true,
     },
   );
-  if(trangThai == 'Đang giao hàng'){
-    var hdct = await HDChitiet.findAll({
-      where: {
-        HDBanid: idHoaDon,
-      },
-      raw: true,
-      nest: true,
-    });
-    _updateSoLuongMatHang(hdct);
-  }
   return {
     status: 'success',
   };
@@ -272,7 +263,7 @@ async function _xoaMatHangKhoiHoaDon(idMatHang, idHoaDon){
 async function _matHangListHoaDon(listHD) {
   var result = [];
   for(hoadon of listHD){
-    var matHang = await _matHangTrongHoaDon(hoadon._id);
+    // var matHang = await _matHangTrongHoaDon(hoadon._id);
     result.push({
       ...hoadon,
       mathang: matHang,

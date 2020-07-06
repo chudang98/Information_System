@@ -20,7 +20,7 @@ block content
           th(scope='col') Chức năng
       tbody
       - var dem = 1
-        each product in matHangs
+        each product in matHangs.data
           tr
             th(scope='row')= dem++   
             td=	product._id                  

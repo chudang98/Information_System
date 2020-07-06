@@ -25,6 +25,7 @@ module.exports = {
     huyview,
     xemHDhuyview,
     dangKyKhachHang,
+
     xacNhanGiaoHang,
     timKhachHangBandSdt,
     timMathangBandTen,
@@ -40,9 +41,11 @@ async function timKhachHangBandSdt(req, res) {
 async function timMathangBandTen(req, res) {
     var ten = req.body.ten;
     var data = await mhServices.timMatHangTheoTen(ten);
-    console.log(data);
+    // console.log(data);
     return res.status(200).render('seller/timkiemmh', {
-        matHangs: data,
+        matHangs: {
+            data: data,
+        }
     });
 
 }
@@ -122,7 +125,6 @@ async function hoaDonview(req, res) {
 }
 async function choXulyview(req, res) {
     var dataHdCxl = await hoaDonBanService.layHoaDonTheoTrangThai("Chờ xử lý")
-    console.log(dataHdCxl)
     return res.status(200).render('seller/choxuly', {
         HdCxl: dataHdCxl
     });
@@ -136,7 +138,10 @@ async function xemHDolview(req, res) {
     return res.status(200).render('seller/xemhdOl', {});
 }
 async function danggiaoHview(req, res) {
-    return res.status(200).render('seller/danggiaohang', {});
+    var dataHdDdh = await hoaDonBanService.layHoaDonTheoTrangThai("Đang giao hàng")
+    return res.status(200).render('seller/danggiaohang', {
+        data: dataHdDdh
+    });
 }
 async function xemHDdanggiaoview(req, res) {
     return res.status(200).render('seller/xemhddanggiao', {});
