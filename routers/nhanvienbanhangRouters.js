@@ -8,8 +8,10 @@ router.route('/banhang').get(nvbhController.banHangView);
 router.route('/themkh')
     .get(nvbhController.themKHview)
     .post(nvbhController.dangKyKhachHang);
+router.route('/xemkhtheosdt').post(nvbhController.xemKhachHangBandSdt);
 router.route('/timkhtheosdt').post(nvbhController.timKhachHangBandSdt);
 router.route('/timmhtheoten').post(nvbhController.timMathangBandTen);
+router.route('/xemmhtheoten').post(nvbhController.XemMathangBandTen);
 router.route('/choxuly').get(nvbhController.choXulyview);
 router.route('/xemhdOl/:id').get(nvbhController.xemHDolview);
 router.route('/thongtinkh').get(nvbhController.thongtinKHview);

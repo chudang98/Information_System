@@ -29,7 +29,17 @@ module.exports = {
     xacNhanGiaoHang,
     timKhachHangBandSdt,
     timMathangBandTen,
+    XemMathangBandTen,
+    xemKhachHangBandSdt,
 };
+async function xemKhachHangBandSdt(req, res) {
+    var sdt = req.body.sdt;
+    var data = await khServices.timKhachHangTheoSdt(sdt);
+    console.log(data);
+    return res.status(200).render('seller/thongtinkh', {
+        khachhang: data,
+    });
+}
 async function timKhachHangBandSdt(req, res) {
     var sdt = req.body.sdt;
     var data = await khServices.timKhachHangTheoSdt(sdt);
@@ -37,6 +47,15 @@ async function timKhachHangBandSdt(req, res) {
     return res.status(200).render('seller/banhang', {
         khachhangs: data,
     });
+}
+async function XemMathangBandTen(req, res) {
+    var ten = req.body.ten;
+    var data = await mhServices.timMatHangTheoTen(ten);
+    // console.log(data);
+    return res.status(200).render('seller/thongtinmh', {
+        mathang: data,
+    });
+
 }
 async function timMathangBandTen(req, res) {
     var ten = req.body.ten;
@@ -118,10 +137,18 @@ async function timkiemMHview(req, res) {
     });
 }
 async function hoaDonview(req, res) {
-    var idKH = req.params.id
-    return res.status(200).render('seller/hoadon', {
-        data: idKH
-    });
+    // var idKH = req.params.id
+    // matHangServices
+
+    // console.log(product)
+    // var cart1 = JSON.parse(localStorage.getItem('adGioHang'));
+    // var dataProduct =[];
+    // cart1.forEach(function (item, index) {
+    //     var mh = await matHangServices.layMatHangBangId(item);
+    //     dataProduct.push(mh);
+    // });
+    // console.log(dataProduct)
+    return res.status(200).render('seller/hoadon', {});
 }
 async function choXulyview(req, res) {
     var dataHdCxl = await hoaDonBanService.layHoaDonTheoTrangThai("Chờ xử lý")
