@@ -33,7 +33,7 @@ function goiData() {
             var dem = 1
             var dataProduct = data.data
             dataProduct.forEach((element, index) => {
-                htmlString = htmlString + "<tr> <td>" +  dem++ + "</td><td>" + element._id + "</td><td>" +  element.ten + "</td><td>"  + element.soLuong + "</td><td>" + element.giaBan + " </td><td>" + element.giaBan * element.soLuong + "</td><td><a id=" + dem + " class='btn btn-info' href='http://localhost:3000/seller/hoadon/1' onclick=xoaSanPham( " +index + ")  > Xóa </a> </td> </tr>"
+                htmlString = htmlString + "<tr> <td>" +  dem++ + "</td><td>" + element._id + "</td><td>" +  element.ten + "</td><td>"  + element.soLuong + "</td><td>" + element.giaBan + " </td><td>" + element.giaBan * element.soLuong + "</td><td><a id=" + dem + " class='btn btn-info' href='http://localhost:3000/seller/hoadon/1' onclick=xoaSanPham("+index +")  > Xóa </a> </td> </tr>"
             }
             );
             document.getElementById("bodybanhangseller").innerHTML = htmlString
