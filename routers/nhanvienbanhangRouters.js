@@ -19,11 +19,13 @@ router.route('/xemchitiet/:id').get(nvbhController.xemchitietview);
 router.route('/timkiemmh/:id').get(nvbhController.timkiemMHview);
 router.route('/hoadon/:id').get(nvbhController.hoaDonview);
 router.route('/danggiaohang').get(nvbhController.danggiaoHview);
-router.route('/xemhddanggiao').get(nvbhController.xemHDdanggiaoview);
+router.route('/xemhddanggiao/:id').get(nvbhController.xemHDdanggiaoview);
 router.route('/thanhcong').get(nvbhController.thanhCongview);
-router.route('/xemhdthanhcong').get(nvbhController.xemHDthanhcongview);
+router.route('/xemhdthanhcong/:id').get(nvbhController.xemHDthanhcongview);
 router.route('/huy').get(nvbhController.huyview);
-router.route('/xemhdhuy').get(nvbhController.xemHDhuyview);
+router.route('/xemhdhuy/:id').get(nvbhController.xemHDhuyview);
 router.route('/xacnhangiaohang/:idHD').get(nvbhController.xacNhanGiaoHang);
+router.route('/xacnhanhuy/:idHD').get(nvbhController.xacNhanHuy);
+router.route('/xacnhanthanhcong/:idHD').get(nvbhController.xacNhanThanhCong);
 
 module.exports = router;

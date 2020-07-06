@@ -13,24 +13,15 @@ block content
           th(scope='col') Tr&#x1EA1;ng th&aacute;i 
           th(scope='col') Thao t&aacute;c 
       tbody
-        tr
-          th(scope='row') 1
-          td HD001
-          td 12/01/2020 
-          td th&agrave;nh c&ocirc;ng 
-          td
-            a.btn.btn-info.btn-in(href='/seller/xemhdhuy') Xem chi ti&#x1EBF;t  
-        tr
-          th(scope='row') 1
-          td HD001
-          td 12/01/2020 
-          td th&agrave;nh c&ocirc;ng 
-          td
-            a.btn.btn-info.btn-in(href='/seller/xemhdhuy') Xem chi ti&#x1EBF;t  
-        tr
-          th(scope='row') 1
-          td HD001
-          td 12/01/2020 
-          td th&agrave;nh c&ocirc;ng 
-          td
-            a.btn.btn-info.btn-in(href='/seller/xemhdhuy') Xem chi ti&#x1EBF;t  
+      - var dem = 1
+        each Hd in HdDh
+          tr
+            th(scope='row')= dem++   
+            td=	Hd._id
+            - var current_datetime = new Date(Hd.thoiGian);
+            - var res = current_datetime.getFullYear() + "-" + (current_datetime.getMonth() + 1) + "-" + current_datetime.getDate() + " " + current_datetime.getHours() + ":" + current_datetime.getMinutes() + ":" + current_datetime.getSeconds();                   
+            td=	res              
+            td= Hd.trangThai      
+
+            td
+              a.btn.btn-info.btn-in(href=`/seller/xemhdhuy/${Hd._id}`) Xem chi ti&#x1EBF;t  

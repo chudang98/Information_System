@@ -25,10 +25,11 @@ module.exports = {
     huyview,
     xemHDhuyview,
     dangKyKhachHang,
-
     xacNhanGiaoHang,
     timKhachHangBandSdt,
     timMathangBandTen,
+    xacNhanHuy,
+    xacNhanThanhCong,
 };
 async function timKhachHangBandSdt(req, res) {
     var sdt = req.body.sdt;
@@ -47,7 +48,6 @@ async function timMathangBandTen(req, res) {
             data: data,
         }
     });
-
 }
 async function xacNhanGiaoHang(req, res) {
     var id = req.params.idHD;
@@ -56,6 +56,28 @@ async function xacNhanGiaoHang(req, res) {
     await hoaDonBanService.updateStateHoaDon(id, 'Đang giao hàng', user.id);
     return res.redirect('/seller/choXuLy');
 }
+
+async function xacNhanGiaoHang(req, res){  
+  var id = req.params.idHD;
+  var cookie = req.cookies.jwt;
+  var user = await ultiCookie._decodeCookie(cookie);
+  await hoaDonBanService.updateStateHoaDon(id, 'Đang giao hàng', user.id);
+  return res.redirect('/seller/choxuly');
+}
+async function xacNhanThanhCong(req, res){  
+    var id = req.params.idHD;
+    var cookie = req.cookies.jwt;
+    var user = await ultiCookie._decodeCookie(cookie);
+    await hoaDonBanService.updateStateHoaDon(id, 'Đã hoàn thành', user.id);
+    return res.redirect('/seller/danggiaohang');
+  }
+  async function xacNhanHuy(req, res){  
+    var id = req.params.idHD;
+    var cookie = req.cookies.jwt;
+    var user = await ultiCookie._decodeCookie(cookie);
+    await hoaDonBanService.updateStateHoaDon(id, 'Đã Hủy', user.id);
+    return res.redirect('/seller/choxuly');
+  }
 
 async function dangKyKhachHang(req, res) {
     var data = req.body;
@@ -144,17 +166,37 @@ async function danggiaoHview(req, res) {
     });
 }
 async function xemHDdanggiaoview(req, res) {
-    return res.status(200).render('seller/xemhddanggiao', {});
+    var idKHTc = req.params.id;
+    var dataHdTc = await hoaDonBanService.layHoaDonChiTiet(idKHTc);
+    return res.status(200).render('seller/xemhddanggiao', {
+        data: dataHdTc
+    });
 }
 async function thanhCongview(req, res) {
-    return res.status(200).render('seller/thanhcong', {});
+    var dataHdDht = await hoaDonBanService.layHoaDonTheoTrangThai("Đã hoàn thành")
+    return res.status(200).render('seller/thanhcong', {
+        data: dataHdDht
+    });
 }
 async function xemHDthanhcongview(req, res) {
-    return res.status(200).render('seller/xemhdthanhcong', {});
+    var idKHTC = req.params.id;
+    var dataHdTc = await hoaDonBanService.layHoaDonChiTiet(idKHTC);
+    
+    return res.status(200).render('seller/xemhdthanhcong', {
+        data: dataHdTc
+    });
 }
 async function huyview(req, res) {
-    return res.status(200).render('seller/huy', {});
+    var dataHdDh = await hoaDonBanService.layHoaDonTheoTrangThai("Đã hủy")
+    return res.status(200).render('seller/huy', {
+        HdDh: dataHdDh
+    });
 }
 async function xemHDhuyview(req, res) {
-    return res.status(200).render('seller/xemhdhuy', {});
+    var idKHDh = req.params.id;
+    var dataHdDh = await hoaDonBanService.layHoaDonChiTiet(idKHDh);
+    
+    return res.status(200).render('seller/xemhdhuy', {
+        data: dataHdDh
+    });
 }

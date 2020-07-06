@@ -96,8 +96,6 @@ async function updateStateHoaDon(idHoaDon, trangthai, idClient) {
       where: {
         _id: idHoaDon,
       },
-      returning: true,
-      plain: true,
     },
   );
   return {

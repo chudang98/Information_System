@@ -21,26 +21,17 @@ block content
           th(scope='col') &Dstrok;&#x1A1;n gi&aacute; 
           th(scope='col') Th&agrave;nh ti&#x1EC1;n 
       tbody
-        tr
-          th(scope='row') 1
-          td &Aacute;o s&#x1A1; mi
-          td A002 
-          td M 
-          td &Dstrok;en 
-          td 2 
-          td 100.000
-          td 200.000
-        tr
-          th(scope='row') 2
-          td Qu&#x1EA7;n kaki
-          td Q002 
-          td M 
-          td &Dstrok;en 
-          td 2 
-          td 100.000
-          td 200.000
-        tr
-          td(colspan='7') T&#x1ED5;ng ti&#x1EC1;n 
-          td 400.000
-    a.btn.btn-success.btn-in(href='#') Th&agrave;nh c&ocirc;ng  
-    a.btn.btn-in.btn-danger(href='#') H&#x1EE7;y 
+        - var dem = 1
+          each item in data.mathang
+            tr
+              th(scope='row')= dem++   
+              td=	item.MatHang.ten
+              td=	item._id
+              td=	item.MatHang.kichCo
+              td=	item.MatHang.mauSac
+              td= item.soLuong
+              td= item.MatHang.giaBan
+              td= item.soLuong * item.MatHang.giaBan
+
+    a.btn.btn-success.btn-in(href=`/seller/xacnhanthanhcong/${data._id}`) Th&agrave;nh c&ocirc;ng  
+    a.btn.btn-in.btn-danger(href=`/seller/xacnhanhuy/${data._id}`) H&#x1EE7;y 
