@@ -4,10 +4,10 @@ block page_title
 block content
   .content.container
     h2(style='border-bottom: 1px solid black;') Tìm kiếm khách hàng  :
-    form.content-form
+    form.content-form(action='/seller/timkhtheosdt', method='post')
       .form-group.form-search-nv.row
         .col-md-8
-          input#exampleInputEmail1.form-control(type='text', placeholder='Nhập vào sdt khách hàng  ', aria-describedby='emailHelp')
+          input#exampleInputEmail1.form-control(type='text', placeholder='Nhập vào sdt khách hàng  ',name="sdt")
         .col-md-2
           button#submitSearchTenKhachHang.btn.btn-pri.btn-seller(type='submit') Tìm kiếm   
         .col-md-2
