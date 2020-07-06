@@ -13,30 +13,17 @@ block content
           th(scope='col') Tr&#x1EA1;ng th&aacute;i 
           th(scope='col') Thao t&aacute;c 
       tbody
-        tr
-          th(scope='row') 1
-          td HD001
-          td 12/01/2020 
-          td &dstrok;ang giao h&agrave;ng 
-          td
-            a.btn.btn-success.btn-in(href='#') Th&agrave;nh c&ocirc;ng   
-            a.btn.btn-info.btn-in(href='/seller/xemhddanggiao') Xem chi ti&#x1EBF;t  
-            a.btn.btn-in.btn-danger(href='#') H&#x1EE7;y 
-        tr
-          th(scope='row') 1
-          td HD001
-          td 12/01/2020 
-          td ch&#x1EDD; x&#x1EED; l&yacute; 
-          td
-            a.btn.btn-success.btn-in(href='#') Th&agrave;nh c&ocirc;ng    
-            a.btn.btn-info.btn-in(href='/seller/xemhddanggiao') Xem chi ti&#x1EBF;t  
-            a.btn.btn-in.btn-danger(href='#') H&#x1EE7;y 
-        tr
-          th(scope='row') 1
-          td HD001
-          td 12/01/2020 
-          td ch&#x1EDD; x&#x1EED; l&yacute; 
-          td
-            a.btn.btn-success.btn-in(href='#') Th&agrave;nh c&ocirc;ng  
-            a.btn.btn-info.btn-in(href='/seller/xemhddanggiao') Xem chi ti&#x1EBF;t  
-            a.btn.btn-in.btn-danger(href='#') H&#x1EE7;y 
+      - var dem = 1
+        each Hd in data
+          tr
+            th(scope='row')= dem++   
+            td=	Hd._id
+            - var current_datetime = new Date(Hd.thoiGian);
+            - var res = current_datetime.getFullYear() + "-" + (current_datetime.getMonth() + 1) + "-" + current_datetime.getDate() + " " + current_datetime.getHours() + ":" + current_datetime.getMinutes() + ":" + current_datetime.getSeconds();                   
+            td=	res              
+            td= Hd.trangThai      
+
+            td
+              a.btn.btn-success.btn-in(href=`xacnhanthanhcong/${Hd._id}`) X&aacute;c nh&#x1EAD;n   
+              a.btn.btn-info.btn-in(href=`/seller/xemhddanggiao/${Hd._id}`) Xem chi ti&#x1EBF;t  
+              a.btn.btn-in.btn-danger(href=href=`/seller/xacnhanhuy/${Hd._id}`) H&#x1EE7;y 
