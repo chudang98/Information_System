@@ -22,7 +22,7 @@ module.exports = {
           allowNull: false,
         },
         gioiTinh: {
-          type: Sequelize.ENUM('Nam', 'Nữ'),
+          type: Sequelize.STRING,
           allowNull: false,
         },
         email: {

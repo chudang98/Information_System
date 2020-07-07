@@ -1,73 +1,118 @@
-const NhanVien = require('../models/NhanVien');
-const Nguoi = require('../models/Nguoi');
+const db = require('../models');
+const NhanVien = db.NhanVien;
+const Nguoi = db.Nguoi;
+const Sequelize = require('sequelize');
+const Op = Sequelize.Op;
 
 const _ = require('lodash');
 module.exports = {
-  checkLogin,
-  loginAccount,
-  saveAccount,
-  isExistAccount,
+    loginAccount,
+    saveAccount,
+    isExistAccount,
+    layThongTinNhanVien,
+    layTatCaNhanVien,
+    timNhanVienTheoSdt
 };
-
-async function checkLogin(username, password) {}
-
 async function saveAccount(data) {
-  try {
-    var {
-      ten,
-      sdt,
-      email,
-      ngaySinh,
-      gioiTinh,
-      chucVu,
-      userName,
-      password,
-      diaChi,
-    } = data;
-    console.log(data);
-    var infor_nguoi = new Nguoi({
-      ten,
-      diaChi,
-      ngaySinh,
-      gioiTinh,
-      email,
-      sdt,
-    });
-    await infor_nguoi.save();
-    var nhanVien = new NhanVien({
-      userName,
-      password,
-      chucVu,
-      nguoi: infor_nguoi._id,
-    });
-    await nhanVien.save();
-    return {
-      status: 'success',
-      nhanvien: nhanVien,
-    };
-  } catch (err) {
-    console.log(err);
-    return { status: 'fail' };
-  }
+    try {
+        var {
+            ten,
+            sdt,
+            email,
+            ngaySinh,
+            gioiTinh,
+            chucVu,
+            userName,
+            password,
+            diaChi,
+        } = data;
+        console.log(data);
+        var infor_nguoi = await Nguoi.create({
+            ten,
+            diaChi,
+            ngaySinh,
+            gioiTinh,
+            email,
+            sdt,
+        });
+        var nhanVien = await NhanVien.create({
+            userName,
+            password,
+            chucVu,
+            Nguoiid: infor_nguoi._id,
+        });
+        return {
+            status: 'success',
+            nhanvien: nhanVien,
+        };
+    } catch (err) {
+        console.log(err);
+        return { status: 'fail' };
+    }
 }
 
 async function loginAccount(username, password) {
-  if (_.isEmpty(username) || _.isEmpty(password)) return { status: 'wrong' };
-  const user = await NhanVien.findOne({ userName: username }).select(
-    '+password'
-  );
-  if (!user || !(await user.isCorrectPassword(password, user.password))) {
-    return { status: 'fail' };
-  }
-  return {
-    status: 'success',
-    infor: user,
-  };
+    if (_.isEmpty(username) || _.isEmpty(password)) return { status: 'wrong' };
+    const user = await NhanVien.findOne({ userName: username });
+    if (!user || !(await user.isCorrectPassword(password, user.password))) {
+        return { status: 'fail' };
+    }
+    return {
+        status: 'success',
+        infor: user,
+    };
 }
 
 async function isExistAccount(username) {
-  if (!username) return false;
-  var user = await NhanVien.findOne({ userName: username });
-  if (!user) return false;
-  return true;
+    if (!username) return false;
+    var user = await NhanVien.findOne({ userName: username });
+    if (!user) return false;
+    return true;
+}
+
+async function layThongTinNhanVien(idNhanVien) {
+    var nhanvien = await NhanVien.findOne({
+        where: {
+            _id: idNhanVien,
+        },
+        include: 'nguoi',
+        raw: true,
+        nest: true,
+    });
+
+    return nhanvien;
+}
+
+async function layTatCaNhanVien() {
+    var data = await NhanVien.findAll({
+        include: 'nguoi',
+        raw: true,
+        nest: true,
+    });
+    return data
+}
+async function timNhanVienTheoSdt(sdt) {
+    var data = await Nguoi.findAll({
+        where: {
+            sdt: {
+                [Op.like]: `%${sdt}%`,
+            },
+        },
+        raw: true,
+        nest: true,
+    });
+    var result = [];
+    for (nguoi of data) {
+        var NV = await NhanVien.findOne({
+            where: {
+                Nguoiid: nguoi._id,
+            },
+            include: 'nguoi',
+            raw: true,
+            nest: true,
+        });
+        if (NV)
+            result.push(NV);
+    }
+    return result;
 }

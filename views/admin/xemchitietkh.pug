@@ -1,30 +1,29 @@
 extends base
+
 block page_title
-  title admin
+	title Home page
 block content
-  .content.container
-    h2(style='border-bottom: 1px solid black;') Thông tin khách hàng :
-    form.content-form
-      .form-group
-        label(for='exampleInputName') Họ và tên   
-        input#exampleInputName.form-control(type='text', aria-describedby='emailHelp')
-      .form-group
-        label(for='exampleInputCMT') Thẻ căn cước 
-        input#exampleInputPassword1.form-control(type='text', value='12398546')
-      .form-group
-        label(for='exampleInputSDT') Số điện thoại   
-        input#exampleInputSDT.form-control(type='number')
-      .form-group
-        label(for='ngaysinh') Ngày sinh   
-        input#ngaysinh.form-control(type='date')
-      .form-group
-        label(for='diachi') Địa chỉ    
-        input#diachi.form-control(type='text')
-      .form-group
-        label(for='Energy') Giới tính  
-        br
-        input#Energy(type='radio', name='energy', value='', disabled='')
-        | Nam
-        input#Energy(type='radio', name='energy', value='', disabled='')
-        | Nữ 
-      button.btn.btn-pri(type='submit') Sửa 
+	.content-ttkh.content.container
+		h2(style='border-bottom: 1px solid black;') Thông tin khách hàng :            
+		form.content-form
+			.form-group
+				label(for='exampleInputName') Họ và tên            
+				input#exampleInputName.form-control(type='text',name='ten',value=`${infor.nguoi.ten}`)                 
+			.form-group
+				label(for='exampleInputSDT') Số điện thoại                        
+				input#exampleInputSDT.form-control(type='number',name='sdt', value=`${infor.nguoi.sdt}`)
+			.form-group
+				label(for='exampleInputEmail') Email                       
+				input#exampleInputEmail.form-control(type='email',name='email', value=`${infor.nguoi.email}`)                
+			.form-group
+				label(for='ngaysinh') Ngày sinh                     
+				input#ngaysinh.form-control(type='date',name='ngaySinh',value=`${infor.nguoi.ngaySinh}`)               
+			.form-group
+				label(for='diachi') Địa chỉ                       
+				input#diachi.form-control(type='text' ,name='diaChi',value=`${infor.nguoi.diaChi}`)              
+			.form-group
+				label(for='Energy')=`Giới tính: ${infor.nguoi.gioiTinh}`                      
+				//- br
+				//- input#Energy(type='radio', name='energy', value='', disabled='')
+				|             
+			button.btn.btn-pri(type='submit') Sửa   

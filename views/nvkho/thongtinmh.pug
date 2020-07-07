@@ -6,9 +6,12 @@ block page_title
 block content
  .content-ttkh.content.container
   h2(style='border-bottom: 1px solid black;') Danh S&aacute;ch M&#x1EB7;t H&agrave;ng :
-  form.content-form
-    .form-group
-      input#exampleInputEmail1.form-control(type='email', placeholder='Nhập vào mã mặt hàng ', aria-describedby='emailHelp')
+  form.content-form(action='/nvkho/xemmhtheoten', method='post')
+    .form-group.form-search-nv.row
+      .col-md-10
+        input#exampleInputEmail1.form-control(type='text', placeholder='Nhập vào tên mặt hàng  ', name="ten")
+      .col-md-2
+        button.btn.btn-pri.btn-seller(type='submit') T&igrave;m ki&#x1EBF;m 
   table.table.table-bordered.table-striped.text-center
     thead.thead-table
       tr
@@ -20,30 +23,17 @@ block content
         th(scope='col') S&#x1ED1; l&#x1B0;&#x1EE3;ng 
         th(scope='col') Chi tiết
     tbody
-      tr
-        th(scope='row') 1
-        td &Aacute;o s&#x1A1; mi 
-        td A001
-        td S 
-        td &Dstrok;en 
-        td 30 
-        td
-          a.btn.btn-info(href='/nvkho/xemchitietmh ') Xem  
-      tr
-        th(scope='row') 2
-        td &Aacute;o s&#x1A1; mi 
-        td A002
-        td M 
-        td &Dstrok;en 
-        td 30 
-        td
-          a.btn.btn-info(href='/nvkho/xemchitietmh ') Xem  
-      tr
-        th(scope='row') 3
-        td &Aacute;o s&#x1A1; mi 
-        td A003
-        td L 
-        td &Dstrok;en 
-        td 35 
-        td
-          a.btn.btn-info(href='/nvkho/xemchitietmh ') Xem  
+      - var dem = 1
+      each mh in mathang
+        if(dem<=15)
+        tr
+          th(scope='row')= dem++                     
+          td=	mh.ten              
+          td= mh._id           
+          td=	mh.kichCo   
+          td= mh.mauSac          
+          td=	mh.soLuong   
+          td
+            a.btn.btn-info(href=`/nvkho/xemchitietmh/${mh._id} `) Xem       
+        
+    

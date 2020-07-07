@@ -27,7 +27,7 @@ async function authAccKhachHang(req, res) {
 function _chuyenTrangLogin(chucVu, res){
   switch(chucVu){
     case "NhanVienQuanLy" : {
-      return res.redirect('/user/home');
+      return res.redirect('/admin/thongtinnhanvien');
     };
     case "NhanVienBanHang" : {
       return res.redirect('/seller/banhang');

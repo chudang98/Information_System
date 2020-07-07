@@ -14,39 +14,11 @@ block content
           th(scope='col') Đơn giá 
           th(scope='col') Thành tiền 
           th(scope='col') Chức năng
-      tbody
-        tr
-          th(scope='row') 1
-          td A001
-          td Áo sơ mi 
-          td 1 
-          td 100.000
-          td 100.000 
-          td
-            a.btn.btn-info(href='#') Xóa   
-        tr
-          th(scope='row') 2
-          td A002
-          td Áo sơ mi 
-          td 1 
-          td 100.000
-          td 100.000 
-          td
-            a.btn.btn-info(href='#') Xóa 
-        tr
-          th(scope='row') 3
-          td A003
-          td Áo sơ mi
-          td 1 
-          td 100.000
-          td 100.000 
-          td
-            a.btn.btn-info(href='#') Xóa  
-        tr
-          th(colspan='6') Tổng tiền 
-          th 300.000 
+      tbody#bodybanhangseller
     .row
       .col-md-2
-        a.btn.btn-pri.btn-seller(href='/seller/timkiemmh') Tìm kiếm   
+        a.btn.btn-pri.btn-seller(href=`/seller/timkiemmh/${data}`) Tìm kiếm   
       .col-md-2.offset-8
-        a.btn.btn-pri.btn-seller(href='#') Thanh toán   
+        a.btn.btn-pri.btn-seller(href='http://localhost:3000/seller/banhang' onclick=`thanhToanHoaDon()`) Thanh toán  
+block script
+  script(src='/script/banhang/banhang.js')  

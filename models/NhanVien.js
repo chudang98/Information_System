@@ -30,6 +30,8 @@ module.exports = (sequelize, Sequelize) => {
       type: Sequelize.DATE
     },
   },{
+    freezeTableName: true,
+    tableName: 'NhanViens',
     hooks: {
       beforeCreate: async (user, option) => {
         user.password = await bcrypt.hash(user.password, 12);
@@ -37,8 +39,19 @@ module.exports = (sequelize, Sequelize) => {
     }
   });
   NhanVien.associate = function(models) {
-    NhanVien.belongsTo(models.Nguoi, { foreignKey: 'Nguoiid', sourceKey: '_id' });
-    NhanVien.belongsTo(models.CuaHang, { foreignKey: 'CuaHangid', sourceKey: '_id' });
+    NhanVien.belongsTo(models.Nguoi, {
+      foreignKey: 'Nguoiid',
+      targetKey: '_id',
+      as: 'nguoi',
+    });
+    NhanVien.belongsTo(models.CuaHang, {
+      foreignKey: 'CuaHangid',
+      targetKey: '_id',
+      as: 'cuahang',
+    });
+    NhanVien.hasMany(models.HoaDonBan)
+    // NhanVien.belongsTo(models.Nguoi, { foreignKey: 'Nguoiid', sourceKey: '_id' });
+    // NhanVien.belongsTo(models.CuaHang, { foreignKey: 'CuaHangid', sourceKey: '_id' });
   };
   return NhanVien;
 };

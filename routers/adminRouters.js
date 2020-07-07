@@ -8,13 +8,19 @@ router
     .route('/login')
     .get(adminController.getLogin)
 
+router.route('/themnhanvien')
+    .get(adminController.themNVView)
+    .post(adminController.signupAcc);
+router.route('/thongtinkhachhang')
+    .get(adminController.thongtinKHView);
+router.route('/timkhtheosdt').post(adminController.timKhachHangBandSdt);
+router.route('/timnvtheosdt').post(adminController.timNhanVienBandSdt);
+router.route('/timncctheosdt').post(adminController.timNCCBandSdt);
 router.route('/thongtinnhanvien').get(adminController.thongtinNVView);
-router.route('/xemchitietnv').get(adminController.xemchitietNVView);
-router.route('/thongtinkhachhang').get(adminController.thongtinKHView);
-router.route('/xemchitietkh').get(adminController.xemchitietKHView);
+router.route('/xemchitietnv/:id').get(adminController.xemchitietNVView);
+router.route('/xemchitietkh/:id').get(adminController.xemchitietKHView);
 router.route('/thongtinncc').get(adminController.thongtinNCCView);
-router.route('/xemchitietncc').get(adminController.xemchitietNCCView);
-router.route('/themnhanvien').get(adminController.themNVView);
+router.route('/xemchitietncc/:id').get(adminController.xemchitietNCCView);
 router.route('/tkmh').get(adminController.thongkeMHView);
 router.route('/danhsachhoadon').get(adminController.danhsachHDView);
 //thongke theo thoi gian 

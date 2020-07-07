@@ -1,3 +1,8 @@
+const khServices = require('../services/khachHangService');
+const nvServices = require('../services/nhanVienServices');
+const nccServices = require('../services/nhaCungCapService');
+const authService = require('../services/authenticateService');
+const khachHangService = require('../services/khachHangService');
 module.exports = {
 
     getLogin,
@@ -26,32 +31,103 @@ module.exports = {
     danhsachHDNCCView,
     hoadonNCCchitietView,
     thongtinCNView,
-
+    signupAcc,
+    timKhachHangBandSdt,
+    timNCCBandSdt,
+    timNhanVienBandSdt,
 
 
 };
+async function timKhachHangBandSdt(req, res) {
+    var sdt = req.body.sdt;
+    var data = await khachHangService.timKhachHangTheoSdt(sdt);
+    console.log(data);
+    return res.status(200).render('admin/thongtinkhachhang', {
+        khachhang: data,
+    });
+}
+async function timNhanVienBandSdt(req, res) {
+    var sdt = req.body.sdt;
+    var data = await nvServices.timNhanVienTheoSdt(sdt);
+    console.log(data);
+    return res.status(200).render('admin/thongtinnhanvien', {
+        nv: data,
+    });
+}
+async function timNCCBandSdt(req, res) {
+    var sdt = req.body.sdt;
+    var data = await nccServices.timNCCTheoSdt(sdt);
+    console.log(data);
+    return res.status(200).render('admin/thongtinncc', {
+        nhacungcap: data,
+    });
+}
 
+async function signupAcc(req, res) {
+    var data = req.body;
+    var result = await authService.nhanVienSignup(data);
+    console.log(result.infor._id);
+    var idUser = result.infor._id;
+    cookieUtils.setTokenCookie(idUser, res);
+    return res.redirect('/admin/thongtinnhanvien');
+
+}
 
 async function getLogin(req, res) {
-    return res.status(200).render('admin/thongtinnhanvien', {});
+    var nv = await nvServices.layTatCaNhanVien();
+    console.log(nv);
+    return res.status(200).render('admin/thongtinnhanvien', {
+        nv: nv,
+    });
 }
 async function thongtinNVView(req, res) {
-    return res.status(200).render('admin/thongtinnhanvien', {});
+
+    let nv = await nvServices.layTatCaNhanVien();
+    console.log(nv);
+    return res.status(200).render('admin/thongtinnhanvien', {
+        nv: nv,
+    });
+
 }
 async function xemchitietNVView(req, res) {
-    return res.status(200).render('admin/xemchitietnv', {});
+    var idnv = req.params.id
+    var data = await nvServices.layThongTinNhanVien(idnv)
+    console.log(data);
+    return res.status(200).render('admin/xemchitietnv', {
+        infor: data,
+    });
+
 }
 async function thongtinKHView(req, res) {
-    return res.status(200).render('admin/thongtinkhachhang', {});
+    var clients = await khServices.getAllClient();
+    console.log(clients);
+    return res.status(200).render('admin/thongtinkhachhang', {
+        khachhang: clients,
+    });
 }
 async function xemchitietKHView(req, res) {
-    return res.status(200).render('admin/xemchitietkh', {});
+    var idkh = req.params.id
+    var data = await khServices.getClientById(idkh)
+    console.log(data);
+    return res.status(200).render('admin/xemchitietkh', {
+        infor: data,
+    });
 }
 async function thongtinNCCView(req, res) {
-    return res.status(200).render('admin/thongtinncc', {});
+    var ncc = await nccServices.getAllNCC();
+    console.log(ncc);
+    return res.status(200).render('admin/thongtinncc', {
+        nhacungcap: ncc,
+    });
+
 }
 async function xemchitietNCCView(req, res) {
-    return res.status(200).render('admin/xemchitietncc', {});
+    var idncc = req.params.id
+    var data = await nccServices.getNCCById(idncc)
+    console.log(data);
+    return res.status(200).render('admin/xemchitietncc', {
+        infor: data,
+    });
 }
 async function themNVView(req, res) {
     return res.status(200).render('admin/themnhanvien', {});

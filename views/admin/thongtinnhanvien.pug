@@ -4,10 +4,14 @@ block page_title
 block content
   .content-ttkh.content.container
     h2(style='border-bottom: 1px solid black;') Danh Sách Nhân Viên 
-    form.content-form
+    form.content-form(action='/admin/timnvtheosdt', method='post')
       .form-group.form-search-nv.row
-        input#exampleInputEmail1.form-control.col-md-9(type='email', placeholder='Nhập vào tên nhân viên ', aria-describedby='emailHelp')
-        a.btn.btn-pri.btn-add-nv.col-md-2.offset-md-1(href='/admin/themnhanvien') Thêm mới   
+        .col-md-8
+          input#exampleInputEmail1.form-control(type='text', placeholder='Nhập vào sdt nhân viên  ',name="sdt")
+        .col-md-2
+          button.btn.btn-pri.btn-seller(type='submit') Tìm kiếm   
+        .col-md-2
+          a.btn.btn-pri.btn-seller(href='/user/signup') Thêm
     table.table.table-bordered.table-striped.text-center
       thead.thead-table
         tr
@@ -17,24 +21,14 @@ block content
           th(scope='col') Số điện thoại 
           th(scope='col') Chi Tiết 
       tbody
-        tr
-          th(scope='row') 1
-          td Trần Tiểu Cúc
-          td 1 
-          td 0987654343
-          td
-            a.btn.btn-info(href='/admin/xemchitietnv') Xem  
-        tr
-          th(scope='row') 1
-          td Trần Tiểu Cúc
-          td 1 
-          td 0987654343
-          td
-            a.btn.btn-info(href='/admin/xemchitietnv') Xem   
-        tr
-          th(scope='row') 1
-          td Trần Tiểu Cúc
-          td 1 
-          td 0987654343
-          td
-            a.btn.btn-info(href='/admin/xemchitietnv') Xem  
+        - var dem = 1
+        each nhanvien in nv
+          if(dem<=15)
+          tr
+            th(scope='row')= dem++                     
+            td=	nhanvien.nguoi.ten               
+            td= nhanvien.nguoi._id           
+            td=	nhanvien.nguoi.sdt           
+            td
+              a.btn.btn-info(href=`/admin/xemchitietnv/${nhanvien._id}`) Xem	
+              

@@ -6,10 +6,12 @@ block page_title
 block content
 	.content-ttkh.container.content
 		h2(style='border-bottom: 1px solid black;') Danh sách khách hàng :   
-		form.content-form
-			.form-group
-				label(for='exampleInputEmail1') Tìm kiếm khách hàng                    
-				input#exampleInputEmail1.form-control(type='email', placeholder='Search', aria-describedby='emailHelp')           
+		form.content-form(action='/seller/xemkhtheosdt', method='post')
+			.form-group.form-search-nv.row
+				.col-md-10
+					input#exampleInputEmail1.form-control(type='text', placeholder='Nhập vào sdt khách hàng  ',name="sdt")
+				.col-md-2
+					button.btn.btn-pri.btn-seller(type='submit') T&igrave;m ki&#x1EBF;m   
 		table.table.table-bordered.table-striped.text-center
 			thead.thead-table
 				tr
@@ -29,25 +31,5 @@ block content
 						td= client.nguoi.sdt           
 						td=	client.nguoi.diaChi           
 						td
-							a.btn.btn-info(href='/seller/xemchitiet') Xem	
-				//- tr
-				//- 	th(scope='row')  1                     
-				//- 	td Trần Tiểu Cúc                     
-				//- 	td 09876543                   
-				//- 	td Hà Nội                     
-				//- 	td
-				//- 		a.btn.btn-info(href='/seller/xemchitiet') Xem                  
-				//- tr
-				//- 	th(scope='row') 1
-				//- 	td Trần Tiểu Cúc                     
-				//- 	td 09876543                   
-				//- 	td Hà Nội                     
-				//- 	td
-				//- 		a.btn.btn-info(href='/seller/xemchitiet') Xem     
-				//- tr
-				//- 	th(scope='row') 1
-				//- 	td Trần Tiểu Cúc                     
-				//- 	td 09876543                   
-				//- 	td Hà Nội                     
-				//- 	td
-				//- 		a.btn.btn-info(href='/seller/xemchitiet') Xem      
+							a.btn.btn-info(href=`/seller/xemchitiet/${client._id} `) Xem	
+			

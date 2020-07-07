@@ -1,26 +1,65 @@
 {
-  "development": {
-    "username": "sa",
-    "password": "12345678",
-    "database": "cuahang",
-    "host": "localhost",
-    "dialect": "mssql",
-    "operatorsAliases": false
-  },
-  "test": {
-    "username": "sa",
-    "password": "12345678",
-    "database": "cuahang",
-    "host": "localhost",
-    "dialect": "mssql",
-    "operatorsAliases": false
-  },
-  "production": {
-    "username": "sa",
-    "password": "12345678",
-    "database": "cuahang",
-    "host": "localhost",
-    "dialect": "mssql",
-    "operatorsAliases": false
-  }
+    "development": {
+        "username": "sa",
+        "password": "12345678",
+        "database": "banhangcoha",
+        "host": "localhost",
+        "port": "1433",
+        "dialect": "mssql",
+        "dialectOptions": {
+            "options": { "requestTimeout": 300000 }
+        },
+        "options": {
+            "instanceName": "ADMIN"
+        },
+        "operatorsAliases": false,
+        "pool": {
+            "max": 5,
+            "min": 0,
+            "acquire": 30000,
+            "idle": 10000
+        }
+    },
+    "test": {
+        "username": "sa",
+        "password": "12345678",
+        "database": "banhangcoha",
+        "host": "localhost",
+        "dialect": "mssql",
+        "dialectOptions": {
+            "options": { "requestTimeout": 300000 }
+        },
+        "port": "1433",
+        "options": {
+            "instanceName": "ADMIN"
+        },
+        "operatorsAliases": false,
+        "pool": {
+            "max": 5,
+            "min": 0,
+            "acquire": 30000,
+            "idle": 10000
+        }
+    },
+    "production": {
+        "username": "sa",
+        "password": "12345678",
+        "database": "banhangcoha",
+        "host": "localhost",
+        "port": "1433",
+        "dialect": "mssql",
+        "dialectOptions": {
+            "options": { "requestTimeout": 300000 }
+        },
+        "options": {
+            "instanceName": "ADMIN"
+        },
+        "operatorsAliases": false,
+        "pool": {
+            "max": 5,
+            "min": 0,
+            "acquire": 30000,
+            "idle": 10000
+        }
+    }
 }

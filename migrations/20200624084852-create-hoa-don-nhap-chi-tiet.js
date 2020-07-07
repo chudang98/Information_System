@@ -1,7 +1,7 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('HDNhapChiTiets', {
+    return queryInterface.createTable('HoaDonNhapChiTiets', {
       _id: {
         allowNull: false,
         autoIncrement: true,
@@ -17,7 +17,7 @@ module.exports = {
       HDNhapid: {
         type: Sequelize.INTEGER,
         references: {
-          model: 'HDNhaps',
+          model: 'HoaDonNhaps',
           key: '_id',
         }
       },
@@ -37,6 +37,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('HDNhapChiTiets');
+    return queryInterface.dropTable('HoaDonNhapChiTiets');
   }
 };

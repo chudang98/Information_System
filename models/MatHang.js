@@ -1,17 +1,59 @@
 'use strict';
-module.exports = (sequelize, DataTypes) => {
+module.exports = (sequelize, Sequelize) => {
   const MatHang = sequelize.define('MatHang', {
-    soLuong: DataTypes.INTEGER,
-    giaNhap: DataTypes.INTEGER,
-    giaBan: DataTypes.INTEGER,
-    ten: DataTypes.STRING,
-    loai: DataTypes.STRING,
-    mauSac: DataTypes.STRING,
-    kichCo: DataTypes.STRING,
-    rating: DataTypes.INTEGER
-  }, {});
+    _id: {
+      type: Sequelize.INTEGER,
+      primaryKey: true,
+      autoIncrement: true,
+      allowNull: false,
+    },
+    soLuong: {
+      type: Sequelize.INTEGER,
+    },
+    giaNhap: {
+      type: Sequelize.INTEGER,
+    },
+    giaBan: {
+      type: Sequelize.INTEGER,
+    },
+    ten: {
+      type: Sequelize.STRING,
+    },
+    loai: {
+      type: Sequelize.STRING,
+    },
+    mauSac: {
+      type: Sequelize.STRING,
+    },
+    kichCo: {
+      type: Sequelize.STRING,
+    },
+    rating: {
+      type: Sequelize.INTEGER,
+    },
+    Anh: {
+      type: Sequelize.STRING,
+    }
+  }, {
+
+  });
   MatHang.associate = function(models) {
-    // associations can be defined here
+    MatHang.belongsToMany(models.HoaDonBan, {
+      through: models.HoaDonBanChiTiet,
+      foreignKey: 'MatHangid',
+      sourceKey: '_id',
+      // otherKey: 'HDBanid',
+    });
+
+    MatHang.hasMany(models.HoaDonBanChiTiet, {
+      foreignKey: 'MatHangid',
+      sourceKey: '_id',
+    });
+    
+    MatHang.hasMany(models.DanhGia, {
+      foreignKey: 'MatHangid',
+      sourceKey: '_id',
+    });
   };
   return MatHang;
 };

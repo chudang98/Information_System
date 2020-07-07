@@ -20,8 +20,8 @@ module.exports = {
       moTa: 'Không có mô tả',
     },
     {
-      ten: 'Chi nhánh Hà Nội',
-      diaChi: 'Hà Nội',
+      ten: 'Chi nhánh Hồ Chí Minh',
+      diaChi: 'Hồ Chí Minh',
       moTa: 'Không có mô tả',
     }
     ], {});
